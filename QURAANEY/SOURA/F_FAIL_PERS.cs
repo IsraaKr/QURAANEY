@@ -46,9 +46,12 @@ namespace QURAANEY.SOURA
         }
         public override void load_data(string status_mess)
         {
-            dt = C_DB_QUERYS.get_person_name();
+            clear(this.Controls);
+            dt = C_DB_QUERYS.get_person_name_isactive();
             lkp_name.lkp_iniatalize_data(dt, "name", "id");
             load_fail_table();
+            is_double_click = false;
+            is_show_click = false;
             base.load_data(status_mess);
         }
         public override void save()
@@ -58,6 +61,8 @@ namespace QURAANEY.SOURA
                 c_db.insert_upadte_delete(@"UPDATE       dbo.T_PERS_FAIL
                              SET                reson ='"+txt_reson.Text+"'" +
                                 "WHERE        (id = "+id_doublee_click+")");
+                load_data("i");
+                return;
 
             }
             if (is_show_click == false)
@@ -299,6 +304,7 @@ WHERE        (month_fail = N'" + m + "') AND (year_fail = N'" + y + "') ";
                 throw;
             }
             load_fail_table();
+
         }
         private void de_month_rep_EditValueChanged(object sender, EventArgs e)
         {
