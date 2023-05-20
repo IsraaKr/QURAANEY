@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MY_QURAAN" Class="DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=MY_QURAAN;Integrated Security=True" SettingsObjectName="QURAANEY.Properties.Settings" SettingsPropertyName="MY_QURAANConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.T_DEFULT_THWABET" Member="T_DEFULT_THWABETs">
+    <Type Name="T_DEFULT_THWABET">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="value" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="value_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERS_RATE_KEEP_CHANGE" Member="T_PERS_RATE_KEEP_CHANGEs">
+    <Type Name="T_PERS_RATE_KEEP_CHANGE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pers_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rate_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="change_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="T_PERS_RATE_KEEP_T_PERS_RATE_KEEP_CHANGE" Member="T_PERS_RATE_KEEP" ThisKey="rate_id" OtherKey="id" Type="T_PERS_RATE_KEEP" IsForeignKey="true" />
+      <Association Name="T_PERSONE_T_PERS_RATE_KEEP_CHANGE" Member="T_PERSONE" ThisKey="pers_id" OtherKey="id" Type="T_PERSONE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERS_FAIL" Member="T_PERS_FAILs">
+    <Type Name="T_PERS_FAIL">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pers_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="reson" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="T_PERSONE_T_PERS_FAIL" Member="T_PERSONE" ThisKey="pers_id" OtherKey="id" Type="T_PERSONE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERS_RATE_KEEP" Member="T_PERS_RATE_KEEPs">
+    <Type Name="T_PERS_RATE_KEEP">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="rate_in_days" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_PERS_RATE_KEEP_T_PERS_RATE_KEEP_CHANGE" Member="T_PERS_RATE_KEEP_CHANGEs" ThisKey="id" OtherKey="rate_id" Type="T_PERS_RATE_KEEP_CHANGE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERS_STATE" Member="T_PERS_STATEs">
+    <Type Name="T_PERS_STATE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="T_PERS_STATE_T_PERS_STATE_CHANGE" Member="T_PERS_STATE_CHANGEs" ThisKey="id" OtherKey="state_id" Type="T_PERS_STATE_CHANGE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERS_STATE_CHANGE" Member="T_PERS_STATE_CHANGEs">
+    <Type Name="T_PERS_STATE_CHANGE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="state_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pers_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="change_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="pers_id_deside" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="T_PERS_STATE_T_PERS_STATE_CHANGE" Member="T_PERS_STATE" ThisKey="state_id" OtherKey="id" Type="T_PERS_STATE" IsForeignKey="true" />
+      <Association Name="T_PERSONE_T_PERS_STATE_CHANGE" Member="T_PERSONE" ThisKey="pers_id" OtherKey="id" Type="T_PERSONE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERS_TYPE" Member="T_PERS_TYPEs">
+    <Type Name="T_PERS_TYPE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="T_PERS_TYPE_T_PERS_TYPE_CHANGE" Member="T_PERS_TYPE_CHANGEs" ThisKey="id" OtherKey="type_id" Type="T_PERS_TYPE_CHANGE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERS_TYPE_CHANGE" Member="T_PERS_TYPE_CHANGEs">
+    <Type Name="T_PERS_TYPE_CHANGE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pers_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="change_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="T_PERS_TYPE_T_PERS_TYPE_CHANGE" Member="T_PERS_TYPE" ThisKey="type_id" OtherKey="id" Type="T_PERS_TYPE" IsForeignKey="true" />
+      <Association Name="T_PERSONE_T_PERS_TYPE_CHANGE" Member="T_PERSONE" ThisKey="pers_id" OtherKey="id" Type="T_PERSONE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_PERSONE" Member="T_PERSONEs">
+    <Type Name="T_PERSONE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="adress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="studey" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="woke" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="is_active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="inviting_pers" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="T_PERSONE_T_PERS_RATE_KEEP_CHANGE" Member="T_PERS_RATE_KEEP_CHANGEs" ThisKey="id" OtherKey="pers_id" Type="T_PERS_RATE_KEEP_CHANGE" />
+      <Association Name="T_PERSONE_T_PERS_FAIL" Member="T_PERS_FAILs" ThisKey="id" OtherKey="pers_id" Type="T_PERS_FAIL" />
+      <Association Name="T_PERSONE_T_PERS_STATE_CHANGE" Member="T_PERS_STATE_CHANGEs" ThisKey="id" OtherKey="pers_id" Type="T_PERS_STATE_CHANGE" />
+      <Association Name="T_PERSONE_T_PERS_TYPE_CHANGE" Member="T_PERS_TYPE_CHANGEs" ThisKey="id" OtherKey="pers_id" Type="T_PERS_TYPE_CHANGE" />
+      <Association Name="T_PERSONE_T_SOURA_KEEP" Member="T_SOURA_KEEPs" ThisKey="id" OtherKey="pers_hafez_id" Type="T_SOURA_KEEP" />
+      <Association Name="T_PERSONE_T_SOURA_KEEP1" Member="T_SOURA_KEEPs1" ThisKey="id" OtherKey="pers_mustalem_id" Type="T_SOURA_KEEP" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SOURA" Member="T_SOURAs">
+    <Type Name="T_SOURA">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="code" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="soura_name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="aya_text" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="aya_num" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="soura_num" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="gozaa_num" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="robe_num" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="hezeb_num" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="page_num" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="T_SOURA_T_SOURA_KEEP" Member="T_SOURA_KEEPs" ThisKey="id" OtherKey="soura_id" Type="T_SOURA_KEEP" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SOURA_EVALUATION" Member="T_SOURA_EVALUATIONs">
+    <Type Name="T_SOURA_EVALUATION">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="T_SOURA_EVALUATION_T_SOURA_KEEP" Member="T_SOURA_KEEPs" ThisKey="id" OtherKey="evaluation_id" Type="T_SOURA_KEEP" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SOURA_KEEP" Member="T_SOURA_KEEPs">
+    <Type Name="T_SOURA_KEEP">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="keep_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="keep_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pers_hafez_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pers_mustalem_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="soura_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="aya_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="page_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="soura_num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="soura_name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="evaluation_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_PERSONE_T_SOURA_KEEP" Member="T_PERSONE" ThisKey="pers_hafez_id" OtherKey="id" Type="T_PERSONE" IsForeignKey="true" />
+      <Association Name="T_PERSONE_T_SOURA_KEEP1" Member="T_PERSONE1" ThisKey="pers_mustalem_id" OtherKey="id" Type="T_PERSONE" IsForeignKey="true" />
+      <Association Name="T_SOURA_EVALUATION_T_SOURA_KEEP" Member="T_SOURA_EVALUATION" ThisKey="evaluation_id" OtherKey="id" Type="T_SOURA_EVALUATION" IsForeignKey="true" />
+      <Association Name="T_SOURA_T_SOURA_KEEP" Member="T_SOURA" ThisKey="soura_id" OtherKey="id" Type="T_SOURA" IsForeignKey="true" />
+      <Association Name="T_SOURA_KEEP_TYPE_T_SOURA_KEEP" Member="T_SOURA_KEEP_TYPE" ThisKey="keep_type_id" OtherKey="id" Type="T_SOURA_KEEP_TYPE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_SOURA_KEEP_TYPE" Member="T_SOURA_KEEP_TYPEs">
+    <Type Name="T_SOURA_KEEP_TYPE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="T_SOURA_KEEP_TYPE_T_SOURA_KEEP" Member="T_SOURA_KEEPs" ThisKey="id" OtherKey="keep_type_id" Type="T_SOURA_KEEP" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_TEST" Member="T_TESTs">
+    <Type Name="T_TEST">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="pers_state_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="is_active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_USERS" Member="T_USERs">
+    <Type Name="T_USER">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="is_active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="user_name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="pass_word" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="in_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="user_type_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="setting_profile_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="screen_acsess_profile_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="T_USERS_TYPE_T_USER" Member="T_USERS_TYPE" ThisKey="user_type_id" OtherKey="id" Type="T_USERS_TYPE" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.T_USERS_TYPES" Member="T_USERS_TYPEs">
+    <Type Name="T_USERS_TYPE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="T_USERS_TYPE_T_USER" Member="T_USERs" ThisKey="id" OtherKey="user_type_id" Type="T_USER" />
+    </Type>
+  </Table>
+</Database>
