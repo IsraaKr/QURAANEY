@@ -189,9 +189,9 @@ FROM            dbo.T_PERSONE INNER JOIN
 
         private void ti_fail_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-            F_FAIL_PERS f = new F_FAIL_PERS();
+            F_FAIL_PERS f = new F_FAIL_PERS( int.Parse(lkp_name.EditValue.ToString()));
             f.WindowState = FormWindowState.Maximized;
-            f.show();
+            f.Show();
 
         }
     }

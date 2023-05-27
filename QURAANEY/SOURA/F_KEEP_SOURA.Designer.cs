@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_KEEP_SOURA));
-            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tileControl11 = new DevExpress.XtraEditors.TileControl();
@@ -245,17 +245,17 @@
             // 
             this.ti_state.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.ti_state.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement7.AnchorAlignment = DevExpress.Utils.AnchorAlignment.Top;
-            tileItemElement7.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement7.Appearance.Normal.Options.UseFont = true;
-            tileItemElement7.Text = "حالة الحافظ";
-            tileItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement8.Appearance.Normal.Options.UseFont = true;
-            tileItemElement8.Text = "...";
-            tileItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.ti_state.Elements.Add(tileItemElement7);
-            this.ti_state.Elements.Add(tileItemElement8);
+            tileItemElement1.AnchorAlignment = DevExpress.Utils.AnchorAlignment.Top;
+            tileItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement1.Appearance.Normal.Options.UseFont = true;
+            tileItemElement1.Text = "حالة الحافظ";
+            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement2.Appearance.Normal.Options.UseFont = true;
+            tileItemElement2.Text = "...";
+            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.ti_state.Elements.Add(tileItemElement1);
+            this.ti_state.Elements.Add(tileItemElement2);
             this.ti_state.Id = 6;
             this.ti_state.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.ti_state.Name = "ti_state";
@@ -264,18 +264,18 @@
             // 
             this.ti_keep_rate.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.ti_keep_rate.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement9.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement9.Appearance.Normal.Options.UseFont = true;
-            tileItemElement9.Text = "معدل الحفظ";
-            tileItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement10.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement10.Appearance.Normal.Options.UseFont = true;
-            tileItemElement10.Text = "...";
-            tileItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.ti_keep_rate.Elements.Add(tileItemElement9);
-            this.ti_keep_rate.Elements.Add(tileItemElement10);
+            tileItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement3.Appearance.Normal.Options.UseFont = true;
+            tileItemElement3.Text = "معدل الحفظ";
+            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement4.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement4.Appearance.Normal.Options.UseFont = true;
+            tileItemElement4.Text = "...";
+            tileItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.ti_keep_rate.Elements.Add(tileItemElement3);
+            this.ti_keep_rate.Elements.Add(tileItemElement4);
             this.ti_keep_rate.Id = 8;
-            this.ti_keep_rate.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
+            this.ti_keep_rate.ItemSize = DevExpress.XtraEditors.TileItemSize.Wide;
             this.ti_keep_rate.Name = "ti_keep_rate";
             // 
             // lkp_keep_type
@@ -1049,8 +1049,8 @@
             // 
             this.tileItem4.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.tileItem4.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement11.Text = "مرات التقصير";
-            this.tileItem4.Elements.Add(tileItemElement11);
+            tileItemElement5.Text = "مرات التقصير";
+            this.tileItem4.Elements.Add(tileItemElement5);
             this.tileItem4.Id = 7;
             this.tileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Small;
             this.tileItem4.Name = "tileItem4";
@@ -1059,8 +1059,8 @@
             // 
             this.tileItem2.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.tileItem2.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement12.Text = "التصنيف";
-            this.tileItem2.Elements.Add(tileItemElement12);
+            tileItemElement6.Text = "التصنيف";
+            this.tileItem2.Elements.Add(tileItemElement6);
             this.tileItem2.Id = 11;
             this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Small;
             this.tileItem2.Name = "tileItem2";

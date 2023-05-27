@@ -64,7 +64,9 @@ namespace QURAANEY
         {
             return (lkpb.EditValue is int ||
                 lkpb.EditValue is byte || 
-                Convert.ToInt32(lkpb.EditValue) < 0 == false);
+                Convert.ToInt32(lkpb.EditValue) < 0 == false ||
+                lkpb.Text ==string.Empty ||
+                lkpb.Text==null);
       
         }
         #endregion

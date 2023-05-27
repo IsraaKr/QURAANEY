@@ -70,7 +70,7 @@ namespace QURAANEY.SOURA
 //                ti_murashah.Elements[1].Text = "...";
             base.load_data(status_mess);
         }
-        public override void show()
+        public override void show_rep()
         {
             // Create a DataTable and add two Columns to it
             DataTable gc_dt = new DataTable();
@@ -91,7 +91,7 @@ FROM            dbo.T_PERS_STATE_CHANGE FULL OUTER JOIN
            //   MessageBox.Show(""+ ch_comb_state.Properties.GetDisplayText(ch_comb_state.Properties.Items.GetCheckedValues()[i].ToString()));
 
             gc.DataSource = gc_dt;
-            base.show();
+            base.show_rep();
         }
     }
 }

@@ -34,6 +34,7 @@ namespace QURAANEY.SOURA
         public F_FAIL_PERS(int id)
         {
             id_pers = id;
+            is_show_click = true;
             InitializeComponent();
             load_data("");  
         }
@@ -45,46 +46,63 @@ namespace QURAANEY.SOURA
                 load_fail_table();
         }
         public override void load_data(string status_mess)
-        {
+        { 
             clear(this.Controls);
-            dt = C_DB_QUERYS.get_person_name_isactive();
-            lkp_name.lkp_iniatalize_data(dt, "name", "id");
-            load_fail_table();
             is_double_click = false;
             is_show_click = false;
+            dt = C_DB_QUERYS.get_person_name_isactive();
+            lkp_name.lkp_iniatalize_data(dt, "name", "id");
+            if (id_pers!=0)
+            {
+                lkp_name.EditValue = id_pers;
+                group_names.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                is_show_click = true;
+            }
+            load_fail_table();
+    
             base.load_data(status_mess);
         }
         public override void save()
         {
-            if (is_double_click == true)
+            if (id_pers == 0)
             {
-                c_db.insert_upadte_delete(@"UPDATE       dbo.T_PERS_FAIL
-                             SET                reson ='"+txt_reson.Text+"'" +
-                                "WHERE        (id = "+id_doublee_click+")");
-                load_data("i");
-                return;
+                if (is_double_click == true)
+                {
+                    c_db.insert_upadte_delete(@"UPDATE       dbo.T_PERS_FAIL
+                             SET                reson ='" + txt_reson.Text + "'" +
+                                    "WHERE        (id = " + id_doublee_click + ")");
+                    load_data("i");
+                    return;
+
+                }
+                if (is_show_click == false)
+                {
+                    MessageBox.Show("يجب اختيار شهر لعرضه", "تنبيه",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (is_show_click == true)
+                {
+                    save_in_fail_table();
+                }
+            }
+            else
+            { 
 
             }
-            if (is_show_click == false)
-            {
-                MessageBox.Show("يجب اختيار شهر لعرضه", "تنبيه",
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (is_show_click == true)
-            {
-                save_in_fail_table();
-            }
+           
                 base.save();
         }
         public override void clear(Control.ControlCollection s_controls)
-        {
-            de_month_rep.Text = string.Empty;
+        { 
+             base.clear(s_controls);
+             de_month_rep.Text = string.Empty;
           //  gc_absend.DataSource = null;
             gv_absend.Columns.Clear();
           //  gc_absend.DataSource = null;
             gv_absend.Columns.Clear();
-            base.clear(s_controls);
+            group_names.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+
         }
         public override void delete()
         {
@@ -114,7 +132,7 @@ namespace QURAANEY.SOURA
             id_doublee_click = 0;
             is_double_click = false;
         }
-        public override void show()
+        public override void show_rep()
         {
             is_show_click = true;
             if (de_month_rep.Text==string.Empty)
@@ -167,15 +185,15 @@ namespace QURAANEY.SOURA
             //catch
             //{
             //}
-            base.show();
+            base.show_rep();
         }
         private void load_gc_snd_tail()
         {
-            if (id_pers==0)
+            if (id_pers == 0)
             {
-                 m = de_month_rep.DateTime.Month;
-                 y = de_month_rep.DateTime.Year;
-                date_chose = de_month_rep.DateTime;
+                //m = de_month_rep.DateTime.Month;
+                //y = de_month_rep.DateTime.Year;
+                //date_chose = de_month_rep.DateTime;
 
                 //التسميع بالشهر و السنة
                 string s = @"SELECT   pers_hafez_id   
@@ -197,14 +215,14 @@ namespace QURAANEY.SOURA
                 dt_abcent = c_db.select(s2);
                 gc_absend.DataSource = dt_abcent;
 
-//                //معدل حفظ كل شخص
-//                string s3 = @" SELECT dbo.T_PERSONE.id, dbo.T_PERSONE.name, dbo.T_PERS_RATE_KEEP.name AS rate_name, dbo.T_PERS_RATE_KEEP.num, dbo.T_PERS_RATE_KEEP.rate_in_days, 
-//                      dbo.T_PERS_RATE_KEEP_CHANGE.change_date
-//FROM         dbo.T_PERSONE INNER JOIN
-//                      dbo.T_PERS_RATE_KEEP_CHANGE ON dbo.T_PERSONE.id = dbo.T_PERS_RATE_KEEP_CHANGE.pers_id INNER JOIN
-//                      dbo.T_PERS_RATE_KEEP ON dbo.T_PERS_RATE_KEEP_CHANGE.rate_id = dbo.T_PERS_RATE_KEEP.id";
-//                dt = c_db.select(s3);
-//                gc_rate.DataSource = dt;
+                //                //معدل حفظ كل شخص
+                //                string s3 = @" SELECT dbo.T_PERSONE.id, dbo.T_PERSONE.name, dbo.T_PERS_RATE_KEEP.name AS rate_name, dbo.T_PERS_RATE_KEEP.num, dbo.T_PERS_RATE_KEEP.rate_in_days, 
+                //                      dbo.T_PERS_RATE_KEEP_CHANGE.change_date
+                //FROM         dbo.T_PERSONE INNER JOIN
+                //                      dbo.T_PERS_RATE_KEEP_CHANGE ON dbo.T_PERSONE.id = dbo.T_PERS_RATE_KEEP_CHANGE.pers_id INNER JOIN
+                //                      dbo.T_PERS_RATE_KEEP ON dbo.T_PERS_RATE_KEEP_CHANGE.rate_id = dbo.T_PERS_RATE_KEEP.id";
+                //                dt = c_db.select(s3);
+                //                gc_rate.DataSource = dt;
 
                 //المقصرين  عرض 
                 string sqll = @" SELECT        name, count_page, in_month, in_yeare, rate_name, num, rate_in_days, pers_hafez_id, id
@@ -216,6 +234,46 @@ WHERE        (in_month = N'" + m + "') AND (in_yeare = N'" + y + "') ";
                 load_fail_table();
 
             }
+            else
+            {
+                //التسميع بالشهر و السنة
+                string s = @"SELECT pers_hafez_id
+                       FROM            dbo.T_SOURA_KEEP
+                       WHERE        (pers_hafez_id = " + id_pers + ")";
+                      
+
+                dt = c_db.select(s);
+                //gc_keep.DataSource = dt;
+
+                //الغائبين
+                string s2 = @"SELECT     id ,
+                               FROM         T_PERSONE
+                             WHERE      id NOT IN (" + s + " ) " +                   
+                       " AND (is_active = 1) ";
+
+                dt_abcent = c_db.select(s2);
+                gc_absend.DataSource = dt_abcent;
+
+                //                //معدل حفظ كل شخص
+                //                string s3 = @" SELECT dbo.T_PERSONE.id, dbo.T_PERSONE.name, dbo.T_PERS_RATE_KEEP.name AS rate_name, dbo.T_PERS_RATE_KEEP.num, dbo.T_PERS_RATE_KEEP.rate_in_days, 
+                //                      dbo.T_PERS_RATE_KEEP_CHANGE.change_date
+                //FROM         dbo.T_PERSONE INNER JOIN
+                //                      dbo.T_PERS_RATE_KEEP_CHANGE ON dbo.T_PERSONE.id = dbo.T_PERS_RATE_KEEP_CHANGE.pers_id INNER JOIN
+                //                      dbo.T_PERS_RATE_KEEP ON dbo.T_PERS_RATE_KEEP_CHANGE.rate_id = dbo.T_PERS_RATE_KEEP.id";
+                //                dt = c_db.select(s3);
+                //                gc_rate.DataSource = dt;
+
+                //المقصرين  عرض 
+                string sqll = @" SELECT        name, count_page, in_month, in_yeare, rate_name, num, rate_in_days, pers_hafez_id, id
+FROM            dbo.V_fail
+WHERE        (pers_hafez_id = "+id_pers+") ";
+                dt_fail = c_db.select(sqll);
+                gc_show_fail.DataSource = dt_fail;
+
+                load_fail_table();
+
+            }
+
             //            else
             //            {
             //                string sqll = @" SELECT        dbo.V_fail.*, pers_hafez_id AS Expr1
@@ -227,11 +285,22 @@ WHERE        (in_month = N'" + m + "') AND (in_yeare = N'" + y + "') ";
         }
         private void load_fail_table()
         {
-            //جدول التقصير
-            string s4 = @" SELECT id, pers_id, in_date, month_fail, year_fail, reson
+            if (id_pers != 0)
+            {
+                //جدول التقصير
+                string s4 = @" SELECT id, pers_id, in_date, month_fail, year_fail, reson
+                 FROM dbo.T_PERS_FAIL  where pers_id ="+id_pers+" ";
+                dt = c_db.select(s4);
+                gc_save_fail.DataSource = dt;
+            }
+            else
+            {
+                //جدول التقصير
+                string s4 = @" SELECT id, pers_id, in_date, month_fail, year_fail, reson
                  FROM dbo.T_PERS_FAIL ";
-            dt = c_db.select(s4);
-            gc_save_fail.DataSource = dt;
+                dt = c_db.select(s4);
+                gc_save_fail.DataSource = dt;
+            }
         }
         private void load_fail_table(int m , int y)
         {
@@ -245,64 +314,69 @@ WHERE        (month_fail = N'" + m + "') AND (year_fail = N'" + y + "') ";
         private void save_in_fail_table()
         {
             int done = 0;
-            try
+            if (id_pers==0)
             {
-                //حذف معلومات الشهر الحالي من جدول الفيل
-                c_db.insert_upadte_delete(@" delete from  dbo.T_PERS_FAIL 
+                try
+                {
+                    //حذف معلومات الشهر الحالي من جدول الفيل
+                    c_db.insert_upadte_delete(@" delete from  dbo.T_PERS_FAIL 
                    WHERE( month_fail = N'" + m + "' and year_fail = N'" + y + "' )");
 
-            }
-            catch (Exception)
-            {
+                }
+                catch (Exception)
+                {
 
-                throw;
-            }
-           
-            try
-            {
-                //ادخال معلومات جدول المقصرين من جدول عدد الصفحات 
-                string sqll = @"INSERT INTO dbo.T_PERS_FAIL
+                    throw;
+                }
+
+                try
+                {
+                    //ادخال معلومات جدول المقصرين من جدول عدد الصفحات 
+                    string sqll = @"INSERT INTO dbo.T_PERS_FAIL
                          ( pers_id, in_date, month_fail, year_fail)
              SELECT        dbo.V_fail.pers_hafez_id , '" + "1-1-2023" + "' ,in_month , in_yeare " +
-                 " FROM             dbo.V_fail " +
-                 "   where  (in_month = " + m + ") AND (in_yeare = " + y + ") ";
-                done += c_db.insert_upadte_delete(sqll);
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        
-            try
-            {
-                //ادخال معلومات الغائبين
-                for (int i = 0; i < dt_abcent.Rows.Count; i++)
+                     " FROM             dbo.V_fail " +
+                     "   where  (in_month = " + m + ") AND (in_yeare = " + y + ") ";
+                    done += c_db.insert_upadte_delete(sqll);
+                }
+                catch (Exception)
                 {
-                  done +=  c_db.insert_upadte_delete(@"INSERT INTO dbo.T_PERS_FAIL
+
+                    throw;
+                }
+
+                try
+                {
+                    //ادخال معلومات الغائبين
+                    for (int i = 0; i < dt_abcent.Rows.Count; i++)
+                    {
+                        done += c_db.insert_upadte_delete(@"INSERT INTO dbo.T_PERS_FAIL
                          ( pers_id, in_date, month_fail, year_fail,reson)
                    values ( " + dt_abcent.Rows[i][0].ToString() + " ," +
-                       "  '" + "1-1-2023" + "' , '" + m + "' , '" + y + "' , '" + "غائب" + "')");
+                             "  '" + "1-1-2023" + "' , '" + m + "' , '" + y + "' , '" + "غائب" + "')");
 
-                    //////حذف المعلومات المكررة من جدول ال المقصرين
-                    ////string sql2 = @" delete from dbo.T_PERS_FAIL where id in ( select id_fail from T_fail t 
-                    ////  where exists ( select id_fail from T_fail
-                    ////        where id_Person =t.id_Person 
-                    ////  and month_fail = t.month_fail 
-                    ////  and year_fail=t.year_fail
-                    ////     and id_fail < t.id_fail ))";
-                    ////int done2 = c_db.insert_upadte_delete(sql2);
-                    if (done!=0)
-                    {
-                        load_data("i");
+                        //////حذف المعلومات المكررة من جدول ال المقصرين
+                        ////string sql2 = @" delete from dbo.T_PERS_FAIL where id in ( select id_fail from T_fail t 
+                        ////  where exists ( select id_fail from T_fail
+                        ////        where id_Person =t.id_Person 
+                        ////  and month_fail = t.month_fail 
+                        ////  and year_fail=t.year_fail
+                        ////     and id_fail < t.id_fail ))";
+                        ////int done2 = c_db.insert_upadte_delete(sql2);
+                        if (done != 0)
+                        {
+                            load_data("i");
+                        }
                     }
                 }
-            }
-            catch (Exception)
-            {
+                catch (Exception)
+                {
 
-                throw;
+                    throw;
+                }
             }
+            
+           
             load_fail_table();
 
         }

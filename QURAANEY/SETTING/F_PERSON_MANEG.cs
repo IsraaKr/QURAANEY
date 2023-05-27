@@ -43,7 +43,6 @@ namespace QURAANEY.SETTING
         private void F_PERSON_MANEG_Load(object sender, EventArgs e)
         {
             load_data("");
-
             neew();
             txt_name.Text = pers_name;
         }
@@ -55,7 +54,7 @@ namespace QURAANEY.SETTING
             btn_new.Visible = true;
             btn_print.Visible = true;
             btn_save.Visible = true;
-            btn_show.Visible = false;
+            btn_show.Visible = true;
 
         }
         private void set_date_edite()
@@ -63,7 +62,7 @@ namespace QURAANEY.SETTING
             dtp_in_date.Text = DateTime.Today.ToShortDateString();
             dtp_rate_change.Text = DateTime.Today.ToShortDateString();
             dtp_state_change.Text = DateTime.Today.ToShortDateString();
-            dtp_type_change.Text = DateTime.Today.ToShortDateString();
+           
 
         }
 
@@ -75,16 +74,8 @@ namespace QURAANEY.SETTING
             set_date_edite();
 
             sqll = @"SELECT    T_PERSONE.id AS التسلسل , T_PERSONE.name AS الاسم, T_PERSONE.phone AS الهاتف, T_PERSONE.adress AS العنوان, T_PERSONE.email AS الايميل, T_PERSONE.studey AS الدراسة, 
-                      T_PERSONE.woke AS العمل, T_PERSONE.in_date AS [تاريخ الالتحاق], T_PERSONE.is_active AS فعال, T_PERSONE.inviting_pers AS الداعي, T_PERS_TYPE.name AS الأدوار, 
-                      T_PERS_TYPE_CHANGE.change_date AS [تاريخ الدور], T_PERS_STATE.name AS الحالة, T_PERS_STATE_CHANGE.change_date AS [تاريخ الحالة], 
-                      T_PERS_STATE_CHANGE.pers_id_deside AS [مغير الحالة], T_PERS_RATE_KEEP.name AS [معدل الحفظ], T_PERS_RATE_KEEP_CHANGE.change_date AS [تاريخ المعدل]
-FROM        T_PERSONE left JOIN
-                      T_PERS_RATE_KEEP_CHANGE ON T_PERSONE.id = T_PERS_RATE_KEEP_CHANGE.pers_id left JOIN
-                      T_PERS_RATE_KEEP ON T_PERS_RATE_KEEP_CHANGE.rate_id = T_PERS_RATE_KEEP.id left JOIN
-                      T_PERS_STATE_CHANGE ON T_PERSONE.id = T_PERS_STATE_CHANGE.pers_id left JOIN
-                      T_PERS_STATE ON T_PERS_STATE_CHANGE.state_id = T_PERS_STATE.id left JOIN
-                      T_PERS_TYPE_CHANGE ON T_PERSONE.id = T_PERS_TYPE_CHANGE.pers_id left JOIN
-                      T_PERS_TYPE ON T_PERS_TYPE_CHANGE.type_id = T_PERS_TYPE.id  ";
+                      T_PERSONE.woke AS العمل, T_PERSONE.in_date AS [تاريخ الالتحاق], T_PERSONE.is_active AS فعال, T_PERSONE.inviting_pers AS الداعي
+FROM        T_PERSONE ";
             dt = c_db.select(sqll);
             gc.DataSource = dt;
 
@@ -110,7 +101,7 @@ FROM        T_PERSONE left JOIN
             chbl_type.SetItemChecked(index - 1, true);
             lkp_keep_rate.EditValue = int.Parse(dt.Rows[2][2].ToString());
 
-            base.load_data("");
+            base.load_data(status_mess);
             view_inheretanz_butomes();
 
         }
@@ -120,6 +111,11 @@ FROM        T_PERSONE left JOIN
             set_auto_id_person();
             set_date_edite();
             base.neew();
+        }
+        public override void show_rep ()
+        {
+    
+                base.set_data();
         }
         public override void clear(Control.ControlCollection s_controls)
         {
@@ -145,8 +141,8 @@ FROM        T_PERSONE left JOIN
                 {
                     update_all();
                 }
-
-                clear(this.Controls);
+              //  load_data("i");
+              //  clear(this.Controls);
                 is_double_click = false;
 
             }
@@ -160,35 +156,19 @@ FROM        T_PERSONE left JOIN
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            DialogResult res = MessageBox.Show("   هل انت متاكد انك تريد حذف المعلومات بشكل نهائي  من كافة الأماكن المرتبطة بهذا الاسم؟؟؟", "تأكيد",
+                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             try
             {
-                if (MessageBox.Show("هل انت متاكد انك تريد حذف السجل", "تأكيد",
-                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    delete_mess += delete_type();
-                    delete_mess += delete_state();
-                    delete_mess += delete_rate();
-                    delete_mess += delete_pers();
-                    if (delete_mess == 4)
-                    {
-                        load_data("d");
-                        delete_mess = 0;
-                    }
-                }
-                else
-                    return;
-            }
-            catch (Exception)
-            {
-                DialogResult res = MessageBox.Show("هل تريد حذف المعلومات بشكل نهائي  ",
-                    "لايمكن حذف السجل المحدد بسبب ارتباطه بأماكن أخرى !!!!",
-                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                 {
-
-
+                    delete_mess += delete_type_true_false();
+                    delete_mess += delete_state();
+                    delete_mess += delete_rate();
+                    delete_mess += delete_keep();
+                    delete_mess += delete_fail();
                     delete_mess += delete_pers();
-                    if (delete_mess == 5)
+                    if (delete_mess == 6)
                     {
                         load_data("d");
                         delete_mess = 0;
@@ -208,6 +188,10 @@ FROM        T_PERSONE left JOIN
                     else
                         return;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(" "+ex);
             }
             base.delete();
             is_double_click = false;
@@ -320,12 +304,28 @@ FROM        T_PERSONE left JOIN
 
         }
 
-        private int delete_type()
+       // private int delete_type()
+       // {
+       //     try
+       //     {
+       //         sqll = @"DELETE FROM dbo.T_PERS_TYPE_CHANGE
+       //                WHERE        (pers_id = " + int.Parse(txt_id.Text) + ")";
+       //         done = c_db.insert_upadte_delete(sqll);
+       //         return 1;
+       //     }
+       //     catch (Exception ex)
+       //     {
+       //         MessageBox.Show(ex + "");
+       //         return 0;
+       //     }
+
+       // }
+        private int delete_type_true_false()
         {
             try
             {
-                sqll = @"DELETE FROM dbo.T_PERS_TYPE_CHANGE
-                       WHERE        (pers_id = " + int.Parse(txt_id.Text) + ")";
+                sqll = @"DELETE FROM dbo.T_PERS_TYPES_TRUE_FALSE
+                       WHERE        (pers_id = " +pers_id + ")";
                 done = c_db.insert_upadte_delete(sqll);
                 return 1;
             }
@@ -351,24 +351,33 @@ FROM        T_PERSONE left JOIN
             }
 
         }
-    
+        private int delete_fail()
+        {
+            try
+            {
+                c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_PERS_FAIL
+                                  WHERE(pers_id  = " + int.Parse(txt_id.Text) + " )");
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex + "");
+                return 0;
+            }
+
+        }
+
         #endregion
 
         #region update توابع التعديل
         private void update_all()
         {
             update_pers();
-            insert_type();
+            update_type_true_false();
             insert_state();
             insert_keep_rate();
-            //if (type_change == 1)           
-            //    delete_type();
-            //    insert_type();
-            //if (state_change == 1)
-            //    insert_state();
-            //if (rate_change == 1)
-            //    insert_keep_rate();
-            C_MESSAGE_COLLECTION.show_update_note();
+          
+            load_data("i");
         }
         private void update_pers()
         {
@@ -397,80 +406,82 @@ FROM        T_PERSONE left JOIN
             }
 
         }
-        private void update_keep_rate()
+        private void update_type_true_false()
         {
-            try
+            dt = c_db.select(@"select id , name  from T_PERS_TYPE");
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                //تعديل معدل الحفظ 
-                sqll = @" UPDATE dbo.T_PERS_RATE_KEEP_CHANGE
-            SET                pers_id =" + int.Parse(txt_id.Text) + "," +
-                " rate_id = " + Convert.ToInt32(lkp_keep_rate.EditValue) + "," +
-                " change_date = N'" + dtp_rate_change.Text + "' " +
-                " WHERE   (pers_id = " + int.Parse(txt_id.Text) + ")";
-                done = c_db.insert_upadte_delete(sqll);
+                var state = Convert.ToBoolean(chbl_type.GetItemCheckState(i));
+                string x = dt.Rows[i][1].ToString();
+                c_db.insert_upadte_delete(@" update T_PERS_TYPES_TRUE_FALSE set  " + x + " = '" + state + "'" +
+                    " where pers_id= " + pers_id + " ");
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex + "");
-            }
-
         }
-        private void update_state()
-        {
-            try
-            {
-                if (state_change == 1)
-                {
-                    state_id = Convert.ToInt32(lkp_state.EditValue);
-                    //ادخال لجدول تغير الحالات
-                    sqll = @"INSERT INTO dbo.T_PERS_STATE_CHANGE
-                         (state_id, pers_id, change_date,pers_id_deside)
-                             VALUES        (" + state_id + "," +
-                                     "" + int.Parse(txt_id.Text) + "," +
-                                     "N'" + dtp_state_change.Text+ "'," +
-                                     "N'" + lkp_inviting_pers.Text + "')";
-                    done = c_db.insert_upadte_delete(sqll);
-                    state_change = 0;
-                    state_id = 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex + "");
-            }
 
-        }
-    
-           // //تعديل تغير الحاللات
-           // sqll = @"UPDATE       dbo.T_PERS_STATE_CHANGE
-           //SET                state_id=" + Convert.ToInt32(lkp_state.EditValue) + "," +
-           //" pers_id = " + int.Parse(txt_id.Text) + "," +
-           //" change_date = N'" + de_state_date.DateTime.ToShortDateString() + "' ," +
-           //" pers_id_deside = N'" + lkp_pers_state_change.Text + "' " +
-           //" WHERE        (pers_id = " + int.Parse(txt_id.Text) + ")";
+        //private void update_keep_rate()
+        //{
+        //    try
+        //    {
+        //        //تعديل معدل الحفظ 
+        //        sqll = @" UPDATE dbo.T_PERS_RATE_KEEP_CHANGE
+        //    SET                pers_id =" + int.Parse(txt_id.Text) + "," +
+        //        " rate_id = " + Convert.ToInt32(lkp_keep_rate.EditValue) + "," +
+        //        " change_date = N'" + dtp_rate_change.Text + "' " +
+        //        " WHERE   (pers_id = " + int.Parse(txt_id.Text) + ")";
+        //        done = c_db.insert_upadte_delete(sqll);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex + "");
+        //    }
 
-           // done = c_db.insert_upadte_delete(sqll);
-        
-        private void update_type()
-        {
-            try
-            {
-                //تعديل تغير الأدوار
-                sqll = @"UPDATE       dbo.T_PERS_TYPE_CHANGE
-            SET               
-                pers_id = " + int.Parse(txt_id.Text) + "," +
-                   " type_id = " + 1 + "," +
-                   " change_date = '" + dtp_type_change.Text + "' " +
-                    " WHERE        ( pers_id = " + int.Parse(txt_id.Text) + ")";
+        //}
+        //private void update_state()
+        //{
+        //    try
+        //    {
+        //        if (state_change == 1)
+        //        {
+        //            state_id = Convert.ToInt32(lkp_state.EditValue);
+        //            //ادخال لجدول تغير الحالات
+        //            sqll = @"INSERT INTO dbo.T_PERS_STATE_CHANGE
+        //                 (state_id, pers_id, change_date,pers_id_deside)
+        //                     VALUES        (" + state_id + "," +
+        //                             "" + int.Parse(txt_id.Text) + "," +
+        //                             "N'" + dtp_state_change.Text+ "'," +
+        //                             "N'" + lkp_inviting_pers.Text + "')";
+        //            done = c_db.insert_upadte_delete(sqll);
+        //            state_change = 0;
+        //            state_id = 0;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex + "");
+        //    }
 
-                done = c_db.insert_upadte_delete(sqll);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex + "");
-            }
-            type_change = 0;
-        }
+        //}
+         
+        //private void update_type()
+        //{
+        //    try
+        //    {
+        //        //تعديل تغير الأدوار
+        //        sqll = @"UPDATE       dbo.T_PERS_TYPE_CHANGE
+        //    SET               
+        //        pers_id = " + int.Parse(txt_id.Text) + "," +
+        //           " type_id = " + 1 + "," +
+        //           " change_date = '" + dtp_type_change.Text + "' " +
+        //            " WHERE        ( pers_id = " + int.Parse(txt_id.Text) + ")";
+
+        //        done = c_db.insert_upadte_delete(sqll);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex + "");
+        //    }
+        //    type_change = 0;
+        //}
 
         #endregion
 
@@ -478,17 +489,16 @@ FROM        T_PERSONE left JOIN
 
         private void add_all()
         {
+            state_change = 1;
+            rate_change = 1;
                 int num_done = 0;
             num_done += insert_pers();
             num_done +=  insert_state();
-            num_done += insert_type();
+            num_done += insert_type_true_false();
+            update_type_true_false();
             num_done += insert_keep_rate();
-            if (num_done == 4)
-            {
-                load_data("i");
-                 //   save();
-            }
-       
+           
+            load_data("i");
 
         }
         private int insert_pers()
@@ -520,83 +530,117 @@ FROM        T_PERSONE left JOIN
             }
            
         }
-        private int insert_type()
+        //private int insert_type()
+        //{
+        //    try
+        //    {
+        //        List<int> checked_type_id = new List<int>();
+        //        foreach (var item_check in chbl_type.CheckedIndices)
+        //        {
+        //            checked_type_id.Add(Convert.ToInt32(chbl_type.GetItemValue(item_check)));
+        //        }
+        //        foreach (var item in checked_type_id)
+        //        {
+        //            sqll = @"INSERT INTO dbo.T_PERS_TYPE_CHANGE
+        //                         (pers_id, type_id, change_date)
+        //                          VALUES        (" + pers_id + "," +
+        //                          "" + item + "," +
+        //                          "N'" + dtp_type_change.Text + "')";
+        //            done = c_db.insert_upadte_delete(sqll);
+        //        }
+        //        return 1;
+
+
+
+
+
+        //        return 1;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex + "");
+        //        return 0;
+        //    }           
+        //    type_change = 0;
+        //}      
+        private int insert_type_true_false()
         {
             try
             {
-
-                    List<int> checked_type_id = new List<int>();
-            foreach (var item_check in chbl_type.CheckedIndices)
-              {
-                        checked_type_id.Add(Convert.ToInt32(chbl_type.GetItemValue(item_check)));
-              }
-                foreach (var item in checked_type_id)
-                {
-                    sqll = @"INSERT INTO dbo.T_PERS_TYPE_CHANGE
-                             (pers_id, type_id, change_date)
-                              VALUES        (" + pers_id + "," +
-                                  "" + item + "," +
-                                  "N'" + dtp_type_change.Text + "')";
-                    done = c_db.insert_upadte_delete(sqll);                       
-                }
+                sqll = @"INSERT INTO  dbo.T_PERS_TYPES_TRUE_FALSE
+                                 (pers_id )
+                                  VALUES        (" + pers_id + " ) ";
+                done = c_db.insert_upadte_delete(sqll);
                 return 1;
             }
-            catch (Exception ex)
+            catch
             {
-                MessageBox.Show(ex + "");
                 return 0;
-            }           
-            type_change = 0;
+            }
         }
         private int  insert_state()
         {
-            try
-            {              
-                state_id = Convert.ToInt32(lkp_state.EditValue);
-                //ادخال لجدول تغير الحالات
-                sqll = @"INSERT INTO dbo.T_PERS_STATE_CHANGE
+            if (state_change != 0)
+            {
+                try
+                {
+
+                    state_id = Convert.ToInt32(lkp_state.EditValue);
+                    //ادخال لجدول تغير الحالات
+                    sqll = @"INSERT INTO dbo.T_PERS_STATE_CHANGE
                          (state_id, pers_id, change_date,pers_id_deside)
                              VALUES        (" + state_id + "," +
-                                 " " + pers_id + "," +
-                                 " N'" + dtp_state_change.Text + "'," +
-                                 " N'" + lkp_inviting_pers.Text + "') ";
-                done = c_db.insert_upadte_delete(sqll);
-                return 1;
+                                     " " + pers_id + "," +
+                                     " N'" + dtp_state_change.Text + "'," +
+                                     " N'" + lkp_inviting_pers.Text + "') ";
+                    done = c_db.insert_upadte_delete(sqll);
+                    return 1;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex + "");
+                    return 0;
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex + "");
-                return 0;
-            }            
-            state_change = 0;           
+            state_change = 0;
+            return 0;
         }
+                                    
         private int  insert_keep_rate()
         {
-            try
+            if (rate_change!=0)
             {
-               int rate_id = Convert.ToInt32(lkp_keep_rate.EditValue);
-                //ادخال لجدول تغير معدل الحفظ
-                sqll = @"INSERT INTO dbo.T_PERS_RATE_KEEP_CHANGE
+                try
+                {
+                    int rate_id = Convert.ToInt32(lkp_keep_rate.EditValue);
+                    //ادخال لجدول تغير معدل الحفظ
+                    sqll = @"INSERT INTO dbo.T_PERS_RATE_KEEP_CHANGE
                          (pers_id, rate_id, change_date)
                              VALUES        (" + pers_id + "," +
-                                 " " + rate_id + "," +
-                                 " N'" + dtp_rate_change.Text + "')";
-                done = c_db.insert_upadte_delete(sqll);
-                return 1;
+                                     " " + rate_id + "," +
+                                     " N'" + dtp_rate_change.Text + "')";
+                    done = c_db.insert_upadte_delete(sqll);
+                    return 1;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex + "");
+                    return 0;
+                }
+
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex + "");
-                return 0;
-            }
-            
+
             rate_change = 0;
+            return 0;
         }
         #endregion
         private void gv_DoubleClick(object sender, EventArgs e)
         {
             is_double_click = true;
          txt_id.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString();
+            pers_id =int.Parse(txt_id.Text);
          txt_name.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[1]).ToString();
          txt_phone.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[2]).ToString();
          txt_adress.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[3]).ToString();
@@ -604,15 +648,51 @@ FROM        T_PERSONE left JOIN
          txt_studey.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[5]).ToString();
          txt_work.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[6]).ToString();    
          dtp_in_date.Text= gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[7]).ToString();
-            ch_is_active.Checked =Convert.ToBoolean( gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[8]).ToString());
+         ch_is_active.Checked = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[8]).ToString());
          lkp_inviting_pers.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[9]).ToString();
-        // chbl_type.che = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[10]);
-        dtp_type_change.Text= gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[11]).ToString();
-            lkp_state.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[12]).ToString();
-           dtp_state_change.Text= gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[13]).ToString();
-            lkp_pers_state_change.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[14]).ToString();
-            lkp_keep_rate.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[15]).ToString();
-           dtp_rate_change.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[16]).ToString();
+
+            dt = c_db.select(@"  SELECT        pers_id, pers_name, ratr_id, rate_name, num, rate_in_days, change_date
+                                  FROM            dbo.V_RATE_MAX_DATE
+                            WHERE        (pers_id = "+pers_id+")");
+            lkp_keep_rate.Text = dt.Rows[0][3].ToString();
+            dtp_rate_change.Text = dt.Rows[0][6].ToString();
+
+
+            dt = c_db.select(@"    SELECT        pers_id, pers_name, state_id, state_name, change_date, pers_id_deside
+                              FROM            dbo.V_STATE_MAX_DATE
+                                   WHERE        (pers_id =  " + pers_id + ")");
+            lkp_state.Text = dt.Rows[0][3].ToString();
+            dtp_state_change.Text = dt.Rows[0][4].ToString();
+            lkp_pers_state_change.Text = dt.Rows[0][5].ToString();
+
+
+            dt = c_db.select(@" SELECT dbo.T_PERS_TYPES_TRUE_FALSE.*
+                                   FROM            dbo.T_PERS_TYPES_TRUE_FALSE
+                              WHERE(pers_id = "+pers_id+")");
+            int count = chbl_type.ItemCount;
+                int chl_index = 0;
+            foreach (DataColumn item in dt.Columns)
+            {
+              int index=  dt.Columns.IndexOf(item);
+                if (index >1)
+                {
+                    if (count>=0)
+                    {
+                        
+                        Boolean state = Convert.ToBoolean(dt.Rows[0][index].ToString());
+                      //  MessageBox.Show("" + dt.Columns.IndexOf(item) + state);
+                        chbl_type.SetItemChecked(chl_index, state);
+                        chl_index++;
+                        count--;
+                    }
+                    
+                }
+
+            }
+
+
+            // chbl_type.che = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[10]);
+            //dtp_type_change.Text= gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[11]).ToString();
 
         }
         private void lkp_state_Enter(object sender, EventArgs e)
@@ -635,7 +715,7 @@ FROM        T_PERSONE left JOIN
             {
                 F_STATE_PERS f = new F_STATE_PERS(int.Parse(txt_id.Text));
                 f.WindowState = FormWindowState.Maximized;
-                f.show();
+                f.show_rep();
             }
             is_double_click = false;
 

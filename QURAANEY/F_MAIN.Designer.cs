@@ -68,6 +68,7 @@
             this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.pan_nav = new DevExpress.XtraEditors.PanelControl();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pan_nav)).BeginInit();
@@ -87,9 +88,10 @@
             this.barButtonItem6,
             this.barButtonItem7,
             this.barButtonItem8,
-            this.barButtonItem9});
+            this.barButtonItem9,
+            this.barButtonItem10});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 10;
+            this.ribbon.MaxItemId = 11;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem9);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
@@ -189,6 +191,7 @@
             // 
             // ribbonPageGroup1
             // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem10);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
@@ -409,6 +412,13 @@
             this.pan_nav.Size = new System.Drawing.Size(621, 291);
             this.pan_nav.TabIndex = 4;
             // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "تصميم الداش بورد";
+            this.barButtonItem10.Id = 10;
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.Tag = "F_DASHBORD_DESIGHNER";
+            // 
             // F_MAIN
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -475,5 +485,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
     }
 }

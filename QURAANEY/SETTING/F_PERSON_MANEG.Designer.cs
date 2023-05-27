@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_PERSON_MANEG));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.dtp_state_change = new System.Windows.Forms.DateTimePicker();
-            this.dtp_type_change = new System.Windows.Forms.DateTimePicker();
             this.dtp_rate_change = new System.Windows.Forms.DateTimePicker();
             this.dtp_in_date = new System.Windows.Forms.DateTimePicker();
             this.btn_show_state = new DevExpress.XtraEditors.SimpleButton();
@@ -68,7 +67,6 @@
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem19 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this._state_change = new DevExpress.XtraLayout.LayoutControlItem();
@@ -110,7 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._state_change)).BeginInit();
@@ -138,7 +135,6 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.dtp_state_change);
-            this.layoutControl1.Controls.Add(this.dtp_type_change);
             this.layoutControl1.Controls.Add(this.dtp_rate_change);
             this.layoutControl1.Controls.Add(this.dtp_in_date);
             this.layoutControl1.Controls.Add(this.btn_show_state);
@@ -168,25 +164,17 @@
             // dtp_state_change
             // 
             this.dtp_state_change.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_state_change.Location = new System.Drawing.Point(196, 210);
+            this.dtp_state_change.Location = new System.Drawing.Point(168, 210);
             this.dtp_state_change.Name = "dtp_state_change";
-            this.dtp_state_change.Size = new System.Drawing.Size(113, 20);
+            this.dtp_state_change.Size = new System.Drawing.Size(112, 20);
             this.dtp_state_change.TabIndex = 111;
-            // 
-            // dtp_type_change
-            // 
-            this.dtp_type_change.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_type_change.Location = new System.Drawing.Point(646, 202);
-            this.dtp_type_change.Name = "dtp_type_change";
-            this.dtp_type_change.Size = new System.Drawing.Size(105, 20);
-            this.dtp_type_change.TabIndex = 110;
             // 
             // dtp_rate_change
             // 
             this.dtp_rate_change.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_rate_change.Location = new System.Drawing.Point(420, 210);
+            this.dtp_rate_change.Location = new System.Drawing.Point(391, 210);
             this.dtp_rate_change.Name = "dtp_rate_change";
-            this.dtp_rate_change.Size = new System.Drawing.Size(115, 20);
+            this.dtp_rate_change.Size = new System.Drawing.Size(169, 20);
             this.dtp_rate_change.TabIndex = 109;
             // 
             // dtp_in_date
@@ -201,7 +189,7 @@
             // 
             this.btn_show_state.Location = new System.Drawing.Point(24, 186);
             this.btn_show_state.Name = "btn_show_state";
-            this.btn_show_state.Size = new System.Drawing.Size(168, 22);
+            this.btn_show_state.Size = new System.Drawing.Size(140, 22);
             this.btn_show_state.StyleController = this.layoutControl1;
             this.btn_show_state.TabIndex = 107;
             this.btn_show_state.Text = "عرض الحالات";
@@ -209,13 +197,13 @@
             // 
             // lkp_keep_rate
             // 
-            this.lkp_keep_rate.Location = new System.Drawing.Point(420, 186);
+            this.lkp_keep_rate.Location = new System.Drawing.Point(391, 186);
             this.lkp_keep_rate.Name = "lkp_keep_rate";
             this.lkp_keep_rate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_keep_rate.Properties.NullText = "";
             this.lkp_keep_rate.Properties.ShowHeader = false;
-            this.lkp_keep_rate.Size = new System.Drawing.Size(115, 20);
+            this.lkp_keep_rate.Size = new System.Drawing.Size(169, 20);
             this.lkp_keep_rate.StyleController = this.layoutControl1;
             this.lkp_keep_rate.TabIndex = 105;
             this.lkp_keep_rate.Enter += new System.EventHandler(this.lkp_keep_rate_Enter);
@@ -228,7 +216,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_pers_state_change.Properties.NullText = "";
             this.lkp_pers_state_change.Properties.ShowHeader = false;
-            this.lkp_pers_state_change.Size = new System.Drawing.Size(85, 20);
+            this.lkp_pers_state_change.Size = new System.Drawing.Size(57, 20);
             this.lkp_pers_state_change.StyleController = this.layoutControl1;
             this.lkp_pers_state_change.TabIndex = 104;
             // 
@@ -255,7 +243,7 @@
             // menu_delete
             // 
             this.menu_delete.Name = "menu_delete";
-            this.menu_delete.Size = new System.Drawing.Size(180, 22);
+            this.menu_delete.Size = new System.Drawing.Size(95, 22);
             this.menu_delete.Text = "حذف";
             this.menu_delete.Click += new System.EventHandler(this.menu_delete_Click);
             // 
@@ -281,13 +269,13 @@
             // 
             // lkp_state
             // 
-            this.lkp_state.Location = new System.Drawing.Point(196, 186);
+            this.lkp_state.Location = new System.Drawing.Point(168, 186);
             this.lkp_state.Name = "lkp_state";
             this.lkp_state.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_state.Properties.NullText = "";
             this.lkp_state.Properties.ShowHeader = false;
-            this.lkp_state.Size = new System.Drawing.Size(113, 20);
+            this.lkp_state.Size = new System.Drawing.Size(112, 20);
             this.lkp_state.StyleController = this.layoutControl1;
             this.lkp_state.TabIndex = 19;
             this.lkp_state.Enter += new System.EventHandler(this.lkp_state_Enter);
@@ -317,10 +305,11 @@
             // 
             // chbl_type
             // 
-            this.chbl_type.Location = new System.Drawing.Point(755, 186);
+            this.chbl_type.CheckOnClick = true;
+            this.chbl_type.Location = new System.Drawing.Point(671, 186);
             this.chbl_type.MultiColumn = true;
             this.chbl_type.Name = "chbl_type";
-            this.chbl_type.Size = new System.Drawing.Size(216, 46);
+            this.chbl_type.Size = new System.Drawing.Size(300, 46);
             this.chbl_type.StyleController = this.layoutControl1;
             this.chbl_type.TabIndex = 15;
             this.chbl_type.Enter += new System.EventHandler(this.chbl_type_Enter);
@@ -525,31 +514,20 @@
             // 
             this.layoutControlGroup3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem12,
-            this.layoutControlItem19});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(622, 141);
+            this.layoutControlItem12});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(647, 141);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(353, 95);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(328, 95);
             this.layoutControlGroup3.Text = "الأدوار المكلف بها";
             // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.chbl_type;
-            this.layoutControlItem12.Location = new System.Drawing.Point(109, 0);
+            this.layoutControlItem12.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(220, 50);
+            this.layoutControlItem12.Size = new System.Drawing.Size(304, 50);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
-            // 
-            // layoutControlItem19
-            // 
-            this.layoutControlItem19.Control = this.dtp_type_change;
-            this.layoutControlItem19.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(109, 50);
-            this.layoutControlItem19.Text = "تاريخ الدور";
-            this.layoutControlItem19.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem19.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutControlGroup1
             // 
@@ -561,15 +539,15 @@
             this.layoutControlItem20});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 141);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(396, 95);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(367, 95);
             this.layoutControlGroup1.Text = "حالة الشخص";
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.lkp_state;
-            this.layoutControlItem5.Location = new System.Drawing.Point(172, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(144, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(200, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(199, 24);
             this.layoutControlItem5.Text = "الحالة الحالية";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(80, 13);
             // 
@@ -578,7 +556,7 @@
             this._state_change.Control = this.lkp_pers_state_change;
             this._state_change.Location = new System.Drawing.Point(0, 26);
             this._state_change.Name = "_state_change";
-            this._state_change.Size = new System.Drawing.Size(172, 24);
+            this._state_change.Size = new System.Drawing.Size(144, 24);
             this._state_change.Text = "مغير الحالة";
             this._state_change.TextSize = new System.Drawing.Size(80, 13);
             // 
@@ -587,16 +565,16 @@
             this.layoutControlItem16.Control = this.btn_show_state;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(172, 26);
+            this.layoutControlItem16.Size = new System.Drawing.Size(144, 26);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
             // layoutControlItem20
             // 
             this.layoutControlItem20.Control = this.dtp_state_change;
-            this.layoutControlItem20.Location = new System.Drawing.Point(172, 24);
+            this.layoutControlItem20.Location = new System.Drawing.Point(144, 24);
             this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(200, 26);
+            this.layoutControlItem20.Size = new System.Drawing.Size(199, 26);
             this.layoutControlItem20.Text = "تاريخ تغير الحالة";
             this.layoutControlItem20.TextSize = new System.Drawing.Size(80, 13);
             // 
@@ -606,9 +584,9 @@
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.keep_rate,
             this.layoutControlItem18});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(396, 141);
+            this.layoutControlGroup4.Location = new System.Drawing.Point(367, 141);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(226, 95);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(280, 95);
             this.layoutControlGroup4.Text = "معدل الحفظ";
             // 
             // keep_rate
@@ -616,7 +594,7 @@
             this.keep_rate.Control = this.lkp_keep_rate;
             this.keep_rate.Location = new System.Drawing.Point(0, 0);
             this.keep_rate.Name = "keep_rate";
-            this.keep_rate.Size = new System.Drawing.Size(202, 24);
+            this.keep_rate.Size = new System.Drawing.Size(256, 24);
             this.keep_rate.Text = "معدل الحفظ";
             this.keep_rate.TextSize = new System.Drawing.Size(80, 13);
             // 
@@ -625,7 +603,7 @@
             this.layoutControlItem18.Control = this.dtp_rate_change;
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(202, 26);
+            this.layoutControlItem18.Size = new System.Drawing.Size(256, 26);
             this.layoutControlItem18.Text = "تاريخ تغير المعدل ";
             this.layoutControlItem18.TextSize = new System.Drawing.Size(80, 13);
             // 
@@ -674,7 +652,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._state_change)).EndInit();
@@ -730,9 +707,7 @@
         private System.Windows.Forms.DateTimePicker dtp_in_date;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
         private System.Windows.Forms.DateTimePicker dtp_state_change;
-        private System.Windows.Forms.DateTimePicker dtp_type_change;
         private System.Windows.Forms.DateTimePicker dtp_rate_change;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

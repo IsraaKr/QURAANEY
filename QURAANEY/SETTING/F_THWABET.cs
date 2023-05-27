@@ -53,7 +53,8 @@ namespace QURAANEY.SETTING
             load_types();
             load_keep_types();
 
-            dt = c_db.select(@"  SELECT name, value, value_id FROM dbo.T_DEFULT_THWABET");
+            dt = c_db.select(@"  SELECT        name AS [اسم الافتراضي], value AS القيمة, value_id AS المعرف
+FROM            dbo.T_DEFULT_THWABET");
             lkp_evaluation_def.EditValue = int.Parse(dt.Rows[4][2].ToString());
             //lkp_evaluation_def.Properties.Columns["id"].Visible = false;
             lkp_state_def.EditValue = int.Parse(dt.Rows[0][2].ToString());
@@ -115,9 +116,10 @@ namespace QURAANEY.SETTING
             clear_state();
             //الحالات 
             txt_id.Text = set_auto_id_person("SELECT    id  FROM     dbo.T_PERS_STATE");
-            dt = c_db.select(@" SELECT id, name FROM  dbo.T_PERS_STATE");
-            lbc_state.lbc_iniatalize_data(dt, "name", "id");
-            lkp_state_def.lkp_iniatalize_data(dt, "name", "id");
+            dt = c_db.select(@" SELECT        id AS المعرف, name AS [اسم الحالة]
+FROM            dbo.T_PERS_STATE");
+            lbc_state.lbc_iniatalize_data(dt, "اسم الحالة", "المعرف");
+            lkp_state_def.lkp_iniatalize_data(dt, "اسم الحالة", "المعرف");
 
             if (dt.Rows.Count == 1)
             {
@@ -212,9 +214,10 @@ namespace QURAANEY.SETTING
             clear_state();
             //أنواع المستخدمين
             txt_id_user.Text = set_auto_id_person("SELECT    id  FROM    dbo.T_USERS_TYPES");
-            dt = c_db.select(@" SELECT   id, name FROM  dbo.T_USERS_TYPES");
-            lbc_user_type.lbc_iniatalize_data(dt, "name", "id");
-            lkp_user_type_def.lkp_iniatalize_data(dt, "name", "id");
+            dt = c_db.select(@" SELECT        id AS المعرف, name AS [نوع المستخدم]
+FROM            dbo.T_USERS_TYPES");
+            lbc_user_type.lbc_iniatalize_data(dt, "نوع المستخدم", "المعرف");
+            lkp_user_type_def.lkp_iniatalize_data(dt, "نوع المستخدم", "المعرف");
 
             if (dt.Rows.Count == 1)
             {
@@ -311,9 +314,9 @@ namespace QURAANEY.SETTING
             clear_rate();
             //معدل الحفظ
             txt_id_rate.Text = set_auto_id_person("SELECT    id  FROM    dbo.T_PERS_RATE_KEEP");
-            dt = c_db.select(@"  SELECT id, name, num, rate_in_days
-                            FROM dbo.T_PERS_RATE_KEEP");
-            lkp_keep_rate_def.lkp_iniatalize_data(dt, "name", "id");
+            dt = c_db.select(@"  SELECT        id AS المعرف, name AS [معدل الحفظ], num AS رقما, rate_in_days AS [عدد الأيام]
+                      FROM            dbo.T_PERS_RATE_KEEP");
+            lkp_keep_rate_def.lkp_iniatalize_data(dt, "معدل الحفظ", "المعرف");
 
             if (dt.Rows.Count == 1)
             {
@@ -327,10 +330,10 @@ namespace QURAANEY.SETTING
                 btn_del_rate.Enabled = true;
 
             gc_ratee.DataSource = dt;
-            gv_ratee.Columns["id"].Caption = "تسلسل";
-            gv_ratee.Columns["name"].Caption = "النص";
-            gv_ratee.Columns["num"].Caption = "عدد الصفحات";
-            gv_ratee.Columns["rate_in_days"].Caption = "عدد الأيام";
+            //gv_ratee.Columns["id"].Caption = "تسلسل";
+            //gv_ratee.Columns["name"].Caption = "النص";
+            //gv_ratee.Columns["num"].Caption = "عدد الصفحات";
+            //gv_ratee.Columns["rate_in_days"].Caption = "عدد الأيام";
 
           
 
@@ -421,10 +424,10 @@ namespace QURAANEY.SETTING
             // التقيم
             txt_id_evaluation.Text = set_auto_id_person("SELECT   id  FROM     dbo.T_SOURA_EVALUATION");
    
-            dt = c_db.select(@" SELECT        id, name
-                      FROM dbo.T_SOURA_EVALUATION");
-            lkp_evaluation_def.lkp_iniatalize_data(dt, "name", "id");
-            lbc_evaluation.lbc_iniatalize_data(dt, "name", "id");
+            dt = c_db.select(@" SELECT        id AS المعرف, name AS التقيم
+FROM            dbo.T_SOURA_EVALUATION");
+            lkp_evaluation_def.lkp_iniatalize_data(dt, "التقيم", "المعرف");
+            lbc_evaluation.lbc_iniatalize_data(dt, "التقيم", "المعرف");
 
             if (dt.Rows.Count == 1)
             {
@@ -512,11 +515,11 @@ namespace QURAANEY.SETTING
             clear_pers_type();
             //الأدوار
             txt_id_pers_type.Text = set_auto_id_person("SELECT    id  FROM     dbo.T_PERS_TYPE");
-            dt = c_db.select(@"  SELECT id, name
-                      FROM dbo.T_PERS_TYPE");
-            lbc_pers_type.lbc_iniatalize_data(dt, "name", "id");
-            lkp_pers_type_def.lkp_iniatalize_data(dt, "name", "id");
-           
+            dt = c_db.select(@"  SELECT        id AS المعرف, name AS الدور
+FROM            dbo.T_PERS_TYPE");
+            lbc_pers_type.lbc_iniatalize_data(dt, "الدور", "المعرف");
+            lkp_pers_type_def.lkp_iniatalize_data(dt, "الدور", "المعرف");
+
             if (dt.Rows.Count == 1)
             {
                 lbc_pers_type.Enabled = false;
@@ -531,14 +534,42 @@ namespace QURAANEY.SETTING
                 lbc_pers_type.Enabled = true;
                 btn_del_pers_type.Enabled = true;
             }
-         
 
-            dt = c_db.select(@" SELECT dbo.T_PERSONE.name AS[اسم الحافظ], dbo.T_PERS_TYPE.name AS الدور
-                               FROM            dbo.T_PERSONE LEFT OUTER JOIN
-                         dbo.T_PERS_TYPE_CHANGE ON dbo.T_PERSONE.id = dbo.T_PERS_TYPE_CHANGE.pers_id LEFT OUTER JOIN
-                         dbo.T_PERS_TYPE ON dbo.T_PERS_TYPE_CHANGE.type_id = dbo.T_PERS_TYPE.id ");
-            gc_pers_type.DataSource = dt ;
-          
+            show_graid_pers_type();
+
+        }
+
+        private void show_graid_pers_type()
+        {
+            dt = c_db.select(@" SELECT dbo.T_PERS_TYPES_TRUE_FALSE.*
+                                   FROM            dbo.T_PERS_TYPES_TRUE_FALSE ");
+
+            int count = 0;
+            DataTable dt_show_count = new DataTable();
+            dt_show_count.Columns.Add("الدور");
+            dt_show_count.Columns.Add("عدد الاشخاص");
+            foreach (DataColumn col in dt.Columns)
+            {
+                int index = dt.Columns.IndexOf(col);
+                if (index > 1)
+                {
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        if (dt.Rows[i][index].ToString() != null && dt.Rows[i][index].ToString() != string.Empty)
+                        {
+                            Boolean state = Convert.ToBoolean(dt.Rows[i][index].ToString());
+                            if (state == true)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    dt_show_count.Rows.Add(col, count);
+                }
+                count = 0;
+            }
+
+            gc_pers_type.DataSource = dt_show_count;
         }
 
         private void btn_save_pers_type_Click(object sender, EventArgs e)
@@ -580,7 +611,7 @@ namespace QURAANEY.SETTING
                     int done = c_db.insert_upadte_delete(sql);
                     try
                     {
-                        c_db.alter_pers_types(" drop ", txt_pers_type.Text.Trim());
+                        c_db.alter_pers_types("drop", txt_pers_type.Text.Trim());
                     }
                     catch (Exception ex)
                     {
@@ -624,11 +655,11 @@ namespace QURAANEY.SETTING
         {
             clear_keep_type();
             txt_id_keep_type.Text = set_auto_id_person("SELECT        id FROM   dbo.T_SOURA_KEEP_TYPE");
-            dt = c_db.select(@" SELECT        id, name
+            dt = c_db.select(@" SELECT        id AS المعرف, name AS [نوع الحفظ]
 FROM            dbo.T_SOURA_KEEP_TYPE ");
-            lbc_keep_type.lbc_iniatalize_data(dt, "name", "id");
-            lkp_keep_type_def.lkp_iniatalize_data(dt, "name", "id");
-     
+            lbc_keep_type.lbc_iniatalize_data(dt, "نوع الحفظ", "المعرف");
+            lkp_keep_type_def.lkp_iniatalize_data(dt, "نوع الحفظ", "المعرف");
+
             if (dt.Rows.Count == 1)
             {
                 lbc_keep_type.Enabled = false;
@@ -643,14 +674,14 @@ FROM            dbo.T_SOURA_KEEP_TYPE ");
                 lbc_keep_type.Enabled = true;
                 btn_del_keep_type.Enabled = true;
             }
-          
 
-            dt = c_db.select(@" SELECT dbo.T_PERSONE.name AS[اسم الحافظ], dbo.T_PERS_TYPE.name AS الدور
-                               FROM            dbo.T_PERSONE LEFT OUTER JOIN
-                         dbo.T_PERS_TYPE_CHANGE ON dbo.T_PERSONE.id = dbo.T_PERS_TYPE_CHANGE.pers_id LEFT OUTER JOIN
-                         dbo.T_PERS_TYPE ON dbo.T_PERS_TYPE_CHANGE.type_id = dbo.T_PERS_TYPE.id ");
+
+            dt = c_db.select(@" SELECT        dbo.T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], COUNT(DISTINCT dbo.T_SOURA_KEEP.pers_hafez_id) AS [عدد الأشخاص]
+FROM            dbo.T_SOURA_KEEP_TYPE LEFT OUTER JOIN
+                         dbo.T_SOURA_KEEP ON dbo.T_SOURA_KEEP_TYPE.id = dbo.T_SOURA_KEEP.keep_type_id
+GROUP BY dbo.T_SOURA_KEEP_TYPE.name ");
             gc_pers_type.DataSource = dt;
-         
+
         }
         private void btn_kep_type_save_Click(object sender, EventArgs e)
         {
@@ -695,7 +726,7 @@ FROM            dbo.T_SOURA_KEEP_TYPE ");
                 {
                     string sql = @" DELETE FROM dbo.T_SOURA_KEEP_TYPE
             WHERE      (id = " + int.Parse(txt_id_keep_type.Text) + " )";
-            int done = c_db.insert_upadte_delete(sql);
+                    int done = c_db.insert_upadte_delete(sql);
                     load_data("d");
                     delete();
                 }

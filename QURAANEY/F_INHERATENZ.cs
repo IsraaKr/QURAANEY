@@ -85,7 +85,7 @@ namespace QURAANEY
         {
             this.Close();
         }
-        public virtual void show()
+        public virtual void show_rep()
         {        
         }
         //لتفريغ الحقول و لتغير جملة الستاتس
@@ -110,9 +110,9 @@ namespace QURAANEY
                     else if (c is DateTimePicker)
                         (c as DateTimePicker).Value = DateTime.Now;
                     else if (c is System.Windows.Forms.ComboBox)
-                        (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
-                    else if (c is GridControl)
-                           (c as GridControl).DataSource = null;
+                       (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
+                    //else if (c is GridControl)
+                    //       (c as GridControl).DataSource = null;
                     //else if (c is GridView)
                     //    (c as GridView).Columns.Clear() ;
                     else
@@ -216,7 +216,7 @@ namespace QURAANEY
 
         private void btn_show_Click(object sender, EventArgs e)
         {
-            show();
+            show_rep();
         }
     }
 }

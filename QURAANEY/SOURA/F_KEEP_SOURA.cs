@@ -200,7 +200,6 @@ namespace QURAANEY.SOURA
                             }
                             load_data("i");
                             load_gc_snd_tail();                            
-                            clear(this.Controls);
                             
                         }
                         else
@@ -277,8 +276,7 @@ namespace QURAANEY.SOURA
                             if (y == 0)
                             {
                                 load_data("i");
-                                load_gc_snd_tail();
-                                clear(this.Controls);
+                                load_gc_snd_tail();                              
                             }
 
                         }
@@ -332,8 +330,7 @@ namespace QURAANEY.SOURA
                                     done = c_db.insert_upadte_delete(sql);
                                 }
                                 load_data("i");
-                                load_gc_snd_tail();
-                                clear(this.Controls);
+                                load_gc_snd_tail();                               
                             }
                             else
                                 MessageBox.Show("  !!!!!!! السجل الذي تحاول ادخاله موجود مسبقا  ", "معلومات", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -411,7 +408,7 @@ namespace QURAANEY.SOURA
                             {
                                 load_data("i");
                                 load_gc_snd_tail();
-                                clear(this.Controls);
+
                             }
 
                         }
@@ -462,7 +459,7 @@ namespace QURAANEY.SOURA
                             }
                             load_data("i");
                             load_gc_snd_tail();
-                            clear(this.Controls);
+                         
                         }
                         else if (dt.Rows.Count == last_aya_in_soura)
                         {
@@ -499,6 +496,7 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
 
             dt = c_db.select(sqll);
             gc.DataSource = dt;
+            gv.Columns[0].Visible = false;
 
 
             //تحميل التيل الحالة 
