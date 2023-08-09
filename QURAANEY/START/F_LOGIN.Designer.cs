@@ -30,7 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_LOGIN));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.btn_new_user = new DevExpress.XtraEditors.SimpleButton();
             this.btn_cancel = new DevExpress.XtraEditors.SimpleButton();
             this.btn_login = new DevExpress.XtraEditors.SimpleButton();
@@ -39,8 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txt_username = new DevExpress.XtraEditors.TextEdit();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txt_password.Properties)).BeginInit();
@@ -58,6 +58,18 @@
             this.panel2.Size = new System.Drawing.Size(593, 156);
             this.panel2.TabIndex = 7;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Wide Latin", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(214, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(165, 79);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "قرآني";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
@@ -74,6 +86,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(463, 411);
             this.panel1.TabIndex = 8;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(178, 280);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.checkBox1.Size = new System.Drawing.Size(106, 17);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "عرض كلمة المرور";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // btn_new_user
             // 
@@ -168,29 +192,6 @@
             this.txt_username.Size = new System.Drawing.Size(298, 20);
             this.txt_username.TabIndex = 8;
             this.txt_username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lkp_username_KeyPress);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(178, 280);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox1.Size = new System.Drawing.Size(106, 17);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "عرض كلمة المرور";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Wide Latin", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(214, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(165, 79);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "قرآني";
             // 
             // F_LOGIN
             // 

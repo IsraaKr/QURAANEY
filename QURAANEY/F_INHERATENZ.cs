@@ -19,6 +19,17 @@ namespace QURAANEY
         {
             InitializeComponent();
         }
+        public void view_inheretanz_butomes(Boolean save, Boolean neew, Boolean delelte, Boolean clear,
+           Boolean print, Boolean show, Boolean exite)
+        {          
+            btn_save.Visible = save;
+            btn_new.Visible = neew;
+            btn_delete.Visible = delelte;
+            btn_clear.Visible = clear;
+            btn_print.Visible = print;
+            btn_show.Visible = show;
+            btn_exite.Visible = exite;
+        }
         public void change_states_message(string status_mess)
         {
             bar_states.Caption = "...";
@@ -91,7 +102,7 @@ namespace QURAANEY
         //لتفريغ الحقول و لتغير جملة الستاتس
         public virtual void clear(Control.ControlCollection s_controls)
         {
-       //كود لتفريغ كل محتوى الكونترولات
+            //كود لتفريغ كل محتوى الكونترولات
             Action<Control.ControlCollection> func = null;
             func = (controls) =>
             {
@@ -99,22 +110,54 @@ namespace QURAANEY
                     if (c is TextBox)
                         (c as TextBox).Clear();
                     else if (c is DateEdit)
-                       // (c as DateEdit).DateTime = DateTime.Now;
-                            (c as DateEdit).Text = string.Empty;
+                        // (c as DateEdit).DateTime = DateTime.Now;
+                        (c as DateEdit).Text = string.Empty;
                     else if (c is TimeEdit)
                         (c as TimeEdit).Time = DateTime.Now;
                     else if (c is LookUpEdit)
-                         (c as LookUpEdit).EditValue=-1;
-                        // (c as LookUpEdit).Text = (c as LookUpEdit).Properties.NullText;
-                    //    (c as LookUpEdit).Text = string.Empty;
+                        (c as LookUpEdit).EditValue = -1;
+                    // (c as LookUpEdit).Text = (c as LookUpEdit).Properties.NullText;
+                    // (c as LookUpEdit).Text = string.Empty;
                     else if (c is DateTimePicker)
                         (c as DateTimePicker).Value = DateTime.Now;
                     else if (c is System.Windows.Forms.ComboBox)
-                       (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
+                        (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
                     //else if (c is GridControl)
                     //       (c as GridControl).DataSource = null;
                     //else if (c is GridView)
                     //    (c as GridView).Columns.Clear() ;
+                    else
+                        func(c.Controls);
+            };
+        }
+        public virtual void Change_font_size(Control.ControlCollection s_controls ,int font_size , string font_name )
+        {
+            //كود لتفريغ كل محتوى الكونترولات
+            Action<Control.ControlCollection> func = null;
+            func = (controls) =>
+            {
+                foreach (Control c in controls)
+                    //if (c is TextBox)
+                    //    (c as TextBox).Font.Size =font_size;
+                   if (c is DateEdit)
+                        // (c as DateEdit).DateTime = DateTime.Now;
+                        (c as DateEdit).Properties.Appearance.FontSizeDelta =font_size ;
+                    else if (c is TimeEdit)
+                        (c as TimeEdit).Properties.Appearance.FontSizeDelta = font_size;
+                    else if (c is LookUpEdit)
+                        (c as LookUpEdit).Properties.Appearance.FontSizeDelta = font_size;
+                    else if (c is TextEdit)
+                        (c as TextEdit).Properties.Appearance.FontSizeDelta = font_size;
+                    // (c as LookUpEdit).Text = (c as LookUpEdit).Properties.NullText;
+                    // (c as LookUpEdit).Text = string.Empty;
+                    //else if (c is DateTimePicker)
+                    //    (c as DateTimePicker).Properties.Appearance.FontSizeDelta = font_size;
+                    ////else if (c is System.Windows.Forms.ComboBox)
+                    //    (c as System.Windows.Forms.ComboBox).SelectedIndex = -1;
+                    //else if (c is GridControl)
+                    //    (c as GridControl).Properties.Appearance.FontSizeDelta = font_size;
+                    //else if (c is GridView)
+                    //    (c as GridView).Properties.Appearance.FontSizeDelta = font_size;
                     else
                         func(c.Controls);
             };
@@ -156,14 +199,14 @@ namespace QURAANEY
       
         private void F_INHERATENZ_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode==Keys.F1)
+            if (e.KeyCode==Keys.Enter)
                 save();
             if (e.KeyCode == Keys.F2)
                 neew();
-            if (e.KeyCode == Keys.F3)
+            if (e.KeyCode == Keys.Delete)
                 delete();
-            if (e.KeyCode == Keys.F4)
-                load_data("");
+            if (e.KeyCode == Keys.Escape)
+                clear(this.Controls);
 
         }
 

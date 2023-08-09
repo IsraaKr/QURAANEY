@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace QURAANEY.SETTING
 {
-    public partial class F_THWABET :F_INHERATENZ
+    public partial class F_THWABET : F_INHERATENZ
     {
-        DataTable dt ;
+        DataTable dt;
         string maxid;
 
         public F_THWABET()
         {
-            InitializeComponent();         
+            InitializeComponent();
             view_inheretanz_butomes();
             load_data("");
         }
@@ -42,7 +42,7 @@ namespace QURAANEY.SETTING
             else
                 x = int.Parse(maxid);
             x++;
-           return x.ToString();
+            return x.ToString();
         }
         public override void load_data(string status_mess)
         {
@@ -95,7 +95,7 @@ FROM            dbo.T_DEFULT_THWABET");
             c_db.insert_upadte_delete(@"UPDATE     dbo.T_DEFULT_THWABET
                       SET           value_id = " + lkp_evaluation_def.EditValue + ", " +
                           " value  =N'" + lkp_evaluation_def.Text + "' " +
-                          " WHERE        (id = 5)"); 
+                          " WHERE        (id = 5)");
             c_db.insert_upadte_delete(@"UPDATE     dbo.T_DEFULT_THWABET
                       SET           value_id = " + lkp_keep_type_def.EditValue + ", " +
                           " value  =N'" + lkp_keep_type_def.Text + "' " +
@@ -130,11 +130,11 @@ FROM            dbo.T_PERS_STATE");
                               " WHERE        (id = 1)");
             }
             else
-            { 
+            {
                 lbc_state.Enabled = true;
-            btn_delete_state.Enabled = true;
-        }
-            
+                btn_delete_state.Enabled = true;
+            }
+
 
             //  lkp_state_def.Properties.Columns["id"].Visible = false;
 
@@ -144,8 +144,8 @@ FROM            dbo.T_PERS_STATE");
                          dbo.T_PERS_STATE ON dbo.T_PERS_STATE_CHANGE.state_id = dbo.T_PERS_STATE.id");
             gc.DataSource = dt;
 
-         
-      
+
+
         }
         private void btn_save_state_Click(object sender, EventArgs e)
         {
@@ -164,7 +164,7 @@ FROM            dbo.T_PERS_STATE");
                 save();
             }
             load_state();
-        
+
         }
         private void btn_delete_state_Click(object sender, EventArgs e)
         {
@@ -184,16 +184,16 @@ FROM            dbo.T_PERS_STATE");
                     delete();
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("لايمكن حذف العنصر المختار بسبب استخدامه في أماكن أخرى");
             }
-           
+
             load_state();
-        }      
+        }
         private void lbc_state_DoubleClick(object sender, EventArgs e)
         {
-           txt_id.Text =lbc_state.GetItemValue( lbc_state.SelectedIndex).ToString();
+            txt_id.Text = lbc_state.GetItemValue(lbc_state.SelectedIndex).ToString();
             txt_state.Text = lbc_state.GetItemText(lbc_state.SelectedIndex).ToString();
 
         }
@@ -236,15 +236,15 @@ FROM            dbo.T_USERS_TYPES");
                 btn_delete_user.Enabled = true;
             }
 
-           
+
 
             dt = c_db.select(@" SELECT dbo.T_USERS.name AS[اسم المستخدم], dbo.T_USERS_TYPES.name AS[نوع المستخدم]
                             FROM dbo.T_USERS LEFT OUTER JOIN
                          dbo.T_USERS_TYPES ON dbo.T_USERS.user_type_id = dbo.T_USERS_TYPES.id");
             gc_user.DataSource = dt;
 
-            
-           
+
+
         }
         private void btn_save_user_Click(object sender, EventArgs e)
         {
@@ -335,7 +335,7 @@ FROM            dbo.T_USERS_TYPES");
             //gv_ratee.Columns["num"].Caption = "عدد الصفحات";
             //gv_ratee.Columns["rate_in_days"].Caption = "عدد الأيام";
 
-          
+
 
             dt = c_db.select(@"  SELECT dbo.T_PERSONE.name AS[اسم الحافظ], dbo.T_PERS_RATE_KEEP.name AS[معدل الحفظ], dbo.T_PERS_RATE_KEEP.num AS[المعدل رقما],
                 dbo.T_PERS_RATE_KEEP.rate_in_days AS بالأيام
@@ -343,13 +343,13 @@ FROM            dbo.T_USERS_TYPES");
                          dbo.T_PERS_RATE_KEEP_CHANGE ON dbo.T_PERSONE.id = dbo.T_PERS_RATE_KEEP_CHANGE.pers_id LEFT OUTER JOIN
                          dbo.T_PERS_RATE_KEEP ON dbo.T_PERS_RATE_KEEP_CHANGE.rate_id = dbo.T_PERS_RATE_KEEP.id");
             gc_rate.DataSource = dt;
-           
+
 
         }
         private void btn_save_rate_Click(object sender, EventArgs e)
         {
             if (txt_rate.Text == string.Empty || txt_rate_dayes.Text == string.Empty ||
-                txt_rate_pages.Text==string.Empty)
+                txt_rate_pages.Text == string.Empty)
             {
                 txt_rate.ErrorText = "حقل مطلوب";
                 txt_rate_dayes.ErrorText = "حقل مطلوب";
@@ -361,7 +361,7 @@ FROM            dbo.T_USERS_TYPES");
                 string sql = @" INSERT INTO dbo.T_PERS_RATE_KEEP
                          (name, num, rate_in_days)
                           VALUES(N'" + txt_rate.Text + "'," +
-                          ""+int.Parse( txt_rate_pages.Text) + "," +
+                          "" + int.Parse(txt_rate_pages.Text) + "," +
                           "" + int.Parse(txt_rate_dayes.Text) + ")";
                 int done = c_db.insert_upadte_delete(sql);
                 load_data("i");
@@ -382,7 +382,7 @@ FROM            dbo.T_USERS_TYPES");
                 {
                     string sql = @" DELETE FROM dbo.T_PERS_RATE_KEEP
                  WHERE      (id = " + int.Parse(txt_id_rate.Text) + " )";
-                int done = c_db.insert_upadte_delete(sql);
+                    int done = c_db.insert_upadte_delete(sql);
                     load_data("d");
 
                     delete();
@@ -415,7 +415,7 @@ FROM            dbo.T_USERS_TYPES");
             txt_rate_pages.Text = gv_ratee.GetRowCellValue(gv_ratee.FocusedRowHandle, gv_ratee.Columns[2]).ToString();
         }
         #endregion
-                 
+
 
         #region evaluation _page
         private void load_evaluation()
@@ -423,7 +423,7 @@ FROM            dbo.T_USERS_TYPES");
             clear_evaluatin();
             // التقيم
             txt_id_evaluation.Text = set_auto_id_person("SELECT   id  FROM     dbo.T_SOURA_EVALUATION");
-   
+
             dt = c_db.select(@" SELECT        id AS المعرف, name AS التقيم
 FROM            dbo.T_SOURA_EVALUATION");
             lkp_evaluation_def.lkp_iniatalize_data(dt, "التقيم", "المعرف");
@@ -449,7 +449,7 @@ FROM            dbo.T_SOURA_EVALUATION");
         }
         private void btn_save_evaluation_Click(object sender, EventArgs e)
         {
-            if (txt_evaluation.Text == string.Empty )
+            if (txt_evaluation.Text == string.Empty)
             {
                 txt_evaluation.ErrorText = "حقل مطلوب";
                 return;
@@ -458,12 +458,12 @@ FROM            dbo.T_SOURA_EVALUATION");
             {
                 string sql = @"  INSERT INTO dbo.T_SOURA_EVALUATION
                          (name)
-                            VALUES(N'"+ txt_evaluation.Text+"') ";
+                            VALUES(N'" + txt_evaluation.Text + "') ";
                 int done = c_db.insert_upadte_delete(sql);
                 load_data("i");
                 save();
             }
-            load_evaluation();          
+            load_evaluation();
         }
         private void btn_clear_evaluation_Click(object sender, EventArgs e)
         {
@@ -479,7 +479,7 @@ FROM            dbo.T_SOURA_EVALUATION");
         {
             try
             {
-                if (txt_evaluation.Text == string.Empty )
+                if (txt_evaluation.Text == string.Empty)
                 {
                     MessageBox.Show("الرجاء اختيار عنصر من القائمة لحذفه");
                     return;
@@ -488,7 +488,7 @@ FROM            dbo.T_SOURA_EVALUATION");
                 {
                     string sql = @" DELETE FROM dbo.T_SOURA_EVALUATION
             WHERE      (id = " + int.Parse(txt_id_evaluation.Text) + " )";
-            int done = c_db.insert_upadte_delete(sql);
+                    int done = c_db.insert_upadte_delete(sql);
                     load_data("d");
 
                     delete();
@@ -589,7 +589,7 @@ FROM            dbo.T_PERS_TYPE");
                 c_db.insert_upadte_delete(@" update T_PERS_TYPES_TRUE_FALSE set " + txt_pers_type.Text.Trim() + " = 'false' ");
 
                 load_data("i");
-            
+
                 save();
             }
             load_types();
@@ -618,13 +618,13 @@ FROM            dbo.T_PERS_TYPE");
                         MessageBox.Show(" " + ex);
                     }
 
-                    load_data("d");                  
+                    load_data("d");
                     delete();
                 }
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
-                MessageBox.Show("لايمكن حذف العنصر المختار بسبب استخدامه في أماكن أخرى" +ex);
+                MessageBox.Show("لايمكن حذف العنصر المختار بسبب استخدامه في أماكن أخرى" + ex);
             }
             load_types();
         }

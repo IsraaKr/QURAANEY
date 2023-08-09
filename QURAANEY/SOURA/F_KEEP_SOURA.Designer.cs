@@ -161,7 +161,7 @@
             // 
             // pan_btn
             // 
-            this.pan_btn.Location = new System.Drawing.Point(0, 320);
+            this.pan_btn.Location = new System.Drawing.Point(0, 455);
             this.pan_btn.Size = new System.Drawing.Size(1054, 38);
             // 
             // btn_exite
@@ -204,7 +204,7 @@
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(715, 175, 650, 400);
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1054, 320);
+            this.layoutControl1.Size = new System.Drawing.Size(1054, 455);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -291,7 +291,7 @@
             this.lkp_keep_type.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lkp_keep_type.Size = new System.Drawing.Size(132, 20);
             this.lkp_keep_type.StyleController = this.layoutControl1;
-            this.lkp_keep_type.TabIndex = 55;
+            this.lkp_keep_type.TabIndex = 19;
             // 
             // lkp_aya_soura
             // 
@@ -307,7 +307,7 @@
             this.lkp_aya_soura.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lkp_aya_soura.Size = new System.Drawing.Size(273, 20);
             this.lkp_aya_soura.StyleController = this.layoutControl1;
-            this.lkp_aya_soura.TabIndex = 54;
+            this.lkp_aya_soura.TabIndex = 4;
             this.lkp_aya_soura.EditValueChanged += new System.EventHandler(this.lkp_aya_soura_EditValueChanged);
             // 
             // lkp_pers_name
@@ -323,7 +323,7 @@
             this.lkp_pers_name.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lkp_pers_name.Size = new System.Drawing.Size(207, 20);
             this.lkp_pers_name.StyleController = this.layoutControl1;
-            this.lkp_pers_name.TabIndex = 52;
+            this.lkp_pers_name.TabIndex = 1;
             this.lkp_pers_name.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.lkp_pers_name_ProcessNewValue);
             this.lkp_pers_name.EditValueChanged += new System.EventHandler(this.lkp_pers_name_EditValueChanged);
             // 
@@ -333,7 +333,7 @@
             this.rdb_many_aya.Location = new System.Drawing.Point(834, 207);
             this.rdb_many_aya.Name = "rdb_many_aya";
             this.rdb_many_aya.Size = new System.Drawing.Size(96, 25);
-            this.rdb_many_aya.TabIndex = 47;
+            this.rdb_many_aya.TabIndex = 7;
             this.rdb_many_aya.TabStop = true;
             this.rdb_many_aya.Text = "أكثر من آية";
             this.rdb_many_aya.UseVisualStyleBackColor = true;
@@ -345,7 +345,7 @@
             this.rdb_one_aya.Location = new System.Drawing.Point(834, 178);
             this.rdb_one_aya.Name = "rdb_one_aya";
             this.rdb_one_aya.Size = new System.Drawing.Size(96, 25);
-            this.rdb_one_aya.TabIndex = 46;
+            this.rdb_one_aya.TabIndex = 5;
             this.rdb_one_aya.TabStop = true;
             this.rdb_one_aya.Text = "آية واحدة";
             this.rdb_one_aya.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@
             this.txt_aya.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_aya.Size = new System.Drawing.Size(242, 20);
             this.txt_aya.StyleController = this.layoutControl1;
-            this.txt_aya.TabIndex = 39;
+            this.txt_aya.TabIndex = 6;
             // 
             // txt_fpage1
             // 
@@ -377,7 +377,7 @@
             this.txt_fpage1.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_fpage1.Size = new System.Drawing.Size(50, 20);
             this.txt_fpage1.StyleController = this.layoutControl1;
-            this.txt_fpage1.TabIndex = 40;
+            this.txt_fpage1.TabIndex = 14;
             // 
             // txt_l_aya
             // 
@@ -391,14 +391,14 @@
             this.txt_l_aya.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_l_aya.Size = new System.Drawing.Size(50, 20);
             this.txt_l_aya.StyleController = this.layoutControl1;
-            this.txt_l_aya.TabIndex = 41;
+            this.txt_l_aya.TabIndex = 9;
             // 
             // rdb_aya
             // 
             this.rdb_aya.Location = new System.Drawing.Point(934, 154);
             this.rdb_aya.Name = "rdb_aya";
             this.rdb_aya.Size = new System.Drawing.Size(74, 78);
-            this.rdb_aya.TabIndex = 47;
+            this.rdb_aya.TabIndex = 3;
             this.rdb_aya.TabStop = true;
             this.rdb_aya.Text = "الآيات";
             this.rdb_aya.UseVisualStyleBackColor = true;
@@ -410,7 +410,7 @@
             this.rdb_many_page.Location = new System.Drawing.Point(834, 297);
             this.rdb_many_page.Name = "rdb_many_page";
             this.rdb_many_page.Size = new System.Drawing.Size(99, 25);
-            this.rdb_many_page.TabIndex = 47;
+            this.rdb_many_page.TabIndex = 13;
             this.rdb_many_page.TabStop = true;
             this.rdb_many_page.Text = "أكثر من صفحة";
             this.rdb_many_page.UseVisualStyleBackColor = true;
@@ -422,7 +422,7 @@
             this.rdb_one_page.Location = new System.Drawing.Point(834, 268);
             this.rdb_one_page.Name = "rdb_one_page";
             this.rdb_one_page.Size = new System.Drawing.Size(99, 25);
-            this.rdb_one_page.TabIndex = 46;
+            this.rdb_one_page.TabIndex = 11;
             this.rdb_one_page.TabStop = true;
             this.rdb_one_page.Text = "صفحة واحدة";
             this.rdb_one_page.UseVisualStyleBackColor = true;
@@ -440,14 +440,14 @@
             this.txt_page.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_page.Size = new System.Drawing.Size(242, 20);
             this.txt_page.StyleController = this.layoutControl1;
-            this.txt_page.TabIndex = 39;
+            this.txt_page.TabIndex = 12;
             // 
             // rdb_page
             // 
             this.rdb_page.Location = new System.Drawing.Point(937, 268);
             this.rdb_page.Name = "rdb_page";
             this.rdb_page.Size = new System.Drawing.Size(71, 54);
-            this.rdb_page.TabIndex = 47;
+            this.rdb_page.TabIndex = 10;
             this.rdb_page.TabStop = true;
             this.rdb_page.Text = "الصفحات";
             this.rdb_page.UseVisualStyleBackColor = true;
@@ -465,7 +465,7 @@
             this.txt_lpage.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_lpage.Size = new System.Drawing.Size(50, 20);
             this.txt_lpage.StyleController = this.layoutControl1;
-            this.txt_lpage.TabIndex = 41;
+            this.txt_lpage.TabIndex = 15;
             // 
             // txt_f_aya
             // 
@@ -479,7 +479,7 @@
             this.txt_f_aya.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txt_f_aya.Size = new System.Drawing.Size(50, 20);
             this.txt_f_aya.StyleController = this.layoutControl1;
-            this.txt_f_aya.TabIndex = 49;
+            this.txt_f_aya.TabIndex = 8;
             // 
             // gc
             // 
@@ -551,14 +551,14 @@
             this.dtp_sora_date.Location = new System.Drawing.Point(595, 415);
             this.dtp_sora_date.Name = "dtp_sora_date";
             this.dtp_sora_date.Size = new System.Drawing.Size(133, 22);
-            this.dtp_sora_date.TabIndex = 42;
+            this.dtp_sora_date.TabIndex = 20;
             // 
             // rdb_soura
             // 
             this.rdb_soura.Location = new System.Drawing.Point(943, 355);
             this.rdb_soura.Name = "rdb_soura";
             this.rdb_soura.Size = new System.Drawing.Size(67, 25);
-            this.rdb_soura.TabIndex = 48;
+            this.rdb_soura.TabIndex = 16;
             this.rdb_soura.TabStop = true;
             this.rdb_soura.Text = "السور";
             this.rdb_soura.UseVisualStyleBackColor = true;
@@ -578,7 +578,7 @@
             this.lkp_soura.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lkp_soura.Size = new System.Drawing.Size(353, 20);
             this.lkp_soura.StyleController = this.layoutControl1;
-            this.lkp_soura.TabIndex = 53;
+            this.lkp_soura.TabIndex = 17;
             this.lkp_soura.EditValueChanged += new System.EventHandler(this.lkp_soura_EditValueChanged);
             // 
             // lkp_pers_almustalem
@@ -595,7 +595,7 @@
             this.lkp_pers_almustalem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lkp_pers_almustalem.Size = new System.Drawing.Size(219, 20);
             this.lkp_pers_almustalem.StyleController = this.layoutControl1;
-            this.lkp_pers_almustalem.TabIndex = 52;
+            this.lkp_pers_almustalem.TabIndex = 2;
             // 
             // lkp_evaluation
             // 
@@ -612,7 +612,7 @@
             this.lkp_evaluation.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lkp_evaluation.Size = new System.Drawing.Size(133, 20);
             this.lkp_evaluation.StyleController = this.layoutControl1;
-            this.lkp_evaluation.TabIndex = 52;
+            this.lkp_evaluation.TabIndex = 18;
             // 
             // Root
             // 
@@ -1075,7 +1075,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1054, 380);
+            this.ClientSize = new System.Drawing.Size(1054, 515);
             this.Controls.Add(this.layoutControl1);
             this.Name = "F_KEEP_SOURA";
             this.Tag = "F_KEEP_SOURA";

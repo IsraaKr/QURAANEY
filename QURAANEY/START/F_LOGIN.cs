@@ -128,7 +128,7 @@ namespace QURAANEY
         {
             if (txt_username.Text =="admin" && txt_password.Text=="admin" )
             {
-                F_ADD_USER f = new F_ADD_USER();
+                F_ADD_USER f = new F_ADD_USER(false);
                 f.Show();
                 
             }
@@ -142,6 +142,11 @@ namespace QURAANEY
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             txt_password.Properties.PasswordChar = (txt_password.Properties.PasswordChar == '*') ? '\0' : '*';
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
     }

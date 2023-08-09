@@ -314,7 +314,6 @@
             this.tileControl11.MaxId = 16;
             this.tileControl11.Name = "tileControl11";
             this.tileControl11.Padding = new System.Windows.Forms.Padding(1);
-            this.tileControl11.Position = 246;
             this.tileControl11.Size = new System.Drawing.Size(260, 430);
             this.tileControl11.TabIndex = 91;
             this.tileControl11.Text = "tileControl1";
@@ -389,6 +388,7 @@
             this.tileItem8.Id = 13;
             this.tileItem8.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.tileItem8.Name = "tileItem8";
+            this.tileItem8.Visible = false;
             this.tileItem8.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.tileItem8_ItemClick);
             // 
             // ti_keep_rate
@@ -418,6 +418,7 @@
             this.ti_stste.Id = 11;
             this.ti_stste.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.ti_stste.Name = "ti_stste";
+            this.ti_stste.Visible = false;
             // 
             // ti_soura
             // 

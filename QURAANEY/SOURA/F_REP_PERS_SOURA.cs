@@ -8,17 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QURAANEY.CLASS_TABLES;
 
 namespace QURAANEY.SOURA
 {
-    public partial class F_REP_PERS_SOURA :F_INHERATENZ
+    public partial class F_REP_PERS_SOURA : F_INHERATENZ
     {
         public F_REP_PERS_SOURA()
         {
+            view_inheretanz_butomes(false, false, false, false, true, false, true);
+
             InitializeComponent();
             load_data("");
         }
-        public F_REP_PERS_SOURA( int id)
+        public F_REP_PERS_SOURA(int id)
         {
             id_pers = id;
             InitializeComponent();
@@ -27,7 +30,18 @@ namespace QURAANEY.SOURA
         DataTable dt;
         double count;
         string persent;
-        int id_pers=0;
+        int id_pers = 0;
+        public override void print()
+        {
+            if (lkp_name.Text==string.Empty)
+            {
+                MessageBox.Show(" الرجاء اختيار اسم لطباعة معلوماته", "معلومات",
+                MessageBoxButtons.OK , MessageBoxIcon.Information);
+                return;
+            }
+            C_MASTER.print_header("تقرير " + lkp_name.Text, gc);
+            base.print();
+        }
         public override void load_data(string status_mess)
         {
             dt = C_DB_QUERYS.get_person_name();
@@ -64,10 +78,10 @@ FROM            dbo.T_PERSONE INNER JOIN
         private void load_tail_state()
         {
             //تحميل التيل الحالة 
-            dt = C_DB_QUERYS.state_by_id(Convert.ToInt32(lkp_name.EditValue));
+            dt = C_PERS_STATE_sql.get_last_state_by_id(id_pers);
             if (dt.Rows.Count > 0)
             {
-                ti_state.Elements[1].Text = dt.Rows[0][0].ToString();
+                ti_state.Elements[1].Text = dt.Rows[0][3].ToString();
             }
             else
                 ti_state.Elements[1].Text = "...";
@@ -114,8 +128,8 @@ FROM            dbo.T_PERSONE INNER JOIN
         private void load_tail_page_keep()
         {
             //تحميل التيل نسبة حفظ الصفحات 
-            dt = C_DB_QUERYS.page_rate_by_id(Convert.ToInt32(lkp_name.EditValue));
-            count = ((Convert.ToInt32(dt.Rows[0][1].ToString()) * 0.1) / 604) / 0.1;
+            dt = C_DB_QUERYS.full_page_count_by_id(Convert.ToInt32(lkp_name.EditValue));
+            count = ((Convert.ToInt32(dt.Rows[0][2].ToString()) * 0.1) / 604) / 0.1;
             persent = count.ToString("p", CultureInfo.InvariantCulture);
             if (dt.Rows.Count > 0)
             {
@@ -129,7 +143,7 @@ FROM            dbo.T_PERSONE INNER JOIN
         {
             //تحميل التيل نسبة حفظ السور 
             dt = C_DB_QUERYS.soura_rate_by_id(Convert.ToInt32(lkp_name.EditValue));
-            count = ((Convert.ToInt32(dt.Rows[0][1].ToString()) * 0.1) / 114) / 0.1;
+            count = ((Convert.ToInt32(dt.Rows[0][2].ToString()) * 0.1) / 114) / 0.1;
             persent = count.ToString("p", CultureInfo.InvariantCulture);
             if (dt.Rows.Count > 0)
             {
@@ -155,7 +169,7 @@ FROM            dbo.T_PERSONE INNER JOIN
 
         private void F_REP_PERS_SOURA_Load(object sender, EventArgs e)
         {
-            if (id_pers !=0)
+            if (id_pers != 0)
                 lkp_name.EditValue = id_pers;
 
         }
@@ -164,7 +178,7 @@ FROM            dbo.T_PERSONE INNER JOIN
         {
 
             ch_page.Series["Series1"].Points.Clear();
-           DataTable dt_page = c_db.select(@"SELECT        count_page
+            DataTable dt_page = c_db.select(@"SELECT        count_page
                 FROM            dbo.V_COUNT_PAGE_WITHE_DATE
             WHERE(pers_hafez_id = " + lkp_name.EditValue + ")");
             if (dt_page.Rows.Count != 0)
@@ -185,11 +199,11 @@ FROM            dbo.T_PERSONE INNER JOIN
                 ch_page.Series["Series1"].Points[1].Color = Color.LightGray;
             }
 
-    }
+        }
 
         private void ti_fail_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-            F_FAIL_PERS f = new F_FAIL_PERS( int.Parse(lkp_name.EditValue.ToString()));
+            F_FAIL_PERS f = new F_FAIL_PERS(int.Parse(lkp_name.EditValue.ToString()));
             f.WindowState = FormWindowState.Maximized;
             f.Show();
 

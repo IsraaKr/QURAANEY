@@ -53,5 +53,41 @@ namespace QURAANEY.Properties {
                 return ((string)(this["MY_QURAANConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string conn_string {
+            get {
+                return ((string)(this["conn_string"]));
+            }
+            set {
+                this["conn_string"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string server_name {
+            get {
+                return ((string)(this["server_name"]));
+            }
+            set {
+                this["server_name"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string db_name {
+            get {
+                return ((string)(this["db_name"]));
+            }
+            set {
+                this["db_name"] = value;
+            }
+        }
     }
 }

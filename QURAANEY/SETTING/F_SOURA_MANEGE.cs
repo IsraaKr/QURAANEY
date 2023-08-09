@@ -27,7 +27,11 @@ namespace QURAANEY.SETTING
             base.neew();
             view_inheretanz_butomes();
         }
-
+        public override void print()
+        {
+            C_MASTER.print_header("السور ", gc);
+            base.print();
+        }
         private void view_inheretanz_butomes()
         {
             btn_clear.Visible = false;

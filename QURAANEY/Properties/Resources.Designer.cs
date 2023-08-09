@@ -59,5 +59,53 @@ namespace QURAANEY.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;Dashboard CurrencyCulture=&quot;ar-SY&quot;&gt;
+        ///  &lt;Title Text=&quot;Dashboard&quot; /&gt;
+        ///  &lt;DataSources&gt;
+        ///    &lt;SqlDataSource Name=&quot;SQL Data Source 1&quot; ComponentName=&quot;dashboardSqlDataSource1&quot;&gt;
+        ///      &lt;Connection Name=&quot;Connection&quot; ConnectionString=&quot;data source=.;initial catalog=MY_QURAAN;integrated security=True&quot; /&gt;
+        ///      &lt;Query Type=&quot;SelectQuery&quot; Name=&quot;V_COUNT_RATES&quot;&gt;
+        ///        &lt;Tables&gt;
+        ///          &lt;Table Name=&quot;V_COUNT_RATES&quot; X=&quot;30&quot; Y=&quot;30&quot; Width=&quot;125&quot; Height=&quot;102&quot; /&gt;
+        ///        &lt;/Tables&gt;
+        ///      [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string dash_quranney {
+            get {
+                return ResourceManager.GetString("dash_quranney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;Dashboard CurrencyCulture=&quot;ar-SY&quot;&gt;
+        ///  &lt;Title Text=&quot;Dashboard&quot; /&gt;
+        ///  &lt;DataSources&gt;
+        ///    &lt;SqlDataSource Name=&quot;SQL Data Source 1&quot; ComponentName=&quot;dashboardSqlDataSource1&quot;&gt;
+        ///      &lt;Connection Name=&quot;localhost_MY_QURAAN_Connection&quot; ProviderKey=&quot;MSSqlServer&quot;&gt;
+        ///        &lt;Parameters&gt;
+        ///          &lt;Parameter Name=&quot;server&quot; Value=&quot;ISRAA-PC&quot; /&gt;
+        ///          &lt;Parameter Name=&quot;database&quot; Value=&quot;MY_QURAAN&quot; /&gt;
+        ///          &lt;Parameter Name=&quot;useIntegratedSecurity&quot; Value=&quot;True&quot; /&gt;
+        ///          &lt;Par [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string dash_test {
+            get {
+                return ResourceManager.GetString("dash_test", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tashkeel {
+            get {
+                object obj = ResourceManager.GetObject("tashkeel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

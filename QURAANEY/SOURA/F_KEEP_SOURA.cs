@@ -1,4 +1,5 @@
-﻿using QURAANEY.DB;
+﻿using QURAANEY.CLASS_TABLES;
+using QURAANEY.DB;
 using QURAANEY.MESSAGES;
 using QURAANEY.SETTING;
 using System;
@@ -101,9 +102,7 @@ namespace QURAANEY.SOURA
 
             base.load_data(status_mess);
         }
-
         
-
         //شخص جديد
         public override void neew()
         {
@@ -129,7 +128,7 @@ namespace QURAANEY.SOURA
 
             load_data("");
         }
-
+ 
         //الطباعة
         public override void print()
         {
@@ -484,7 +483,7 @@ namespace QURAANEY.SOURA
         //تحميل الغريد كونترول
         private void load_gc_snd_tail()
         {
-            string sqll = @" SELECT  T_SOURA_KEEP.id ,   T_PERSONE.name AS الحافظ, T_SOURA_KEEP.soura_name AS [اسم السورة], T_SOURA_KEEP.aya_num AS [رقم الآية], T_SOURA_KEEP.page_num AS [رقم الصفحة], 
+            string sqll = @" SELECT  T_SOURA_KEEP.id , T_SOURA_KEEP.soura_name AS [اسم السورة],  T_SOURA_KEEP.page_num AS [رقم الصفحة] , 
                       T_SOURA_KEEP.keep_date AS التاريخ, T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], T_SOURA_EVALUATION.name AS التقيم, T_PERSONE_1.name AS المستلم
 FROM         T_PERSONE INNER JOIN
                       T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
@@ -500,10 +499,10 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
 
 
             //تحميل التيل الحالة 
-            dt = C_DB_QUERYS.state_by_id(Convert.ToInt32(lkp_pers_name.EditValue));
+            dt = C_PERS_STATE_sql.get_last_state_by_id(Convert.ToInt32(lkp_pers_name.EditValue));
             if (dt.Rows.Count > 0)
             {
-                ti_state.Elements[1].Text = dt.Rows[0][0].ToString();
+                ti_state.Elements[1].Text = dt.Rows[0][3].ToString();
             }
             else
                 ti_state.Elements[1].Text = "...";

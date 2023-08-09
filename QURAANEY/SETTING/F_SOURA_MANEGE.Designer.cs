@@ -46,7 +46,7 @@ namespace QURAANEY.SETTING
             // 
             // pan_btn
             // 
-            this.pan_btn.Location = new System.Drawing.Point(0, 409);
+            this.pan_btn.Location = new System.Drawing.Point(0, 387);
             this.pan_btn.Size = new System.Drawing.Size(800, 41);
             // 
             // btn_exite
@@ -66,7 +66,7 @@ namespace QURAANEY.SETTING
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 409);
+            this.layoutControl1.Size = new System.Drawing.Size(800, 387);
             this.layoutControl1.TabIndex = 4;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -75,7 +75,7 @@ namespace QURAANEY.SETTING
             this.gc.Location = new System.Drawing.Point(12, 12);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(776, 385);
+            this.gc.Size = new System.Drawing.Size(776, 363);
             this.gc.TabIndex = 9;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -88,6 +88,7 @@ namespace QURAANEY.SETTING
             this.gv.AppearancePrint.EvenRow.Options.UseBackColor = true;
             this.gv.GridControl = this.gc;
             this.gv.Name = "gv";
+            this.gv.OptionsBehavior.Editable = false;
             this.gv.OptionsFilter.ShowAllTableValuesInFilterPopup = true;
             this.gv.OptionsFilter.UseNewCustomFilterDialog = true;
             this.gv.OptionsFind.AlwaysVisible = true;
@@ -102,7 +103,7 @@ namespace QURAANEY.SETTING
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 409);
+            this.Root.Size = new System.Drawing.Size(800, 387);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem4
@@ -110,7 +111,7 @@ namespace QURAANEY.SETTING
             this.layoutControlItem4.Control = this.gc;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(780, 389);
+            this.layoutControlItem4.Size = new System.Drawing.Size(780, 367);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 

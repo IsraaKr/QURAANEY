@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using QURAANEY.DB;
 using QURAANEY.MESSAGES;
+using QURAANEY.CLASS_TABLES;
 
 namespace QURAANEY.SETTING
 {
@@ -38,63 +39,50 @@ namespace QURAANEY.SETTING
         int type_change = 0;
         int id_to_delet = 0;
         public static bool is_double_click = false;
+      
 
 
         private void F_PERSON_MANEG_Load(object sender, EventArgs e)
         {
+            view_inheretanz_butomes(true ,true, true, true, true, false, true);
             load_data("");
             neew();
             txt_name.Text = pers_name;
         }
-        private void view_inheretanz_butomes()
-        {
-            btn_clear.Visible = true;
-            btn_delete.Visible = true;
-            btn_exite.Visible = true;
-            btn_new.Visible = true;
-            btn_print.Visible = true;
-            btn_save.Visible = true;
-            btn_show.Visible = true;
 
-        }
+
         private void set_date_edite()
         {
             dtp_in_date.Text = DateTime.Today.ToShortDateString();
             dtp_rate_change.Text = DateTime.Today.ToShortDateString();
             dtp_state_change.Text = DateTime.Today.ToShortDateString();
-           
-
         }
-
-
         #region توابع الوراثة
         public override void load_data(string status_mess)
         {
-
+            clear(this.Controls);
+            set_auto_id_person();
             set_date_edite();
 
-            sqll = @"SELECT    T_PERSONE.id AS التسلسل , T_PERSONE.name AS الاسم, T_PERSONE.phone AS الهاتف, T_PERSONE.adress AS العنوان, T_PERSONE.email AS الايميل, T_PERSONE.studey AS الدراسة, 
-                      T_PERSONE.woke AS العمل, T_PERSONE.in_date AS [تاريخ الالتحاق], T_PERSONE.is_active AS فعال, T_PERSONE.inviting_pers AS الداعي
-FROM        T_PERSONE ";
-            dt = c_db.select(sqll);
+
+            dt = C_PERSON_sql.get_all_pers();
             gc.DataSource = dt;
 
-            dt = c_db.select(@"select id , name  from T_PERS_STATE");
+            dt = C_PERS_STATE_sql.get_all_state();
             lkp_state.lkp_iniatalize_data(dt, "name", "id");
 
-            dt = c_db.select(@"select id , name  from T_PERS_TYPE");
+            dt = C_PERS_TYPE_sql.get_all_types();
             chbl_type.chbl_iniatalize_data(dt, "name", "id");
 
-            dt = c_db.select(@"select id , name  from T_PERS_RATE_KEEP");
+            dt = C_PERS_RATE_KEEP_sql.get_all_rate_keep();
             lkp_keep_rate.lkp_iniatalize_data(dt, "name", "id");
 
-            string sql = @"select id , name  from T_PERSONE ";
-            dt = c_db.select(sql);
+            dt = C_PERSON_sql.get_pers_id_name(); 
             lkp_pers_state_change.lkp_iniatalize_data(dt, "name", "id");
             lkp_inviting_pers.lkp_iniatalize_data(dt, "name", "id");
 
             //القيم الافتراضية
-            dt = c_db.select(@"  SELECT name, value, value_id FROM dbo.T_DEFULT_THWABET");
+            dt = C_DEFULTES_sql.get_all_defult();
             lkp_state.EditValue = int.Parse(dt.Rows[0][2].ToString());
 
             int index = int.Parse(dt.Rows[1][2].ToString());
@@ -102,7 +90,20 @@ FROM        T_PERSONE ";
             lkp_keep_rate.EditValue = int.Parse(dt.Rows[2][2].ToString());
 
             base.load_data(status_mess);
-            view_inheretanz_butomes();
+       
+
+        }
+
+        private void all_states()
+        {
+            dt = C_PERS_STATE_sql.get_last_state_by_id_with_alias(pers_id);
+            glkp_all_state.Properties.DataSource = dt;
+
+        }
+        private void all_rates()
+        {
+            dt = C_PERS_RATE_KEEP_sql.get_all_rates_by_id_from_view(pers_id);
+            glkp_all_keep_rate.Properties.DataSource = dt;
 
         }
         public override void neew()
@@ -110,12 +111,18 @@ FROM        T_PERSONE ";
             clear(this.Controls);
             set_auto_id_person();
             set_date_edite();
+            dt = C_PERSON_sql.get_all_pers();
+            if (dt.Rows.Count > 1)
+            {
+                lkp_inviting_pers.Text = "admin";
+                lkp_pers_state_change.Text = "admin";
+            }
             base.neew();
         }
-        public override void show_rep ()
+        public override void show_rep()
         {
-    
-                base.set_data();
+
+            base.set_data();
         }
         public override void clear(Control.ControlCollection s_controls)
         {
@@ -129,10 +136,11 @@ FROM        T_PERSONE ";
         }
         public override void save()
         {
+          
             if (vallidate_data())
             {
-                dt = c_db.select(@"select id from T_PERSONE 
-                      where id=" + int.Parse(txt_id.Text) + "");
+                dt = C_PERSON_sql.get_pers_id_name_by_id(int.Parse( txt_id.Text));
+
                 if (dt.Rows.Count <= 0)
                 {
                     add_all();
@@ -141,8 +149,9 @@ FROM        T_PERSONE ";
                 {
                     update_all();
                 }
-              //  load_data("i");
-              //  clear(this.Controls);
+                //  load_data("i");
+                neew();
+                
                 is_double_click = false;
 
             }
@@ -167,8 +176,9 @@ FROM        T_PERSONE ";
                     delete_mess += delete_rate();
                     delete_mess += delete_keep();
                     delete_mess += delete_fail();
+                    delete_mess += delete_Nashat_keep();
                     delete_mess += delete_pers();
-                    if (delete_mess == 6)
+                    if (delete_mess == 7)
                     {
                         load_data("d");
                         delete_mess = 0;
@@ -191,7 +201,7 @@ FROM        T_PERSONE ";
             }
             catch (Exception ex)
             {
-                MessageBox.Show(" "+ex);
+                MessageBox.Show(" " + ex);
             }
             base.delete();
             is_double_click = false;
@@ -235,39 +245,10 @@ FROM        T_PERSONE ";
             }
             catch (Exception)
             {
-                //DialogResult res = MessageBox.Show("هل تريد حذف المعلومات بشكل نهائي  ",
-                //     "لايمكن حذف السجل المحدد بسبب ارتباطه بأماكن أخرى !!!!",
-                //  MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                //if (res == DialogResult.Yes)
-                //{
-                //    delete_mess += delete_type();
-                //    delete_mess += delete_state();
-                //    delete_mess += delete_rate();
-                //    delete_mess += delete_keep();
-                //    delete_mess += delete_pers();
-                //    if (delete_mess == 5)
-                //    {
-                //        load_data("d");
-                //        delete_mess = 0;
-                //    }
-                //}
-                //else if (res == DialogResult.No)
-                //{
-                //    DialogResult res2 = MessageBox.Show("هل تريد اختيار غير فعال لهذا الشخص   ",
-                //    " غير فعال",
-                //MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                //    if (res2 == DialogResult.Yes)
-                //    {
-                //        c_db.insert_upadte_delete(@"UPDATE       dbo.T_PERSONE
-                //          SET   is_active =N'" + false + "'," +
-                //         " WHERE        (id = " + int.Parse(txt_id.Text) + ")");
-                //    }
-                //    else
-                //        return;
                 return 0;
             }
-        
-    
+
+
         }
 
         private int delete_rate()
@@ -304,28 +285,28 @@ FROM        T_PERSONE ";
 
         }
 
-       // private int delete_type()
-       // {
-       //     try
-       //     {
-       //         sqll = @"DELETE FROM dbo.T_PERS_TYPE_CHANGE
-       //                WHERE        (pers_id = " + int.Parse(txt_id.Text) + ")";
-       //         done = c_db.insert_upadte_delete(sqll);
-       //         return 1;
-       //     }
-       //     catch (Exception ex)
-       //     {
-       //         MessageBox.Show(ex + "");
-       //         return 0;
-       //     }
+        // private int delete_type()
+        // {
+        //     try
+        //     {
+        //         sqll = @"DELETE FROM dbo.T_PERS_TYPE_CHANGE
+        //                WHERE        (pers_id = " + int.Parse(txt_id.Text) + ")";
+        //         done = c_db.insert_upadte_delete(sqll);
+        //         return 1;
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         MessageBox.Show(ex + "");
+        //         return 0;
+        //     }
 
-       // }
+        // }
         private int delete_type_true_false()
         {
             try
             {
                 sqll = @"DELETE FROM dbo.T_PERS_TYPES_TRUE_FALSE
-                       WHERE        (pers_id = " +pers_id + ")";
+                       WHERE        (pers_id = " + pers_id + ")";
                 done = c_db.insert_upadte_delete(sqll);
                 return 1;
             }
@@ -341,7 +322,7 @@ FROM        T_PERSONE ";
             try
             {
                 c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_SOURA_KEEP
-                                  WHERE(pers_hafez_id  = " + int.Parse(txt_id.Text) + " )");
+                                  WHERE(pers_hafez_id  = " + pers_id + " )");
                 return 1;
             }
             catch (Exception ex)
@@ -366,7 +347,22 @@ FROM        T_PERSONE ";
             }
 
         }
+        private int delete_Nashat_keep()
+        {
+            try
+            {
+                c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_NASHAT_KEEP
+                              WHERE        (pers_id = "+pers_id+" ) ");
+                               
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex + "");
+                return 0;
+            }
 
+        }
         #endregion
 
         #region update توابع التعديل
@@ -376,7 +372,7 @@ FROM        T_PERSONE ";
             update_type_true_false();
             insert_state();
             insert_keep_rate();
-          
+
             load_data("i");
         }
         private void update_pers()
@@ -395,7 +391,7 @@ FROM        T_PERSONE ";
                  "in_date =N'" + dtp_in_date.Text + "'," +
                  "is_active =N'" + ch_is_active.Checked + "'," +
                  " inviting_pers =N'" + lkp_inviting_pers.Text + "'  " +
-                 " WHERE        (id = " + int.Parse(txt_id.Text) + ")";
+                 " WHERE        (id = " + pers_id + ")";
 
                 done = c_db.insert_upadte_delete(sqll);
             }
@@ -461,7 +457,7 @@ FROM        T_PERSONE ";
         //    }
 
         //}
-         
+
         //private void update_type()
         //{
         //    try
@@ -491,20 +487,25 @@ FROM        T_PERSONE ";
         {
             state_change = 1;
             rate_change = 1;
-                int num_done = 0;
+            int num_done = 0;
             num_done += insert_pers();
-            num_done +=  insert_state();
+            num_done += insert_state();
             num_done += insert_type_true_false();
             update_type_true_false();
             num_done += insert_keep_rate();
-           
+
             load_data("i");
 
         }
         private int insert_pers()
         {
+           
             try
             {
+                if (int.Parse(txt_id.Text) ==1)
+                {
+
+                }
                 //ادخال لجدول الأشخاص
                 sqll = @"INSERT INTO dbo.T_PERSONE
                          (name, phone, adress, email, studey, woke, in_date, is_active,inviting_pers)
@@ -519,8 +520,8 @@ FROM        T_PERSONE ";
                              "N'" + lkp_inviting_pers.Text + "')";
                 done = c_db.insert_upadte_delete(sqll);
 
-               dt = c_db.select("SELECT   T_PERSONE.id from T_PERSONE where name = N'"+txt_name.Text+"'");
-                pers_id =int.Parse( dt.Rows[0][0].ToString());
+                dt = c_db.select("SELECT   T_PERSONE.id from T_PERSONE where name = N'" + txt_name.Text + "'");
+                pers_id = int.Parse(dt.Rows[0][0].ToString());
                 return 1;
             }
             catch (Exception ex)
@@ -528,7 +529,7 @@ FROM        T_PERSONE ";
                 MessageBox.Show(ex + "");
                 return 0;
             }
-           
+
         }
         //private int insert_type()
         //{
@@ -579,7 +580,7 @@ FROM        T_PERSONE ";
                 return 0;
             }
         }
-        private int  insert_state()
+        private int insert_state()
         {
             if (state_change != 0)
             {
@@ -607,10 +608,10 @@ FROM        T_PERSONE ";
             state_change = 0;
             return 0;
         }
-                                    
-        private int  insert_keep_rate()
+
+        private int insert_keep_rate()
         {
-            if (rate_change!=0)
+            if (rate_change != 0)
             {
                 try
                 {
@@ -639,60 +640,58 @@ FROM        T_PERSONE ";
         private void gv_DoubleClick(object sender, EventArgs e)
         {
             is_double_click = true;
-         txt_id.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString();
-            pers_id =int.Parse(txt_id.Text);
-         txt_name.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[1]).ToString();
-         txt_phone.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[2]).ToString();
-         txt_adress.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[3]).ToString();
-         txt_email.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[4]).ToString();
-         txt_studey.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[5]).ToString();
-         txt_work.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[6]).ToString();    
-         dtp_in_date.Text= gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[7]).ToString();
-         ch_is_active.Checked = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[8]).ToString());
-         lkp_inviting_pers.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[9]).ToString();
+            txt_id.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString();
+            pers_id = int.Parse(txt_id.Text);
+            txt_name.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[1]).ToString();
+            txt_phone.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[2]).ToString();
+            txt_adress.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[3]).ToString();
+            txt_email.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[4]).ToString();
+            txt_studey.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[5]).ToString();
+            txt_work.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[6]).ToString();
+            dtp_in_date.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[7]).ToString();
+            ch_is_active.Checked = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[8]).ToString());
+            lkp_inviting_pers.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[9]).ToString();
 
             dt = c_db.select(@"  SELECT        pers_id, pers_name, ratr_id, rate_name, num, rate_in_days, change_date
                                   FROM            dbo.V_RATE_MAX_DATE
-                            WHERE        (pers_id = "+pers_id+")");
+                            WHERE        (pers_id = " + pers_id + ")");
             lkp_keep_rate.Text = dt.Rows[0][3].ToString();
             dtp_rate_change.Text = dt.Rows[0][6].ToString();
 
 
-            dt = c_db.select(@"    SELECT        pers_id, pers_name, state_id, state_name, change_date, pers_id_deside
-                              FROM            dbo.V_STATE_MAX_DATE
-                                   WHERE        (pers_id =  " + pers_id + ")");
+            dt  = C_PERS_STATE_sql.get_last_state_by_id ( pers_id);
             lkp_state.Text = dt.Rows[0][3].ToString();
             dtp_state_change.Text = dt.Rows[0][4].ToString();
             lkp_pers_state_change.Text = dt.Rows[0][5].ToString();
 
 
-            dt = c_db.select(@" SELECT dbo.T_PERS_TYPES_TRUE_FALSE.*
-                                   FROM            dbo.T_PERS_TYPES_TRUE_FALSE
-                              WHERE(pers_id = "+pers_id+")");
+            dt = C_PERS_TYPE_sql.get_all_types_true_false_by_id(pers_id);
             int count = chbl_type.ItemCount;
-                int chl_index = 0;
+            int chl_index = 0;
             foreach (DataColumn item in dt.Columns)
             {
-              int index=  dt.Columns.IndexOf(item);
-                if (index >1)
+                int index = dt.Columns.IndexOf(item);
+                if (index > 1)
                 {
-                    if (count>=0)
+                    if (count >= 0)
                     {
-                        
+
                         Boolean state = Convert.ToBoolean(dt.Rows[0][index].ToString());
-                      //  MessageBox.Show("" + dt.Columns.IndexOf(item) + state);
+                        //  MessageBox.Show("" + dt.Columns.IndexOf(item) + state);
                         chbl_type.SetItemChecked(chl_index, state);
                         chl_index++;
                         count--;
                     }
-                    
+
                 }
 
             }
 
 
-            // chbl_type.che = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[10]);
-            //dtp_type_change.Text= gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[11]).ToString();
+            all_states();
+            all_rates();
+
+
 
         }
         private void lkp_state_Enter(object sender, EventArgs e)
@@ -707,7 +706,6 @@ FROM        T_PERSONE ";
         {
             type_change = 1;
         }
-
         private void btn_show_state_Click(object sender, EventArgs e)
         {
             MessageBox.Show("");
@@ -720,24 +718,23 @@ FROM        T_PERSONE ";
             is_double_click = false;
 
         }
-
         private void menu_delete_Click(object sender, EventArgs e)
         {
             txt_id.Text = id_to_delet.ToString();
             is_double_click = true;
-                delete();
+            delete();
             is_double_click = false;
         }
-
         private void gv_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
                 gv.SelectRow(e.RowHandle);
-              id_to_delet = int.Parse(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
+                id_to_delet = int.Parse(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
 
             }
         }
-    }   
+
+    }
 }
 

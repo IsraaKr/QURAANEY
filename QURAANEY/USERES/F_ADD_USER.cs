@@ -13,6 +13,12 @@ namespace QURAANEY.USERES
 {
     public partial class F_ADD_USER : F_INHERATENZ
     {
+        public F_ADD_USER(bool first_time)
+        {
+            InitializeComponent();
+            load_data("");
+            view_inheretanz_butomes();
+        }
         public F_ADD_USER()
         {
             InitializeComponent();
@@ -33,6 +39,11 @@ namespace QURAANEY.USERES
             btn_save.Visible = true;
             btn_show.Visible = false;
 
+        }
+        public override void print()
+        {
+            C_MASTER.print_header("المستخدمين  ", gc);
+            base.print();
         }
         public override void neew()
         {

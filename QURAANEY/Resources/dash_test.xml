@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="ar-SY">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource Name="SQL Data Source 1" ComponentName="dashboardSqlDataSource1">
+      <Connection Name="localhost_MY_QURAAN_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="ISRAA-PC" />
+          <Parameter Name="database" Value="MY_QURAAN" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="V_COUNT_RATES">
+        <Tables>
+          <Table Name="V_COUNT_RATES" X="30" Y="30" Width="125" Height="102" />
+        </Tables>
+        <Columns>
+          <Column Table="V_COUNT_RATES" Name="Expr1" />
+          <Column Table="V_COUNT_RATES" Name="name" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 1">
+          <View Name="V_COUNT_RATES">
+            <Field Name="Expr1" Type="Int32" />
+            <Field Name="name" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="SQL Data Source 2" ComponentName="dashboardSqlDataSource2">
+      <Connection Name="localhost_MY_QURAAN_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="ISRAA-PC" />
+          <Parameter Name="database" Value="MY_QURAAN" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="V_COUNT_STATES">
+        <Tables>
+          <Table Name="V_COUNT_STATES" X="30" Y="30" Width="125" Height="102" />
+        </Tables>
+        <Columns>
+          <Column Table="V_COUNT_STATES" Name="Expr1" />
+          <Column Table="V_COUNT_STATES" Name="name" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 2">
+          <View Name="V_COUNT_STATES">
+            <Field Name="Expr1" Type="Int32" />
+            <Field Name="name" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="SQL Data Source 3" ComponentName="dashboardSqlDataSource3">
+      <Connection Name="localhost_MY_QURAAN_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="ISRAA-PC\SQLEXPRESS" />
+          <Parameter Name="database" Value="MY_QURAAN" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="V_NAMES_FULL_SOURA_NAME">
+        <Tables>
+          <Table Name="V_NAMES_FULL_SOURA_NAME" X="30" Y="30" Width="125" Height="102" />
+        </Tables>
+        <Columns>
+          <Column Table="V_NAMES_FULL_SOURA_NAME" Name="name" />
+          <Column Table="V_NAMES_FULL_SOURA_NAME" Name="soura_name" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 3">
+          <View Name="V_NAMES_FULL_SOURA_NAME">
+            <Field Name="name" Type="String" />
+            <Field Name="soura_name" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="SQL Data Source 4" ComponentName="dashboardSqlDataSource4">
+      <Connection Name="localhost_MY_QURAAN_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="ISRAA-PC" />
+          <Parameter Name="database" Value="MY_QURAAN" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="V_COUNT_PERS_FULL_SOURA">
+        <Tables>
+          <Table Name="V_COUNT_PERS_FULL_SOURA" X="30" Y="30" Width="125" Height="102" />
+        </Tables>
+        <Columns>
+          <Column Table="V_COUNT_PERS_FULL_SOURA" Name="soura_name" Alias="اسم السورة" />
+          <Column Table="V_COUNT_PERS_FULL_SOURA" Name="Expr1" Alias="عدد الحافظين" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 4">
+          <View Name="V_COUNT_PERS_FULL_SOURA">
+            <Field Name="اسم السورة" Type="String" />
+            <Field Name="عدد الحافظين" Type="Int32" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="SQL Data Source 5" ComponentName="dashboardSqlDataSource5">
+      <Connection Name="localhost_MY_QURAAN_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="ISRAA-PC\SQLEXPRESS" />
+          <Parameter Name="database" Value="MY_QURAAN" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="T_SOURA_KEEP">
+        <Tables>
+          <Table Name="T_SOURA_KEEP" X="30" Y="30" Width="125" Height="282" />
+          <Table Name="T_SOURA_EVALUATION" X="185" Y="30" Width="125" Height="102" />
+          <Relation Type="Inner" Parent="T_SOURA_KEEP" Nested="T_SOURA_EVALUATION">
+            <KeyColumn Parent="evaluation_id" Nested="id" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <Column Table="T_SOURA_KEEP" Name="pers_hafez_id" />
+          <Column Table="T_SOURA_EVALUATION" Name="name" />
+        </Columns>
+        <Grouping>
+          <Column Table="T_SOURA_KEEP" Name="pers_hafez_id" />
+          <Column Table="T_SOURA_EVALUATION" Name="name" />
+        </Grouping>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 5">
+          <View Name="T_SOURA_KEEP">
+            <Field Name="pers_hafez_id" Type="Int32" />
+            <Field Name="name" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+    <SqlDataSource Name="SQL Data Source 6" ComponentName="dashboardSqlDataSource6">
+      <Connection Name="localhost_MY_QURAAN_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="ISRAA-PC\SQLEXPRESS" />
+          <Parameter Name="database" Value="MY_QURAAN" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="V_COUNT_FULL_PAGE">
+        <Tables>
+          <Table Name="V_COUNT_FULL_PAGE" X="30" Y="30" Width="125" Height="102" />
+          <Table Name="V_COUNT_PAGE_WITHE_DATE" X="185" Y="30" Width="125" Height="142" />
+          <Relation Type="Inner" Parent="V_COUNT_FULL_PAGE" Nested="V_COUNT_PAGE_WITHE_DATE">
+            <KeyColumn Parent="count_page" Nested="count_page" />
+          </Relation>
+        </Tables>
+        <Columns>
+          <Column Table="V_COUNT_FULL_PAGE" Name="count_page" />
+          <Column Table="V_COUNT_FULL_PAGE" Name="pers_hafez_id" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 6">
+          <View Name="V_COUNT_FULL_PAGE">
+            <Field Name="count_page" Type="Int32" />
+            <Field Name="pers_hafez_id" Type="Int32" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" ShowCaption="false" DataSource="dashboardSqlDataSource1" DataMember="V_COUNT_RATES">
+      <DataItems>
+        <Dimension DataMember="name" DefaultId="DataItem0" />
+        <Measure DataMember="Expr1" DefaultId="DataItem1" />
+        <Dimension DataMember="name" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Chart ComponentName="chartDashboardItem2" Name="عدد الأشخاص في الحالات" ShowCaption="false" DataSource="dashboardSqlDataSource2" DataMember="V_COUNT_STATES">
+      <DataItems>
+        <Dimension DataMember="name" DefaultId="DataItem2" />
+        <Dimension DataMember="name" DefaultId="DataItem1" />
+        <Measure DataMember="Expr1" DefaultId="DataItem0" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+      <ChartLegend OutsidePosition="TopCenterHorizontal" />
+      <AxisX TitleVisible="true" EnableZooming="true" />
+    </Chart>
+    <Grid ComponentName="gridDashboardItem1" Name="عدد حافظين السور الكاملة" DataSource="dashboardSqlDataSource4" DataMember="V_COUNT_PERS_FULL_SOURA">
+      <DataItems>
+        <Dimension DataMember="اسم السورة" DefaultId="DataItem0" />
+        <Measure DataMember="عدد الحافظين" DefaultId="DataItem1" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Pie ComponentName="pieDashboardItem1" Name="Pies 1" DataSource="dashboardSqlDataSource1" DataMember="V_COUNT_RATES">
+      <DataItems>
+        <Dimension DataMember="name" DefaultId="DataItem2" />
+        <Dimension DataMember="Expr1" DefaultId="DataItem0" />
+        <Measure DataMember="name" SummaryType="Count" DefaultId="DataItem1" />
+        <Measure DataMember="Expr1" DefaultId="DataItem3" />
+      </DataItems>
+      <HiddenMeasures>
+        <Measure DefaultId="DataItem3" />
+      </HiddenMeasures>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem1" />
+      </Values>
+    </Pie>
+    <Card ComponentName="cardDashboardItem1" Name="Cards 1" DataSource="dashboardSqlDataSource5" DataMember="T_SOURA_KEEP">
+      <DataItems>
+        <Dimension DataMember="name" DefaultId="DataItem0" />
+        <Measure DataMember="name" SummaryType="Count" DefaultId="DataItem1" />
+        <Measure DataMember="pers_hafez_id" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem0" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem1" />
+        <TargetValue DefaultId="DataItem2" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="ActualValue" DimensionIndex="0" />
+          <MainValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="true" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="true" />
+          <Sparkline Visible="true" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+    <Gauge ComponentName="gaugeDashboardItem1" Name="Gauges 1" DataSource="dashboardSqlDataSource6" DataMember="V_COUNT_FULL_PAGE">
+      <DataItems>
+        <Measure DataMember="count_page" DefaultId="DataItem0" />
+        <Measure DataMember="pers_hafez_id" DefaultId="DataItem1" />
+        <Dimension DataMember="count_page" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem2" />
+      </SeriesDimensions>
+      <GaugeElement>
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem1" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat />
+        <PercentOfTargetNumericFormat />
+      </GaugeElement>
+    </Gauge>
+    <Card ComponentName="cardDashboardItem2" Name="Cards 2" DataSource="dashboardSqlDataSource6" DataMember="V_COUNT_FULL_PAGE">
+      <DataItems>
+        <Measure DataMember="pers_hafez_id" DefaultId="DataItem0" />
+        <Dimension DataMember="pers_hafez_id" DefaultId="DataItem1" />
+        <Measure DataMember="count_page" DefaultId="DataItem2" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension DefaultId="DataItem1" />
+      </SeriesDimensions>
+      <Card>
+        <ActualValue DefaultId="DataItem0" />
+        <TargetValue DefaultId="DataItem2" />
+        <AbsoluteVariationNumericFormat />
+        <PercentVariationNumericFormat IncludeGroupSeparator="true" />
+        <PercentOfTargetNumericFormat />
+        <LayoutTemplate Type="Stretched">
+          <TopValue Visible="true" ValueType="TargetValue" DimensionIndex="0" />
+          <MainValue Visible="true" ValueType="Title" DimensionIndex="0" />
+          <SubValue Visible="true" ValueType="Subtitle" DimensionIndex="0" />
+          <BottomValue1 Visible="true" ValueType="PercentVariation" DimensionIndex="0" />
+          <BottomValue2 Visible="false" ValueType="AbsoluteVariation" DimensionIndex="0" />
+          <DeltaIndicator Visible="false" />
+          <Sparkline Visible="false" />
+        </LayoutTemplate>
+      </Card>
+    </Card>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical" Weight="100">
+      <LayoutGroup Weight="40.079365079365083">
+        <LayoutItem DashboardItem="chartDashboardItem2" Weight="45.073375262054505" />
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="18.238993710691823" />
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="36.687631027253666" />
+      </LayoutGroup>
+      <LayoutGroup Weight="59.920634920634917">
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="25.052410901467507" />
+        <LayoutItem DashboardItem="gaugeDashboardItem1" Weight="23.165618448637318" />
+        <LayoutItem DashboardItem="cardDashboardItem1" Weight="25.786163522012579" />
+        <LayoutItem DashboardItem="cardDashboardItem2" Weight="25.9958071278826" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

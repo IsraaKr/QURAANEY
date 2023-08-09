@@ -33,7 +33,7 @@ namespace QURAANEY
         {  // أول استدعاء من اجل انشاء قاعدة البيانات و الجداول
             try//جلب اسم السيرفر و  الاتصال بالسيرفر
             {
-                server_nam = c_db.get_server_name();
+            server_nam = c_db.get_server_name();
                 //  MessageBox.Show("تم جلب اسم السيرفر : " + server_nam);
             }
             catch (Exception)
@@ -123,6 +123,10 @@ namespace QURAANEY
             }
         }
 
- 
+        private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            fontDialog1.ShowDialog();
+                
+        }
     }
 }

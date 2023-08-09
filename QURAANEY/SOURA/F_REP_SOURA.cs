@@ -15,6 +15,7 @@ namespace QURAANEY.SOURA
         public F_REP_SOURA()
         {
             InitializeComponent();
+            view_inheretanz_butomes(false, false, false, false, true, false, true);
             load_gc();
             load_data("");
             all_queary();
@@ -39,6 +40,11 @@ FROM         T_PERSONE INNER JOIN
             dt = c_db.select(sqll);
             gc.DataSource = dt;
 
+        }
+        public override void print()
+        {
+            C_MASTER.print_header("التقرير الشامل ", gc);
+            base.print();
         }
         public override void load_data(string status_mess)
         {
@@ -178,9 +184,24 @@ FROM         T_PERSONE INNER JOIN
         private void btn_add_fail_Click(object sender, EventArgs e)
         {
 
-            string sqll = @" INSERT INTO dbo.T_PERS_FAIL
-                         (pers_id, date, reson)
-                   VALUES(,,)";
+            F_FAIL_PERS f = new F_FAIL_PERS();
+            f.WindowState = FormWindowState.Maximized ;
+            f.Show();
+        }
+
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox7.Checked)
+            {
+                gc.DataSource = null;
+                gv.Columns.Clear();
+
+                string s4 = @" SELECT        dbo.T_PERS_FAIL.id AS المعرف, dbo.T_PERS_FAIL.pers_id AS [رقم الشخص], dbo.T_PERSONE.name AS [اسم الشخص], dbo.T_PERS_FAIL.in_date AS [تاريخ الإدخال], 
+                         dbo.T_PERS_FAIL.month_fail AS [شهر التقصير], dbo.T_PERS_FAIL.year_fail AS [سنة التقصير], dbo.T_PERS_FAIL.reson AS السبب
+FROM            dbo.T_PERS_FAIL INNER JOIN
+                         dbo.T_PERSONE ON dbo.T_PERS_FAIL.pers_id = dbo.T_PERSONE.id ";
+                dt = c_db.select(s4);
+            }
         }
     }
 }

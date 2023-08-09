@@ -39,15 +39,25 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem9 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
+            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemFontEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemFontEdit();
+            this.barEditItem2 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemColorEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorEdit();
+            this.barEditItem3 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemColorPickEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemColorPickEdit();
+            this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.المستخدمين = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.accordionControl1 = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement5 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -56,6 +66,7 @@
             this.accordionControlElement10 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement6 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement25 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement21 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement11 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement12 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -64,12 +75,18 @@
             this.accordionControlElement15 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement16 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement4 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement7 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement17 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.accordionControlElement22 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement18 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement19 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.pan_nav = new DevExpress.XtraEditors.PanelControl();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorPickEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pan_nav)).BeginInit();
             this.SuspendLayout();
@@ -89,14 +106,23 @@
             this.barButtonItem7,
             this.barButtonItem8,
             this.barButtonItem9,
-            this.barButtonItem10});
+            this.barButtonItem10,
+            this.skinDropDownButtonItem1,
+            this.barEditItem1,
+            this.barEditItem2,
+            this.barEditItem3,
+            this.barButtonItem11});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 11;
+            this.ribbon.MaxItemId = 17;
             this.ribbon.Name = "ribbon";
             this.ribbon.PageHeaderItemLinks.Add(this.barButtonItem9);
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage2});
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemFontEdit1,
+            this.repositoryItemColorEdit1,
+            this.repositoryItemColorPickEdit1});
             this.ribbon.Size = new System.Drawing.Size(832, 158);
             this.ribbon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ribbon_ItemClick);
             // 
@@ -182,30 +208,81 @@
             this.barButtonItem9.Name = "barButtonItem9";
             this.barButtonItem9.Tag = "F_THWABET";
             // 
+            // barButtonItem10
+            // 
+            this.barButtonItem10.Caption = "اعدادات الاتصال بالسيرفر";
+            this.barButtonItem10.Id = 11;
+            this.barButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.Image")));
+            this.barButtonItem10.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.ImageOptions.LargeImage")));
+            this.barButtonItem10.Name = "barButtonItem10";
+            this.barButtonItem10.Tag = "F_CONN_SETTING";
+            // 
+            // skinDropDownButtonItem1
+            // 
+            this.skinDropDownButtonItem1.Id = 12;
+            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
+            // 
+            // barEditItem1
+            // 
+            this.barEditItem1.Caption = "barEditItem1";
+            this.barEditItem1.Edit = this.repositoryItemFontEdit1;
+            this.barEditItem1.Id = 13;
+            this.barEditItem1.Name = "barEditItem1";
+            // 
+            // repositoryItemFontEdit1
+            // 
+            this.repositoryItemFontEdit1.AutoHeight = false;
+            this.repositoryItemFontEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemFontEdit1.Name = "repositoryItemFontEdit1";
+            // 
+            // barEditItem2
+            // 
+            this.barEditItem2.Caption = "barEditItem2";
+            this.barEditItem2.Edit = this.repositoryItemColorEdit1;
+            this.barEditItem2.Id = 14;
+            this.barEditItem2.Name = "barEditItem2";
+            // 
+            // repositoryItemColorEdit1
+            // 
+            this.repositoryItemColorEdit1.AutoHeight = false;
+            this.repositoryItemColorEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorEdit1.Name = "repositoryItemColorEdit1";
+            // 
+            // barEditItem3
+            // 
+            this.barEditItem3.Caption = "barEditItem3";
+            this.barEditItem3.Edit = this.repositoryItemColorPickEdit1;
+            this.barEditItem3.Id = 15;
+            this.barEditItem3.Name = "barEditItem3";
+            // 
+            // repositoryItemColorPickEdit1
+            // 
+            this.repositoryItemColorPickEdit1.AutoHeight = false;
+            this.repositoryItemColorPickEdit1.AutomaticColor = System.Drawing.Color.Black;
+            this.repositoryItemColorPickEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.repositoryItemColorPickEdit1.Name = "repositoryItemColorPickEdit1";
+            // 
+            // barButtonItem11
+            // 
+            this.barButtonItem11.Caption = "اعدادات الخط";
+            this.barButtonItem11.Id = 16;
+            this.barButtonItem11.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.ImageOptions.Image")));
+            this.barButtonItem11.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.ImageOptions.LargeImage")));
+            this.barButtonItem11.Name = "barButtonItem11";
+            this.barButtonItem11.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem11_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "الرئيسية";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // ribbonPage2
-            // 
-            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup2,
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
-            this.ribbonPageGroup6,
-            this.ribbonPageGroup5,
-            this.المستخدمين});
-            this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "الإعدادات";
+            this.ribbonPageGroup6});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "الرئيسية";
             // 
             // ribbonPageGroup2
             // 
@@ -224,6 +301,7 @@
             this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.Text = "الدروس";
+            this.ribbonPageGroup4.Visible = false;
             // 
             // ribbonPageGroup6
             // 
@@ -231,11 +309,22 @@
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "الثوابت";
             // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup5,
+            this.المستخدمين,
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup9});
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "الإعدادات";
+            // 
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.Text = "الحذف";
+            this.ribbonPageGroup5.Visible = false;
             // 
             // المستخدمين
             // 
@@ -245,6 +334,20 @@
             this.المستخدمين.Name = "المستخدمين";
             this.المستخدمين.Text = "المستخدمين";
             // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.barButtonItem10);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Visible = false;
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.barButtonItem11);
+            this.ribbonPageGroup9.ItemLinks.Add(this.skinDropDownButtonItem1);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "المظهر";
+            // 
             // accordionControl1
             // 
             this.accordionControl1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -252,8 +355,9 @@
             this.accordionControlElement1,
             this.accordionControlElement2,
             this.accordionControlElement3,
-            this.accordionControlElement23,
-            this.accordionControlElement22});
+            this.accordionControlElement18,
+            this.accordionControlElement19,
+            this.accordionControlElement20});
             this.accordionControl1.Location = new System.Drawing.Point(0, 158);
             this.accordionControl1.Name = "accordionControl1";
             this.accordionControl1.Size = new System.Drawing.Size(211, 291);
@@ -267,7 +371,8 @@
             this.accordionControlElement5,
             this.accordionControlElement8,
             this.accordionControlElement6,
-            this.accordionControlElement25});
+            this.accordionControlElement25,
+            this.accordionControlElement21});
             this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement1.ImageOptions.Image")));
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -290,7 +395,7 @@
             this.accordionControlElement8.Expanded = true;
             this.accordionControlElement8.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement8.ImageOptions.Image")));
             this.accordionControlElement8.Name = "accordionControlElement8";
-            this.accordionControlElement8.Tag = "F_SUMMARY_SOURA";
+            this.accordionControlElement8.Tag = "F_DASHBOARD";
             this.accordionControlElement8.Text = "التقارير";
             // 
             // accordionControlElement9
@@ -316,6 +421,7 @@
             this.accordionControlElement6.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement6.Tag = "F_SUMMARY_SOURA";
             this.accordionControlElement6.Text = "ملخص عام";
+            this.accordionControlElement6.Visible = false;
             // 
             // accordionControlElement25
             // 
@@ -324,6 +430,15 @@
             this.accordionControlElement25.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.accordionControlElement25.Tag = "F_FAIL_PERS";
             this.accordionControlElement25.Text = "المقصرين";
+            this.accordionControlElement25.Visible = false;
+            // 
+            // accordionControlElement21
+            // 
+            this.accordionControlElement21.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement21.ImageOptions.SvgImage")));
+            this.accordionControlElement21.Name = "accordionControlElement21";
+            this.accordionControlElement21.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement21.Tag = "F_DASHBOARD";
+            this.accordionControlElement21.Text = "الملخص العام";
             // 
             // accordionControlElement2
             // 
@@ -334,6 +449,7 @@
             this.accordionControlElement2.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement2.ImageOptions.Image")));
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "الدروس";
+            this.accordionControlElement2.Visible = false;
             // 
             // accordionControlElement11
             // 
@@ -373,36 +489,68 @@
             // 
             this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement16,
+            this.accordionControlElement4,
+            this.accordionControlElement7,
             this.accordionControlElement17});
+            this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement3.ImageOptions.Image")));
             this.accordionControlElement3.Name = "accordionControlElement3";
+            this.accordionControlElement3.Tag = "F_ALL_NASHAT";
             this.accordionControlElement3.Text = "النشاطات";
             // 
             // accordionControlElement16
             // 
+            this.accordionControlElement16.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement16.ImageOptions.Image")));
             this.accordionControlElement16.Name = "accordionControlElement16";
             this.accordionControlElement16.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement16.Text = "ادخال نشاط";
+            this.accordionControlElement16.Tag = "F_ADD_NASHAT";
+            this.accordionControlElement16.Text = "نشاط جديد";
+            // 
+            // accordionControlElement4
+            // 
+            this.accordionControlElement4.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement4.ImageOptions.Image")));
+            this.accordionControlElement4.Name = "accordionControlElement4";
+            this.accordionControlElement4.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement4.Tag = "F_SHOW_NASHAT";
+            this.accordionControlElement4.Text = "تسجيل الحضور ";
+            // 
+            // accordionControlElement7
+            // 
+            this.accordionControlElement7.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement7.ImageOptions.Image")));
+            this.accordionControlElement7.Name = "accordionControlElement7";
+            this.accordionControlElement7.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement7.Tag = "F_ALL_NASHAT";
+            this.accordionControlElement7.Text = "كل النشاطات";
             // 
             // accordionControlElement17
             // 
+            this.accordionControlElement17.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement17.ImageOptions.Image")));
             this.accordionControlElement17.Name = "accordionControlElement17";
             this.accordionControlElement17.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement17.Tag = "F_REP_NASHAT";
             this.accordionControlElement17.Text = "التقرير";
             // 
-            // accordionControlElement23
+            // accordionControlElement18
             // 
-            this.accordionControlElement23.Name = "accordionControlElement23";
-            this.accordionControlElement23.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement23.Tag = "F_LOGIN";
-            this.accordionControlElement23.Text = "تبديل المستخدم";
+            this.accordionControlElement18.Name = "accordionControlElement18";
+            this.accordionControlElement18.Text = "تقارير شاملة";
             // 
-            // accordionControlElement22
+            // accordionControlElement19
             // 
-            this.accordionControlElement22.Name = "accordionControlElement22";
-            this.accordionControlElement22.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.accordionControlElement22.Tag = "F_INHERATENZ";
-            this.accordionControlElement22.Text = "فورم الوراثة";
+            this.accordionControlElement19.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement19.ImageOptions.Image")));
+            this.accordionControlElement19.Name = "accordionControlElement19";
+            this.accordionControlElement19.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement19.Tag = "F_DASHBOARD";
+            this.accordionControlElement19.Text = "dashbord";
+            this.accordionControlElement19.Visible = false;
+            // 
+            // accordionControlElement20
+            // 
+            this.accordionControlElement20.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("accordionControlElement20.ImageOptions.Image")));
+            this.accordionControlElement20.Name = "accordionControlElement20";
+            this.accordionControlElement20.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.accordionControlElement20.Tag = "F_PERSON_MANEG";
+            this.accordionControlElement20.Text = "إدارة الأشخاص";
             // 
             // pan_nav
             // 
@@ -411,13 +559,6 @@
             this.pan_nav.Name = "pan_nav";
             this.pan_nav.Size = new System.Drawing.Size(621, 291);
             this.pan_nav.TabIndex = 4;
-            // 
-            // barButtonItem10
-            // 
-            this.barButtonItem10.Caption = "تصميم الداش بورد";
-            this.barButtonItem10.Id = 10;
-            this.barButtonItem10.Name = "barButtonItem10";
-            this.barButtonItem10.Tag = "F_DASHBORD_DESIGHNER";
             // 
             // F_MAIN
             // 
@@ -437,6 +578,9 @@
             this.Text = "F_MAIN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorPickEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accordionControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pan_nav)).EndInit();
             this.ResumeLayout(false);
@@ -448,7 +592,6 @@
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbon;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Navigation.AccordionControl accordionControl1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement5;
@@ -465,8 +608,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement16;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement17;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement25;
         public DevExpress.XtraEditors.PanelControl pan_nav;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
@@ -485,6 +626,23 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem barButtonItem9;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement4;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement7;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement18;
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement19;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
+        private DevExpress.XtraBars.BarEditItem barEditItem1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemFontEdit repositoryItemFontEdit1;
+        private DevExpress.XtraBars.BarEditItem barEditItem2;
+        private DevExpress.XtraEditors.Repository.RepositoryItemColorEdit repositoryItemColorEdit1;
+        private DevExpress.XtraBars.BarEditItem barEditItem3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemColorPickEdit repositoryItemColorPickEdit1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem11;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement20;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
     }
 }

@@ -22,6 +22,7 @@ namespace QURAANEY.SOURA
         DateTime date_chose;
         int m = 0;
         int y = 0;
+        int id_keep_to_delet = 0;
         public static bool is_double_click = false;
         public static bool is_show_click = false;
         int id_doublee_click= 0;
@@ -41,7 +42,10 @@ namespace QURAANEY.SOURA
         private void F_FAIL_PERS_Load(object sender, EventArgs e)
         {
             if (id_pers != 0)
+            {
                 lkp_name.EditValue = id_pers;
+            }
+
             if (de_month_rep.Text == string.Empty)
                 load_fail_table();
         }
@@ -69,7 +73,7 @@ namespace QURAANEY.SOURA
                 if (is_double_click == true)
                 {
                     c_db.insert_upadte_delete(@"UPDATE       dbo.T_PERS_FAIL
-                             SET                reson ='" + txt_reson.Text + "'" +
+                             SET                reson =N'" + txt_reson.Text + "'" +
                                     "WHERE        (id = " + id_doublee_click + ")");
                     load_data("i");
                     return;
@@ -206,7 +210,7 @@ namespace QURAANEY.SOURA
                 //gc_keep.DataSource = dt;
 
                 //الغائبين
-                string s2 = @"SELECT     id
+                string s2 = @"SELECT     id , name
                                FROM         T_PERSONE
                              WHERE      id NOT IN (" + s + " ) " +
                        " AND (in_date <= CONVERT(DATETIME , '" + y + "-" + m + "-28" + "', 102)) " +
@@ -225,7 +229,7 @@ namespace QURAANEY.SOURA
                 //                gc_rate.DataSource = dt;
 
                 //المقصرين  عرض 
-                string sqll = @" SELECT        name, count_page, in_month, in_yeare, rate_name, num, rate_in_days, pers_hafez_id, id
+                string sqll = @" SELECT        name AS [اسم الشخص], rate_name AS [معدل الحفظ], count_page AS [الصفحات المحفوظة], num - count_page AS [الصفحات الباقية]
 FROM            dbo.V_fail
 WHERE        (in_month = N'" + m + "') AND (in_yeare = N'" + y + "') ";
                 dt_fail = c_db.select(sqll);
@@ -264,9 +268,9 @@ WHERE        (in_month = N'" + m + "') AND (in_yeare = N'" + y + "') ";
                 //                gc_rate.DataSource = dt;
 
                 //المقصرين  عرض 
-                string sqll = @" SELECT        name, count_page, in_month, in_yeare, rate_name, num, rate_in_days, pers_hafez_id, id
+                string sqll = @" SELECT        name AS [اسم الشخص], rate_name AS [معدل الحفظ], count_page AS [عدد الصفحات المحفوظة], num - count_page AS [الصفحات الباقية]
 FROM            dbo.V_fail
-WHERE        (pers_hafez_id = "+id_pers+") ";
+WHERE        (pers_hafez_id = " + id_pers+") ";
                 dt_fail = c_db.select(sqll);
                 gc_show_fail.DataSource = dt_fail;
 
@@ -287,26 +291,53 @@ WHERE        (pers_hafez_id = "+id_pers+") ";
         {
             if (id_pers != 0)
             {
+                delet_this_month_from_T_FAIL();
+
+
                 //جدول التقصير
-                string s4 = @" SELECT id, pers_id, in_date, month_fail, year_fail, reson
-                 FROM dbo.T_PERS_FAIL  where pers_id ="+id_pers+" ";
+                string s4 = @" SELECT        dbo.T_PERS_FAIL.id AS المعرف, dbo.T_PERS_FAIL.pers_id AS [رقم الشخص], dbo.T_PERSONE.name AS [اسم الشخص], dbo.T_PERS_FAIL.in_date AS [تاريخ الإدخال], 
+                         dbo.T_PERS_FAIL.month_fail AS [شهر التقصير], dbo.T_PERS_FAIL.year_fail AS [سنة التقصير], dbo.T_PERS_FAIL.reson AS السبب
+FROM            dbo.T_PERS_FAIL INNER JOIN
+                         dbo.T_PERSONE ON dbo.T_PERS_FAIL.pers_id = dbo.T_PERSONE.id
+WHERE        (dbo.T_PERS_FAIL.pers_id =" + id_pers + ") ";
                 dt = c_db.select(s4);
                 gc_save_fail.DataSource = dt;
+                gv_save_fail.Columns[0].Visible = false;
+                gv_save_fail.Columns[1].Visible = false;
             }
             else
             {
+                delet_this_month_from_T_FAIL();
                 //جدول التقصير
-                string s4 = @" SELECT id, pers_id, in_date, month_fail, year_fail, reson
-                 FROM dbo.T_PERS_FAIL ";
+                string s4 = @" SELECT        dbo.T_PERS_FAIL.id AS المعرف, dbo.T_PERS_FAIL.pers_id AS [رقم الشخص], dbo.T_PERSONE.name AS [اسم الشخص], dbo.T_PERS_FAIL.in_date AS [تاريخ الإدخال], 
+                         dbo.T_PERS_FAIL.month_fail AS [شهر التقصير], dbo.T_PERS_FAIL.year_fail AS [سنة التقصير], dbo.T_PERS_FAIL.reson AS السبب
+FROM            dbo.T_PERS_FAIL INNER JOIN
+                         dbo.T_PERSONE ON dbo.T_PERS_FAIL.pers_id = dbo.T_PERSONE.id ";
                 dt = c_db.select(s4);
                 gc_save_fail.DataSource = dt;
+                gv_save_fail.Columns[0].Visible = false;
+                gv_save_fail.Columns[1].Visible = false;
             }
         }
+
+        private void delet_this_month_from_T_FAIL()
+        {
+            //حذف معلومات الشهر الحالي من جدول الفيل
+            c_db.insert_upadte_delete(@" delete from  dbo.T_PERS_FAIL 
+                   WHERE( month_fail = N'" + d.Month + "' and year_fail = N'" + d.Year + "' )");
+        }
+
         private void load_fail_table(int m , int y)
         {
+            //حذف معلومات الشهر الحالي من جدول الفيل
+            c_db.insert_upadte_delete(@" delete from  dbo.T_PERS_FAIL 
+                   WHERE( month_fail = N'" + DateTime.Today.Month + "' and year_fail = N'" + DateTime.Today.Year + "' )");
+
             //جدول التقصير
-            string s4 = @" SELECT id, pers_id, in_date, month_fail, year_fail, reson
-                 FROM dbo.T_PERS_FAIL 
+            string s4 = @" SELECT        dbo.T_PERS_FAIL.id AS المعرف, dbo.T_PERS_FAIL.pers_id AS [رقم الشخص], dbo.T_PERSONE.name AS [اسم الشخص], dbo.T_PERS_FAIL.in_date AS [تاريخ الإدخال], 
+                         dbo.T_PERS_FAIL.month_fail AS [شهر التقصير], dbo.T_PERS_FAIL.year_fail AS [سنة التقصير], dbo.T_PERS_FAIL.reson AS السبب
+FROM            dbo.T_PERS_FAIL INNER JOIN
+                         dbo.T_PERSONE ON dbo.T_PERS_FAIL.pers_id = dbo.T_PERSONE.id
 WHERE        (month_fail = N'" + m + "') AND (year_fail = N'" + y + "') "; 
             dt = c_db.select(s4);
             gc_save_fail.DataSource = dt;
@@ -318,9 +349,7 @@ WHERE        (month_fail = N'" + m + "') AND (year_fail = N'" + y + "') ";
             {
                 try
                 {
-                    //حذف معلومات الشهر الحالي من جدول الفيل
-                    c_db.insert_upadte_delete(@" delete from  dbo.T_PERS_FAIL 
-                   WHERE( month_fail = N'" + m + "' and year_fail = N'" + y + "' )");
+                    delet_this_month_from_T_FAIL();
 
                 }
                 catch (Exception)
@@ -355,14 +384,14 @@ WHERE        (month_fail = N'" + m + "') AND (year_fail = N'" + y + "') ";
                    values ( " + dt_abcent.Rows[i][0].ToString() + " ," +
                              "  '" + "1-1-2023" + "' , '" + m + "' , '" + y + "' , '" + "غائب" + "')");
 
-                        //////حذف المعلومات المكررة من جدول ال المقصرين
-                        ////string sql2 = @" delete from dbo.T_PERS_FAIL where id in ( select id_fail from T_fail t 
-                        ////  where exists ( select id_fail from T_fail
-                        ////        where id_Person =t.id_Person 
-                        ////  and month_fail = t.month_fail 
-                        ////  and year_fail=t.year_fail
-                        ////     and id_fail < t.id_fail ))";
-                        ////int done2 = c_db.insert_upadte_delete(sql2);
+                        //حذف المعلومات المكررة من جدول ال المقصرين
+                        string sql2 = @" delete from dbo.T_PERS_FAIL where id in ( select id from dbo.T_PERS_FAIL t 
+                          where exists ( select id from dbo.T_PERS_FAIL
+                                where pers_id =t.pers_id 
+                          and month_fail = t.month_fail 
+                          and year_fail=t.year_fail
+                             and id < t.id ))";
+                        int done2 = c_db.insert_upadte_delete(sql2);
                         if (done != 0)
                         {
                             load_data("i");
@@ -386,13 +415,29 @@ WHERE        (month_fail = N'" + m + "') AND (year_fail = N'" + y + "') ";
             y = de_month_rep.DateTime.Year;
             date_chose = de_month_rep.DateTime;
         }
+
+        private void حذفToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gv_save_fail_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                gv_save_fail.SelectRow(e.RowHandle);
+                id_keep_to_delet = int.Parse(gv_save_fail.GetRowCellValue(gv_save_fail.FocusedRowHandle, gv_save_fail.Columns[0]).ToString());
+
+            }
+        }
+
         private void gv_save_fail_DoubleClick(object sender, EventArgs e)
         {
             is_double_click = true;
             group_names.Visibility =DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             id_doublee_click = int.Parse(gv_save_fail.GetRowCellValue(gv_save_fail.FocusedRowHandle, gv_save_fail.Columns[0]).ToString());
             lkp_name.EditValue =int.Parse( gv_save_fail.GetRowCellValue(gv_save_fail.FocusedRowHandle, gv_save_fail.Columns[1]).ToString());
-            txt_reson.Text= gv_save_fail.GetRowCellValue(gv_save_fail.FocusedRowHandle, gv_save_fail.Columns[5]).ToString();
+            txt_reson.Text= gv_save_fail.GetRowCellValue(gv_save_fail.FocusedRowHandle, gv_save_fail.Columns[6]).ToString();
         }
 
         

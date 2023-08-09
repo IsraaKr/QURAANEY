@@ -16,6 +16,22 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <PublishUrl>C:\Users\Israa\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,9 +52,23 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E57B8336735815181A16199770CD2BADCC3067D3</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>QURAANEY_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.Charts.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v20.1.Core, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v20.1.Win, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.Desktop.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v20.1, Version=20.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -93,10 +123,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CLASS_TABLES\C_DEFULTES_sql.cs" />
+    <Compile Include="CLASS_TABLES\C_PERSON_sql.cs" />
+    <Compile Include="CLASS_TABLES\C_PERS_RATE_KEEP_sql.cs" />
+    <Compile Include="CLASS_TABLES\C_PERS_TYPE_sql.cs" />
+    <Compile Include="CLASS_TABLES\C_PERS_STATE_sql.cs" />
+    <Compile Include="CLASS_TABLES\C_SOURA_sql.cs" />
     <Compile Include="c_db.cs" />
     <Compile Include="C_DB_QUERYS.cs" />
     <Compile Include="C_MASTER.cs" />
-    <Compile Include="C_TEST.cs" />
+    <Compile Include="F_DASHBOARD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_DASHBOARD.Designer.cs">
+      <DependentUpon>F_DASHBOARD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TEAST\C_TEST.cs" />
     <Compile Include="DB\DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -108,22 +156,28 @@
     <Compile Include="F_INHERATENZ.Designer.cs">
       <DependentUpon>F_INHERATENZ.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_LOGIN.cs">
+    <Compile Include="START\F_LOGIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_LOGIN.Designer.cs">
+    <Compile Include="START\F_LOGIN.Designer.cs">
       <DependentUpon>F_LOGIN.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_MAIN.cs">
+    <Compile Include="START\F_MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_MAIN.Designer.cs">
+    <Compile Include="START\F_MAIN.Designer.cs">
       <DependentUpon>F_MAIN.cs</DependentUpon>
     </Compile>
-    <Compile Include="F_TESTT.cs">
+    <Compile Include="START\F_START.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F_TESTT.Designer.cs">
+    <Compile Include="START\F_START.Designer.cs">
+      <DependentUpon>F_START.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TEAST\F_TESTT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TEAST\F_TESTT.Designer.cs">
       <DependentUpon>F_TESTT.cs</DependentUpon>
     </Compile>
     <Compile Include="LESONE\F_SAVE_LESON.cs">
@@ -145,6 +199,18 @@
     <Compile Include="NASHAT\F_ADD_NASHAT.Designer.cs">
       <DependentUpon>F_ADD_NASHAT.cs</DependentUpon>
     </Compile>
+    <Compile Include="NASHAT\F_ALL_NASHAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NASHAT\F_ALL_NASHAT.Designer.cs">
+      <DependentUpon>F_ALL_NASHAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NASHAT\F_REP_NASHAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NASHAT\F_REP_NASHAT.Designer.cs">
+      <DependentUpon>F_REP_NASHAT.cs</DependentUpon>
+    </Compile>
     <Compile Include="NASHAT\F_SHOW_NASHAT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +219,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SETTING\F_CONN_SETTING.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SETTING\F_CONN_SETTING.Designer.cs">
+      <DependentUpon>F_CONN_SETTING.cs</DependentUpon>
+    </Compile>
     <Compile Include="SETTING\F_DELETE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,16 +317,25 @@
     <Compile Include="USERES\F_PERMISIONS.Designer.cs">
       <DependentUpon>F_PERMISIONS.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_INHERATENZ.resx">
       <DependentUpon>F_INHERATENZ.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_LOGIN.resx">
+    <EmbeddedResource Include="F_DASHBOARD.resx">
+      <DependentUpon>F_DASHBOARD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="START\F_LOGIN.resx">
       <DependentUpon>F_LOGIN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_MAIN.resx">
+    <EmbeddedResource Include="START\F_MAIN.resx">
       <DependentUpon>F_MAIN.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F_TESTT.resx">
+    <EmbeddedResource Include="START\F_START.resx">
+      <DependentUpon>F_START.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TEAST\F_TESTT.resx">
       <DependentUpon>F_TESTT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LESONE\F_SAVE_LESON.resx">
@@ -264,6 +346,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NASHAT\F_ADD_NASHAT.resx">
       <DependentUpon>F_ADD_NASHAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NASHAT\F_ALL_NASHAT.resx">
+      <DependentUpon>F_ALL_NASHAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NASHAT\F_REP_NASHAT.resx">
+      <DependentUpon>F_REP_NASHAT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NASHAT\F_SHOW_NASHAT.resx">
       <DependentUpon>F_SHOW_NASHAT.cs</DependentUpon>
@@ -279,6 +367,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SETTING\F_CONN_SETTING.resx">
+      <DependentUpon>F_CONN_SETTING.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SETTING\F_DELETE.resx">
       <DependentUpon>F_DELETE.cs</DependentUpon>
     </EmbeddedResource>
@@ -348,6 +439,28 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QURAANEY_TemporaryKey.pfx" />
+    <None Include="Resources\tashkeel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash_test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dash_quranney.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

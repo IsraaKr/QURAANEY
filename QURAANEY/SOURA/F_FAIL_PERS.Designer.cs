@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_FAIL_PERS));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txt_reson = new DevExpress.XtraEditors.TextEdit();
@@ -44,10 +45,12 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.group_names = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.حذفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -66,10 +69,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.group_names)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pan_btn
@@ -131,8 +135,11 @@
             this.gv_save_fail.OptionsFilter.AllowAutoFilterConditionChange = DevExpress.Utils.DefaultBoolean.True;
             this.gv_save_fail.OptionsFind.AlwaysVisible = true;
             this.gv_save_fail.OptionsPrint.EnableAppearanceEvenRow = true;
+            this.gv_save_fail.OptionsSelection.MultiSelect = true;
+            this.gv_save_fail.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv_save_fail.OptionsView.EnableAppearanceEvenRow = true;
             this.gv_save_fail.OptionsView.ShowAutoFilterRow = true;
+            this.gv_save_fail.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gv_save_fail_RowClick);
             this.gv_save_fail.DoubleClick += new System.EventHandler(this.gv_save_fail_DoubleClick);
             // 
             // gc_show_fail
@@ -169,11 +176,7 @@
             this.de_month_rep.Properties.Appearance.Options.UseTextOptions = true;
             this.de_month_rep.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.de_month_rep.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            //new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            //this.de_month_rep.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            //new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo),
-            //new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_month_rep.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
             this.de_month_rep.Properties.DisplayFormat.FormatString = "MM/yyyy";
             this.de_month_rep.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
@@ -240,6 +243,8 @@
             this.layoutControlItem3.Control = this.de_month_rep;
             this.layoutControlItem3.Location = new System.Drawing.Point(431, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.OptionsPrint.AppearanceItemText.BackColor = System.Drawing.Color.Teal;
+            this.layoutControlItem3.OptionsPrint.AppearanceItemText.Options.UseBackColor = true;
             this.layoutControlItem3.Size = new System.Drawing.Size(431, 72);
             this.layoutControlItem3.Text = "عن شهر";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(129, 13);
@@ -275,16 +280,6 @@
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(129, 13);
             // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.gc_save_fail;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(431, 458);
-            this.layoutControlItem7.Text = "جدول التقصير";
-            this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(129, 13);
-            // 
             // group_names
             // 
             this.group_names.GroupStyle = DevExpress.Utils.GroupStyle.Light;
@@ -315,6 +310,30 @@
             this.layoutControlItem8.Text = "السبب";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(129, 13);
             // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.gc_save_fail;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(431, 458);
+            this.layoutControlItem7.Text = "جدول التقصير";
+            this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(129, 13);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.حذفToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(96, 26);
+            // 
+            // حذفToolStripMenuItem
+            // 
+            this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حذفToolStripMenuItem.Text = "حذف";
+            this.حذفToolStripMenuItem.Click += new System.EventHandler(this.حذفToolStripMenuItem_Click);
+            // 
             // F_FAIL_PERS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,10 +363,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.group_names)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,5 +394,7 @@
         private DevExpress.XtraEditors.TextEdit txt_reson;
         private DevExpress.XtraLayout.LayoutControlGroup group_names;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem حذفToolStripMenuItem;
     }
 }

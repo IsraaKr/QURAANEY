@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Globalization;
 using QURAANEY.SETTING;
 using QURAANEY.SOURA;
+//using QURAANEY.START;
 
 namespace QURAANEY
 {

@@ -14,7 +14,7 @@ namespace QURAANEY
         //public static SqlConnection con;
         public static SqlCommand comnd;
         public static SqlDataReader dr;
-      //  public static SqlDataAdapter da;
+        //  public static SqlDataAdapter da;
         public static DataTable dt;
         public static int done;
 
@@ -63,7 +63,7 @@ namespace QURAANEY
         {
             comnd = new SqlCommand("create database " + db_name, con);
             comnd.ExecuteNonQuery();
-       
+
         }
         //الاتصال بقاعدة البيانات
         public static void db_conection(string server_name, string db_name)
@@ -100,23 +100,23 @@ namespace QURAANEY
                 if (x < Int32.Parse(dr[0].ToString()))
                     x = Int32.Parse(dr[0].ToString());
             }
-            
+
             dr.Close();
             return x.ToString();
         }
         //إنشاء الجداول
-        public static void alter_pers_types(string state , string col_name )
+        public static void alter_pers_types(string state, string col_name)
         {
             if (state == "add")
             {
-                string sql_tb1 = "alter table T_PERS_TYPES_TRUE_FALSE add "+ col_name +" bit ";
+                string sql_tb1 = "alter table T_PERS_TYPES_TRUE_FALSE add " + col_name + " bit ";
 
                 SqlCommand tb1 = new SqlCommand(sql_tb1, con);
                 tb1.ExecuteNonQuery();
             }
             if (state == "drop")
             {
-                string sql_tb1 = "alter table T_PERS_TYPES_TRUE_FALSE drop  column "+ col_name +" ";           
+                string sql_tb1 = "alter table T_PERS_TYPES_TRUE_FALSE drop  column " + col_name + " ";
                 SqlCommand tb1 = new SqlCommand(sql_tb1, con);
                 tb1.ExecuteNonQuery();
             }
@@ -160,7 +160,7 @@ SET IDENTITY_INSERT [dbo].[T_DEFULT_THWABET] OFF";
             //}
 
             dr.Close();
-        
+
         }
 
 

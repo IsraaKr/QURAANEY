@@ -105,25 +105,22 @@ WHERE        (dbo.T_PERSONE.id = " + pers_id + ")" +
             return dt;
         }
         //نسبة حفظ الصفحات بناء  على رقم الشخص
-        public static DataTable page_rate_by_id(int pers_id)
+        public static DataTable full_page_count_by_id(int pers_id)
         {
-            DataTable dt = c_db.select(@" SELECT dbo.T_PERSONE.name, COUNT(dbo.T_SOURA_KEEP.page_num) AS Expr1
- FROM            dbo.T_PERSONE LEFT OUTER JOIN
- 
-                          dbo.T_SOURA_KEEP ON dbo.T_PERSONE.id = dbo.T_SOURA_KEEP.pers_hafez_id
- WHERE        (dbo.T_PERSONE.id = " + pers_id + ")" +
- "GROUP BY dbo.T_PERSONE.name ");
+            DataTable dt = c_db.select(@" SELECT     T_PERSONE.id, T_PERSONE.name, V_COUNT_FULL_PAGE.count_page
+FROM         T_PERSONE INNER JOIN
+                      V_COUNT_FULL_PAGE ON T_PERSONE.id = V_COUNT_FULL_PAGE.pers_hafez_id 
+                      where T_PERSONE.id = "+pers_id+" ");
 
             return dt;
         }
         //نسبة حفظ السور  بناء  على رقم الشخص
         public static DataTable soura_rate_by_id(int pers_id)
         {
-            DataTable dt = c_db.select(@" SELECT        dbo.T_PERSONE.name, COUNT(DISTINCT dbo.T_SOURA_KEEP.soura_num) AS Expr1
-FROM            dbo.T_PERSONE LEFT OUTER JOIN
-                         dbo.T_SOURA_KEEP ON dbo.T_PERSONE.id = dbo.T_SOURA_KEEP.pers_hafez_id
-WHERE        (dbo.T_PERSONE.id =  " + pers_id + ")" +
-"GROUP BY dbo.T_PERSONE.name ");
+            DataTable dt = c_db.select(@"                       SELECT     T_PERSONE.id, T_PERSONE.name, V_COUNT_FULL_SOURA_KEEP.count_soura
+FROM         T_PERSONE INNER JOIN
+                      V_COUNT_FULL_SOURA_KEEP ON T_PERSONE.id = V_COUNT_FULL_SOURA_KEEP.pers_hafez_id 
+                      where T_PERSONE.id = "+pers_id+" ");
 
             return dt;
         }

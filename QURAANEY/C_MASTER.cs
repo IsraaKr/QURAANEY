@@ -44,35 +44,49 @@ namespace QURAANEY
         }
         public static bool is_editevalue_valid(this LookUpEditBase lkpb)
         {
-            if (lkpb.is_editevalue_oftype_int() == false || lkpb.is_editevalue_valid_and_not_zero()==false)
-            {
+            if(   // lkpb.EditValue is int ||
+            //        lkpb.EditValue is byte ||
+            //        Convert.ToInt32(lkpb.EditValue) < 0 ||
+                    lkpb.Text == string.Empty ||
+                    lkpb.Text == null||
+                    lkpb.Text =="") 
+            { 
                 lkpb.ErrorText = " هذا الحقل مطلوب  ";
                 return false;
             }
             return true;
         }
-        public static bool is_editevalue_valid_and_not_zero(this LookUpEditBase lkpb)
-        {
-            if (lkpb.is_editevalue_oftype_int() == false || Convert.ToInt32(lkpb.EditValue)==0)
-            {
-                lkpb.ErrorText = " هذا الحقل مطلوب  ";
-                return false;
-            }
-            return true;
-        }
-        public static bool is_editevalue_oftype_int(this LookUpEditBase lkpb)
-        {
-            return (lkpb.EditValue is int ||
-                lkpb.EditValue is byte || 
-                Convert.ToInt32(lkpb.EditValue) < 0 == false ||
-                lkpb.Text ==string.Empty ||
-                lkpb.Text==null);
-      
-        }
-        #endregion
+            //public static bool is_editevalue_valid(this LookUpEditBase lkpb)
+            //{
+            //    if (lkpb.is_editevalue_oftype_int() == false || lkpb.is_editevalue_valid_and_not_zero()==false)
+            //    {
+            //        lkpb.ErrorText = " هذا الحقل مطلوب  ";
+            //        return false;
+            //    }
+            //    return true;
+            //}
+            //public static bool is_editevalue_valid_and_not_zero(this LookUpEditBase lkpb)
+            //{
+            //    if (lkpb.is_editevalue_oftype_int() == false || Convert.ToInt32(lkpb.EditValue)==0)
+            //    {
+            //        lkpb.ErrorText = " هذا الحقل مطلوب  ";
+            //        return false;
+            //    }
+            //    return true;
+            //}
+            //public static bool is_editevalue_oftype_int(this LookUpEditBase lkpb)
+            //{
+            //    return (lkpb.EditValue is int ||
+            //        lkpb.EditValue is byte || 
+            //        Convert.ToInt32(lkpb.EditValue) < 0 == false ||
+            //        lkpb.Text ==string.Empty ||
+            //        lkpb.Text==null);
 
-        //طباعة هيدر في التقرير
-        public static void print_header(string header, DevExpress.XtraGrid.GridControl gc)
+            //}
+            #endregion
+
+            //طباعة هيدر في التقرير
+            public static void print_header(string header, DevExpress.XtraGrid.GridControl gc)
         {
             PrintingSystem print = new PrintingSystem();
 
