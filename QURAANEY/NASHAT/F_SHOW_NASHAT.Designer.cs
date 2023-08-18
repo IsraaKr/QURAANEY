@@ -197,6 +197,7 @@
             this.gv.OptionsFind.AlwaysVisible = true;
             this.gv.OptionsView.EnableAppearanceEvenRow = true;
             this.gv.OptionsView.ShowAutoFilterRow = true;
+            this.gv.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gv_RowUpdated);
             this.gv.DoubleClick += new System.EventHandler(this.gv_DoubleClick);
             // 
             // Root

@@ -103,7 +103,7 @@ FROM            dbo.T_PERSONE INNER JOIN
         {
             //تحميل التيل نسبة حفظ الآيات 
             dt = C_DB_QUERYS.aya_rate_by_id(Convert.ToInt32(lkp_name.EditValue));
-            count = ((Convert.ToInt32(dt.Rows[0][1].ToString()) * 0.1) / 6500) / 0.1;
+            count = ((Convert.ToInt32(dt.Rows[0][1].ToString()) * 0.1) / 6326) / 0.1;
             persent = count.ToString("p", CultureInfo.InvariantCulture);
             if (dt.Rows.Count > 0)
             {
@@ -200,12 +200,62 @@ FROM            dbo.T_PERSONE INNER JOIN
             }
 
         }
+        private void load_chart2()
+        {
+
+            ch_page1.Series["Series1"].Points.Clear();
+            DataTable dt_page = c_db.select(@"SELECT    count(aya_num) as count
+     FROM            dbo.T_SOURA_KEEP
+            WHERE(pers_hafez_id = " + lkp_name.EditValue + ")");
+            if (dt_page.Rows.Count != 0)
+            {
+                int y = 6236 - int.Parse(dt_page.Rows[0][0].ToString());
+
+                ch_page1.Series["Series1"].Points.AddXY("الآيات المحفوظة", int.Parse(dt_page.Rows[0][0].ToString()));
+                ch_page1.Series["Series1"].Points.AddXY("الباقي", y);
+                ch_page1.Series["Series1"].Points[0].Color = Color.SteelBlue;
+                ch_page1.Series["Series1"].Points[1].Color = Color.LightGray;
+                ///////
+            }
+            else
+            {
+                ch_page1.Series["Series1"].Points.AddXY("الآيات المحفوظة", 0);
+                ch_page1.Series["Series1"].Points.AddXY(" الباقي", 6236);
+                ch_page1.Series["Series1"].Points[0].Color = Color.SteelBlue;
+                ch_page1.Series["Series1"].Points[1].Color = Color.LightGray;
+            }
+
+        }
+        private void load_line()
+        {
+            ch_p.Series["Series1"].Points.Clear();
+            DataTable dt_page = c_db.select(@"SELECT        count_page
+                FROM            dbo.V_COUNT_PAGE_WITHE_DATE
+            WHERE(pers_hafez_id = " + lkp_name.EditValue + ")");
+            if (dt_page.Rows.Count != 0)
+            {
+                int y = 6400 - int.Parse(dt_page.Rows[0][0].ToString());
+             
+                ch_p.Series["Series1"].Points.AddXY("الآيات المحفوظة", int.Parse(dt_page.Rows[0][0].ToString()));
+                ch_p.Series["Series1"].Points.AddXY("الباقي", y);
+                ch_p.Series["Series1"].Points[0].Color = Color.SteelBlue;
+                ch_p.Series["Series1"].Points[1].Color = Color.LightGray;
+                ///////
+            }
+            else
+            {
+                ch_p.Series["Series1"].Points.AddXY("الآيات المحفوظة", 0);
+                ch_p.Series["Series1"].Points.AddXY(" الباقي", 6400);
+                ch_p.Series["Series1"].Points[0].Color = Color.SteelBlue;
+                ch_p.Series["Series1"].Points[1].Color = Color.LightGray;
+            }
+        }
 
         private void ti_fail_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
         {
-            F_FAIL_PERS f = new F_FAIL_PERS(int.Parse(lkp_name.EditValue.ToString()));
-            f.WindowState = FormWindowState.Maximized;
-            f.Show();
+            //F_FAIL_PERS f = new F_FAIL_PERS(int.Parse(lkp_name.EditValue.ToString()));
+            //f.WindowState = FormWindowState.Maximized;
+            //f.Show();
 
         }
     }

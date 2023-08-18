@@ -248,6 +248,8 @@
             this.tileView1.TileTemplate.Add(tileViewItemElement11);
             this.tileView1.TileTemplate.Add(tileViewItemElement12);
             this.tileView1.ItemClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileView1_ItemClick);
+            this.tileView1.RowLoaded += new DevExpress.XtraGrid.Views.Base.RowEventHandler(this.tileView1_RowLoaded);
+            this.tileView1.Click += new System.EventHandler(this.tileView1_Click);
             this.tileView1.DoubleClick += new System.EventHandler(this.tileView1_DoubleClick);
             // 
             // F_ALL_NASHAT

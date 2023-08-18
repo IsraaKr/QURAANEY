@@ -102,22 +102,35 @@ namespace QURAANEY
         //لتفريغ الحقول و لتغير جملة الستاتس
         public virtual void clear(Control.ControlCollection s_controls)
         {
-            //كود لتفريغ كل محتوى الكونترولات
+                    //لتفريغ الحقول و لتغير جملة الستاتس
             Action<Control.ControlCollection> func = null;
             func = (controls) =>
             {
                 foreach (Control c in controls)
                     if (c is TextBox)
-                        (c as TextBox).Clear();
-                    else if (c is DateEdit)
-                        // (c as DateEdit).DateTime = DateTime.Now;
-                        (c as DateEdit).Text = string.Empty;
+                        (c as TextBox).Text = string.Empty;
+               else  if (c is TextEdit)
+                    (c as TextEdit).Text = string.Empty;
+                else if (c is DateEdit)
+                        (c as DateEdit).DateTime = DateTime.Now;
+                    else if (c is TimeSpanEdit)
+                        (c as TimeSpanEdit).EditValue = TimeSpan.Parse(DateTime.Now.ToString("HH:mm:ss"));
+                    else if (c is SearchLookUpEdit)
+                    {
+                        (c as SearchLookUpEdit).Text = "";
+                        (c as SearchLookUpEdit).EditValue = null;
+                    }
+                    else if (c is LookUpEdit)
+                    {
+                        c.Text = null;
+                        (c as LookUpEdit).EditValue = null;
+                    }
+                    else if (c is PictureEdit)
+                        (c as PictureEdit).Image = null;
+                 
                     else if (c is TimeEdit)
                         (c as TimeEdit).Time = DateTime.Now;
-                    else if (c is LookUpEdit)
-                        (c as LookUpEdit).EditValue = -1;
-                    // (c as LookUpEdit).Text = (c as LookUpEdit).Properties.NullText;
-                    // (c as LookUpEdit).Text = string.Empty;
+        
                     else if (c is DateTimePicker)
                         (c as DateTimePicker).Value = DateTime.Now;
                     else if (c is System.Windows.Forms.ComboBox)
@@ -126,10 +139,20 @@ namespace QURAANEY
                     //       (c as GridControl).DataSource = null;
                     //else if (c is GridView)
                     //    (c as GridView).Columns.Clear() ;
+                    //else if (c is DateEdit)
+                    //    // (c as DateEdit).DateTime = DateTime.Now;
+                    //    (c as DateEdit).Text = string.Empty;
+                    //else if (c is LookUpEdit)
+                    //    (c as LookUpEdit).EditValue = -1;
+                    // (c as LookUpEdit).Text = (c as LookUpEdit).Properties.NullText;
+                    // (c as LookUpEdit).Text = string.Empty;
+
                     else
                         func(c.Controls);
             };
+            func(s_controls);
         }
+
         public virtual void Change_font_size(Control.ControlCollection s_controls ,int font_size , string font_name )
         {
             //كود لتفريغ كل محتوى الكونترولات

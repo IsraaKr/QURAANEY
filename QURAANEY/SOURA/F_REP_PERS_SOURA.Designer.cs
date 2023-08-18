@@ -59,6 +59,9 @@
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions5 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions6 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions7 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.ch_page = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.lkp_name = new DevExpress.XtraEditors.LookUpEdit();
@@ -139,6 +142,8 @@
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.ch_page1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -194,6 +199,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ch_page1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_btn
@@ -241,6 +248,7 @@
             this.layoutControl1.Controls.Add(this.rdb_month);
             this.layoutControl1.Controls.Add(this.rdb_month_between);
             this.layoutControl1.Controls.Add(this.dtp_to);
+            this.layoutControl1.Controls.Add(this.ch_page1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -256,7 +264,7 @@
             this.ch_page.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.ch_page.Legends.Add(legend1);
-            this.ch_page.Location = new System.Drawing.Point(335, 61);
+            this.ch_page.Location = new System.Drawing.Point(340, 64);
             this.ch_page.Name = "ch_page";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
@@ -264,7 +272,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.ch_page.Series.Add(series1);
-            this.ch_page.Size = new System.Drawing.Size(307, 159);
+            this.ch_page.Size = new System.Drawing.Size(302, 157);
             this.ch_page.TabIndex = 110;
             this.ch_page.Text = "chart1";
             // 
@@ -277,17 +285,17 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_name.Properties.NullText = "";
             this.lkp_name.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lkp_name.Size = new System.Drawing.Size(217, 20);
+            this.lkp_name.Size = new System.Drawing.Size(171, 20);
             this.lkp_name.StyleController = this.layoutControl1;
             this.lkp_name.TabIndex = 109;
             this.lkp_name.EditValueChanged += new System.EventHandler(this.lkp_name_EditValueChanged);
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(24, 224);
+            this.gc.Location = new System.Drawing.Point(24, 225);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(618, 260);
+            this.gc.Size = new System.Drawing.Size(618, 259);
             this.gc.TabIndex = 108;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -455,15 +463,17 @@
             this.ch_p.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.ch_p.Legends.Add(legend2);
-            this.ch_p.Location = new System.Drawing.Point(24, 45);
+            this.ch_p.Location = new System.Drawing.Point(24, 24);
             this.ch_p.Name = "ch_p";
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.ch_p.Series.Add(series2);
-            this.ch_p.Size = new System.Drawing.Size(307, 175);
+            this.ch_p.Size = new System.Drawing.Size(618, 20);
             this.ch_p.TabIndex = 92;
             this.ch_p.Text = "chart1";
+            this.ch_p.Visible = false;
             // 
             // chb_mustalem
             // 
@@ -654,7 +664,7 @@
             this.dtp_from.Location = new System.Drawing.Point(658, 269);
             this.dtp_from.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_from.Name = "dtp_from";
-            this.dtp_from.Size = new System.Drawing.Size(91, 22);
+            this.dtp_from.Size = new System.Drawing.Size(45, 22);
             this.dtp_from.TabIndex = 89;
             // 
             // de_month
@@ -741,7 +751,7 @@
             this.dtp_to.Location = new System.Drawing.Point(658, 293);
             this.dtp_to.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_to.Name = "dtp_to";
-            this.dtp_to.Size = new System.Drawing.Size(91, 22);
+            this.dtp_to.Size = new System.Drawing.Size(45, 22);
             this.dtp_to.TabIndex = 90;
             // 
             // Root
@@ -762,18 +772,20 @@
             this.layoutControlGroup1.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem7,
-            this.layoutControlItem11,
-            this.layoutControlItem13});
+            this.layoutControlItem13,
+            this.layoutControlItem14,
+            this.layoutControlItem11});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.Size = new System.Drawing.Size(646, 488);
+            this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.gc;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 179);
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 201);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(622, 264);
+            this.layoutControlItem7.Size = new System.Drawing.Size(622, 263);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -785,7 +797,7 @@
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(104, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(311, 179);
+            this.layoutControlItem11.Size = new System.Drawing.Size(622, 24);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
@@ -793,12 +805,12 @@
             // layoutControlItem13
             // 
             this.layoutControlItem13.Control = this.ch_page;
-            this.layoutControlItem13.Location = new System.Drawing.Point(311, 0);
+            this.layoutControlItem13.Location = new System.Drawing.Point(316, 24);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(311, 179);
+            this.layoutControlItem13.Size = new System.Drawing.Size(306, 177);
             this.layoutControlItem13.Text = "الصفحات";
             this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(40, 13);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(86, 13);
             // 
             // layoutControlItem15
             // 
@@ -810,7 +822,7 @@
             this.layoutControlItem15.Size = new System.Drawing.Size(264, 24);
             this.layoutControlItem15.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem15.Text = "الاسم";
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(40, 13);
+            this.layoutControlItem15.TextSize = new System.Drawing.Size(86, 13);
             // 
             // layoutControlItem8
             // 
@@ -844,6 +856,7 @@
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(264, 30);
             this.layoutControlGroup2.Text = "خيارات البحث";
+            this.layoutControlGroup2.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlGroup7
             // 
@@ -1233,7 +1246,7 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(138, 24);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.Text = "من";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(40, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(86, 13);
             // 
             // layoutControlItem6
             // 
@@ -1320,7 +1333,37 @@
             this.layoutControlItem12.Size = new System.Drawing.Size(138, 24);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.Text = "إلى";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(40, 13);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(86, 13);
+            // 
+            // ch_page1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.ch_page1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.ch_page1.Legends.Add(legend1);
+            this.ch_page1.Location = new System.Drawing.Point(340, 64);
+            this.ch_page1.Name = "ch_page1";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.IsValueShownAsLabel = true;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.ch_page1.Series.Add(series1);
+            this.ch_page1.Size = new System.Drawing.Size(302, 157);
+            this.ch_page1.TabIndex = 110;
+            this.ch_page1.Text = "chart1";
+            // 
+            // layoutControlItem14
+            // 
+            this.layoutControlItem14.Control = this.ch_page1;
+            this.layoutControlItem14.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
+            this.layoutControlItem14.CustomizationFormText = "الصفحات";
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem14.Name = "layoutControlItem14";
+            this.layoutControlItem14.Size = new System.Drawing.Size(316, 177);
+            this.layoutControlItem14.Text = "الباقي لحفظ القرآن";
+            this.layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(86, 13);
             // 
             // F_REP_PERS_SOURA
             // 
@@ -1389,6 +1432,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ch_page1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1476,5 +1521,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
         private System.Windows.Forms.DataVisualization.Charting.Chart ch_page;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
+        private System.Windows.Forms.DataVisualization.Charting.Chart ch_page1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
     }
 }

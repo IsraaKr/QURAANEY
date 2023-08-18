@@ -34,6 +34,7 @@ namespace QURAANEY.SETTING
         int done;
         private string maxid;
         int state_change = 0;
+        int is_active_change = 0;
         int state_id = 0;
         int rate_change = 0;
         int type_change = 0;
@@ -80,6 +81,7 @@ namespace QURAANEY.SETTING
             dt = C_PERSON_sql.get_pers_id_name(); 
             lkp_pers_state_change.lkp_iniatalize_data(dt, "name", "id");
             lkp_inviting_pers.lkp_iniatalize_data(dt, "name", "id");
+            lkp_is_active_change.lkp_iniatalize_data(dt, "name", "id");
 
             //القيم الافتراضية
             dt = C_DEFULTES_sql.get_all_defult();
@@ -150,9 +152,10 @@ namespace QURAANEY.SETTING
                     update_all();
                 }
                 //  load_data("i");
-                neew();
+               // neew();
                 
                 is_double_click = false;
+                layoutControlGroup1.Text = "...";
 
             }
         }
@@ -210,10 +213,10 @@ namespace QURAANEY.SETTING
         {
             int number_of_errores = 0;
 
-            number_of_errores += lkp_state.is_editevalue_valid() ? 0 : 1;
+           // number_of_errores += lkp_state.is_editevalue_valid() ? 0 : 1;
             number_of_errores += lkp_inviting_pers.is_editevalue_valid() ? 0 : 1;
-            number_of_errores += lkp_pers_state_change.is_editevalue_valid() ? 0 : 1;
-            number_of_errores += lkp_keep_rate.is_editevalue_valid() ? 0 : 1;
+           // number_of_errores += lkp_pers_state_change.is_editevalue_valid() ? 0 : 1;
+           // number_of_errores += lkp_keep_rate.is_editevalue_valid() ? 0 : 1;
             number_of_errores += txt_name.is_text_valid() ? 0 : 1;
             number_of_errores += txt_phone.is_text_valid() ? 0 : 1;
 
@@ -363,6 +366,22 @@ namespace QURAANEY.SETTING
             }
 
         }
+        private int delete_is_active_change()
+        {
+            try
+            {
+                c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_ISACTIVE_CHANGE
+                              WHERE        (pers_id = " + pers_id + " ) ");
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex + "");
+                return 0;
+            }
+
+        }
         #endregion
 
         #region update توابع التعديل
@@ -372,7 +391,7 @@ namespace QURAANEY.SETTING
             update_type_true_false();
             insert_state();
             insert_keep_rate();
-
+            insert_Is_active();
             load_data("i");
         }
         private void update_pers()
@@ -493,6 +512,11 @@ namespace QURAANEY.SETTING
             num_done += insert_type_true_false();
             update_type_true_false();
             num_done += insert_keep_rate();
+            num_done += insert_keep_rate();
+            if (is_active_change!=0)
+            {
+                insert_Is_active();
+            }
 
             load_data("i");
 
@@ -608,6 +632,33 @@ namespace QURAANEY.SETTING
             state_change = 0;
             return 0;
         }
+        private int insert_Is_active()
+        {
+            if (is_active_change != 0)
+            {
+                try
+                {
+
+                   // state_id = Convert.ToInt32(lkp_state.EditValue);
+                    //ادخال لجدول تغير الحالات
+                    sqll = @"INSERT INTO dbo.T_ISACTIVE_CHANGE
+                         (pers_id, pers_change, chande_date)     
+                             VALUES        (" + pers_id + "," +
+                                     " N'" + lkp_is_active_change.Text +  "'," +
+                                     " N'" + dateTimePicker1.Text + "' ) ";
+                    done = c_db.insert_upadte_delete(sqll);
+                    return 1;
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex + "");
+                    return 0;
+                }
+            }
+            is_active_change = 0;
+            return 0;
+        }
 
         private int insert_keep_rate()
         {
@@ -652,6 +703,9 @@ namespace QURAANEY.SETTING
             ch_is_active.Checked = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[8]).ToString());
             lkp_inviting_pers.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[9]).ToString();
 
+
+            layoutControlGroup1.Text = txt_name.Text;
+
             dt = c_db.select(@"  SELECT        pers_id, pers_name, ratr_id, rate_name, num, rate_in_days, change_date
                                   FROM            dbo.V_RATE_MAX_DATE
                             WHERE        (pers_id = " + pers_id + ")");
@@ -687,7 +741,11 @@ namespace QURAANEY.SETTING
 
             }
 
-
+            layoutControlItem4.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            _state_change.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            layoutControlItem20.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            layoutControlItem18.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            layoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             all_states();
             all_rates();
 
@@ -735,6 +793,16 @@ namespace QURAANEY.SETTING
             }
         }
 
+        private void ch_is_active_CheckedChanged(object sender, EventArgs e)
+        {
+             if (layoutControlItem13.Visibility == DevExpress.XtraLayout.Utils.LayoutVisibility.Never)
+            {
+                layoutControlItem13.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                layoutControlItem16.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+            }
+            is_active_change = 1;
+           
+        }
     }
 }
 

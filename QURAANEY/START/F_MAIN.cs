@@ -20,9 +20,26 @@ namespace QURAANEY
         {
             InitializeComponent();
             create_db();
-            F_SOURA_GRID f = new F_SOURA_GRID();
-            nav(f,pan_nav);
+            load_first_frame();
         }
+
+        private void load_first_frame()
+        {
+            DataTable dt = c_db.select(@"SELECT TOP 10 [id]
+              FROM[MY_QURAAN].[dbo].[T_SOURA_KEEP] ");
+            if (dt.Rows.Count > 0)
+            {
+                F_SOURA_GRID f = new F_SOURA_GRID();
+                nav(f, pan_nav);
+            }
+            else
+            {
+                F_KEEP_SOURA fk = new F_KEEP_SOURA();
+                nav(fk, pan_nav);
+            }
+       
+        }
+
         string server_nam = "";
         string db_nam = "MY_QURAAN";
       
@@ -111,6 +128,7 @@ namespace QURAANEY
             {
                 open_form_byname(tag);
             }
+           // e.Element.Appearance.Normal.BackColor = Color.Gray;
         }
 
         private void ribbon_ItemClick(object sender, ItemClickEventArgs e)
@@ -128,5 +146,7 @@ namespace QURAANEY
             fontDialog1.ShowDialog();
                 
         }
+
+       
     }
 }

@@ -690,9 +690,9 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
 
         private void menu_fail_Click(object sender, EventArgs e)
         {
-            F_FAIL_PERS f = new F_FAIL_PERS(Convert.ToInt32(lkp_pers_name.EditValue));
-            f.WindowState = FormWindowState.Maximized;
-            f.Show();
+            //F_FAIL_PERS f = new F_FAIL_PERS(Convert.ToInt32(lkp_pers_name.EditValue));
+            //f.WindowState = FormWindowState.Maximized;
+            //f.Show();
         }
 
 
@@ -725,6 +725,18 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
                 F_PERSON_MANEG f = new F_PERSON_MANEG(lkp_pers_name.Text);
                 f.WindowState = FormWindowState.Maximized;
                 f.ShowDialog();
+        }
+
+        
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

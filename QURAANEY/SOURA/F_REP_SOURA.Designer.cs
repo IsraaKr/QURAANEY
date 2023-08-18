@@ -37,6 +37,8 @@
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions6 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions buttonImageOptions7 = new DevExpress.XtraEditors.ButtonsPanelControl.ButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.checkedComboBoxEdit2 = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.chb_comb_rate = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.btn_add_fail = new DevExpress.XtraEditors.SimpleButton();
@@ -103,12 +105,12 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chb_comb_rate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).BeginInit();
@@ -156,9 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_btn
@@ -215,9 +215,27 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // gridLookUpEdit1
+            // 
+            this.gridLookUpEdit1.Location = new System.Drawing.Point(4, 434);
+            this.gridLookUpEdit1.Name = "gridLookUpEdit1";
+            this.gridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gridLookUpEdit1.Properties.PopupView = this.gridLookUpEdit1View;
+            this.gridLookUpEdit1.Size = new System.Drawing.Size(673, 20);
+            this.gridLookUpEdit1.StyleController = this.layoutControl1;
+            this.gridLookUpEdit1.TabIndex = 104;
+            // 
+            // gridLookUpEdit1View
+            // 
+            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
+            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // checkedComboBoxEdit2
             // 
-            this.checkedComboBoxEdit2.Location = new System.Drawing.Point(641, 97);
+            this.checkedComboBoxEdit2.Location = new System.Drawing.Point(558, 97);
             this.checkedComboBoxEdit2.Name = "checkedComboBoxEdit2";
             this.checkedComboBoxEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -228,7 +246,7 @@
             // chb_comb_rate
             // 
             this.chb_comb_rate.Enabled = false;
-            this.chb_comb_rate.Location = new System.Drawing.Point(641, 90);
+            this.chb_comb_rate.Location = new System.Drawing.Point(558, 90);
             this.chb_comb_rate.Name = "chb_comb_rate";
             this.chb_comb_rate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -238,9 +256,9 @@
             // 
             // btn_add_fail
             // 
-            this.btn_add_fail.Location = new System.Drawing.Point(121, 16);
+            this.btn_add_fail.Location = new System.Drawing.Point(106, 16);
             this.btn_add_fail.Name = "btn_add_fail";
-            this.btn_add_fail.Size = new System.Drawing.Size(492, 22);
+            this.btn_add_fail.Size = new System.Drawing.Size(424, 22);
             this.btn_add_fail.StyleController = this.layoutControl1;
             this.btn_add_fail.TabIndex = 6;
             this.btn_add_fail.Text = "خيارات إضافية للمقصرين";
@@ -251,7 +269,7 @@
             this.gc.Location = new System.Drawing.Point(16, 42);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(597, 376);
+            this.gc.Size = new System.Drawing.Size(514, 376);
             this.gc.TabIndex = 101;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -278,7 +296,7 @@
             this.rdb_month.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rdb_month.Enabled = false;
             this.rdb_month.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_month.Location = new System.Drawing.Point(762, 241);
+            this.rdb_month.Location = new System.Drawing.Point(691, 274);
             this.rdb_month.Name = "rdb_month";
             this.rdb_month.Size = new System.Drawing.Size(64, 25);
             this.rdb_month.TabIndex = 92;
@@ -291,7 +309,7 @@
             this.rdb_month_between.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rdb_month_between.Enabled = false;
             this.rdb_month_between.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_month_between.Location = new System.Drawing.Point(762, 270);
+            this.rdb_month_between.Location = new System.Drawing.Point(691, 303);
             this.rdb_month_between.Name = "rdb_month_between";
             this.rdb_month_between.Size = new System.Drawing.Size(64, 54);
             this.rdb_month_between.TabIndex = 91;
@@ -305,7 +323,7 @@
             this.dtp_from.Enabled = false;
             this.dtp_from.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_from.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_from.Location = new System.Drawing.Point(641, 270);
+            this.dtp_from.Location = new System.Drawing.Point(570, 303);
             this.dtp_from.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_from.Name = "dtp_from";
             this.dtp_from.Size = new System.Drawing.Size(15, 22);
@@ -317,10 +335,10 @@
             this.dtp_to.Enabled = false;
             this.dtp_to.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_to.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_to.Location = new System.Drawing.Point(641, 299);
+            this.dtp_to.Location = new System.Drawing.Point(571, 332);
             this.dtp_to.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_to.Name = "dtp_to";
-            this.dtp_to.Size = new System.Drawing.Size(15, 22);
+            this.dtp_to.Size = new System.Drawing.Size(14, 22);
             this.dtp_to.TabIndex = 90;
             // 
             // de_month
@@ -328,7 +346,7 @@
             this.de_month.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.de_month.EditValue = null;
             this.de_month.Enabled = false;
-            this.de_month.Location = new System.Drawing.Point(641, 241);
+            this.de_month.Location = new System.Drawing.Point(570, 274);
             this.de_month.Name = "de_month";
             this.de_month.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.de_month.Properties.Appearance.Options.UseFont = true;
@@ -356,7 +374,7 @@
             this.rdb_all.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rdb_all.Enabled = false;
             this.rdb_all.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdb_all.Location = new System.Drawing.Point(641, 328);
+            this.rdb_all.Location = new System.Drawing.Point(570, 361);
             this.rdb_all.Name = "rdb_all";
             this.rdb_all.Size = new System.Drawing.Size(185, 25);
             this.rdb_all.TabIndex = 92;
@@ -384,7 +402,7 @@
             // 
             this.rb_between_per11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rb_between_per11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_between_per11.Location = new System.Drawing.Point(641, 61);
+            this.rb_between_per11.Location = new System.Drawing.Point(558, 61);
             this.rb_between_per11.Name = "rb_between_per11";
             this.rb_between_per11.Size = new System.Drawing.Size(185, 25);
             this.rb_between_per11.TabIndex = 91;
@@ -395,7 +413,7 @@
             // chb_comb_mustalem
             // 
             this.chb_comb_mustalem.Enabled = false;
-            this.chb_comb_mustalem.Location = new System.Drawing.Point(641, 67);
+            this.chb_comb_mustalem.Location = new System.Drawing.Point(558, 67);
             this.chb_comb_mustalem.Name = "chb_comb_mustalem";
             this.chb_comb_mustalem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -405,7 +423,7 @@
             // 
             // checkedComboBoxEdit1111
             // 
-            this.checkedComboBoxEdit1111.Location = new System.Drawing.Point(641, 187);
+            this.checkedComboBoxEdit1111.Location = new System.Drawing.Point(558, 187);
             this.checkedComboBoxEdit1111.Name = "checkedComboBoxEdit1111";
             this.checkedComboBoxEdit1111.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -417,7 +435,7 @@
             // 
             this.radioButton21211.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radioButton21211.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton21211.Location = new System.Drawing.Point(744, 210);
+            this.radioButton21211.Location = new System.Drawing.Point(661, 210);
             this.radioButton21211.Name = "radioButton21211";
             this.radioButton21211.Size = new System.Drawing.Size(82, 25);
             this.radioButton21211.TabIndex = 92;
@@ -429,7 +447,7 @@
             // 
             this.radioButton11211.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radioButton11211.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton11211.Location = new System.Drawing.Point(744, 239);
+            this.radioButton11211.Location = new System.Drawing.Point(661, 239);
             this.radioButton11211.Name = "radioButton11211";
             this.radioButton11211.Size = new System.Drawing.Size(82, 25);
             this.radioButton11211.TabIndex = 92;
@@ -445,7 +463,7 @@
             this.comboBox1211.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.comboBox1211.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1211.FormattingEnabled = true;
-            this.comboBox1211.Location = new System.Drawing.Point(641, 205);
+            this.comboBox1211.Location = new System.Drawing.Point(558, 205);
             this.comboBox1211.Name = "comboBox1211";
             this.comboBox1211.Size = new System.Drawing.Size(99, 26);
             this.comboBox1211.TabIndex = 47;
@@ -454,7 +472,7 @@
             // 
             this.rb_between_per1211.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.rb_between_per1211.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rb_between_per1211.Location = new System.Drawing.Point(744, 181);
+            this.rb_between_per1211.Location = new System.Drawing.Point(661, 181);
             this.rb_between_per1211.Name = "rb_between_per1211";
             this.rb_between_per1211.Size = new System.Drawing.Size(82, 25);
             this.rb_between_per1211.TabIndex = 91;
@@ -466,7 +484,7 @@
             this.dateTimePicker11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker11.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker11.Location = new System.Drawing.Point(641, 181);
+            this.dateTimePicker11.Location = new System.Drawing.Point(558, 181);
             this.dateTimePicker11.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker11.Name = "dateTimePicker11";
             this.dateTimePicker11.Size = new System.Drawing.Size(99, 22);
@@ -474,7 +492,7 @@
             // 
             // checkBox7
             // 
-            this.checkBox7.Location = new System.Drawing.Point(641, 157);
+            this.checkBox7.Location = new System.Drawing.Point(558, 157);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(185, 20);
             this.checkBox7.TabIndex = 100;
@@ -484,7 +502,7 @@
             // 
             // checkBox6
             // 
-            this.checkBox6.Location = new System.Drawing.Point(756, 187);
+            this.checkBox6.Location = new System.Drawing.Point(673, 187);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(70, 20);
             this.checkBox6.TabIndex = 99;
@@ -493,7 +511,7 @@
             // 
             // chb_mustalem
             // 
-            this.chb_mustalem.Location = new System.Drawing.Point(756, 67);
+            this.chb_mustalem.Location = new System.Drawing.Point(673, 67);
             this.chb_mustalem.Name = "chb_mustalem";
             this.chb_mustalem.Size = new System.Drawing.Size(70, 20);
             this.chb_mustalem.TabIndex = 98;
@@ -503,7 +521,7 @@
             // 
             // checkBox3
             // 
-            this.checkBox3.Location = new System.Drawing.Point(752, 97);
+            this.checkBox3.Location = new System.Drawing.Point(669, 97);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(74, 20);
             this.checkBox3.TabIndex = 95;
@@ -512,7 +530,7 @@
             // 
             // chb_rate
             // 
-            this.chb_rate.Location = new System.Drawing.Point(641, 37);
+            this.chb_rate.Location = new System.Drawing.Point(558, 37);
             this.chb_rate.Name = "chb_rate";
             this.chb_rate.Size = new System.Drawing.Size(185, 20);
             this.chb_rate.TabIndex = 96;
@@ -532,7 +550,7 @@
             // 
             // chb_date
             // 
-            this.chb_date.Location = new System.Drawing.Point(641, 217);
+            this.chb_date.Location = new System.Drawing.Point(570, 250);
             this.chb_date.Name = "chb_date";
             this.chb_date.Size = new System.Drawing.Size(185, 20);
             this.chb_date.TabIndex = 93;
@@ -544,7 +562,7 @@
             // 
             this.simpleButton11.Location = new System.Drawing.Point(16, 16);
             this.simpleButton11.Name = "simpleButton11";
-            this.simpleButton11.Size = new System.Drawing.Size(101, 22);
+            this.simpleButton11.Size = new System.Drawing.Size(86, 22);
             this.simpleButton11.StyleController = this.layoutControl1;
             this.simpleButton11.TabIndex = 4;
             this.simpleButton11.Text = "بحث منقدم";
@@ -573,7 +591,7 @@
             this.layoutControlItem40});
             this.layoutControlGroup10.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup10.Name = "layoutControlGroup10";
-            this.layoutControlGroup10.Size = new System.Drawing.Size(625, 430);
+            this.layoutControlGroup10.Size = new System.Drawing.Size(542, 430);
             this.layoutControlGroup10.Text = "layoutControlGroup9";
             this.layoutControlGroup10.TextVisible = false;
             // 
@@ -585,7 +603,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.MinSize = new System.Drawing.Size(63, 26);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(90, 26);
             this.layoutControlItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -595,16 +613,16 @@
             this.layoutControlItem2.Control = this.gc;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(601, 380);
+            this.layoutControlItem2.Size = new System.Drawing.Size(518, 380);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem40
             // 
             this.layoutControlItem40.Control = this.btn_add_fail;
-            this.layoutControlItem40.Location = new System.Drawing.Point(105, 0);
+            this.layoutControlItem40.Location = new System.Drawing.Point(90, 0);
             this.layoutControlItem40.Name = "layoutControlItem40";
-            this.layoutControlItem40.Size = new System.Drawing.Size(496, 26);
+            this.layoutControlItem40.Size = new System.Drawing.Size(428, 26);
             this.layoutControlItem40.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem40.TextVisible = false;
             // 
@@ -623,9 +641,9 @@
             this.layoutControlGroup4,
             this.layoutControlGroup8,
             this.layoutControlGroup3});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(625, 0);
+            this.layoutControlGroup2.Location = new System.Drawing.Point(542, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(154, 430);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(237, 430);
             this.layoutControlGroup2.Text = "خيارات البحث";
             // 
             // layoutControlGroup5
@@ -645,7 +663,7 @@
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
             this.layoutControlGroup5.OptionsTableLayoutItem.ColumnIndex = 1;
-            this.layoutControlGroup5.Size = new System.Drawing.Size(130, 30);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(213, 30);
             this.layoutControlGroup5.Text = "التقيم";
             // 
             // layoutControlItem18
@@ -706,7 +724,7 @@
             this.layoutControlGroup6.Name = "layoutControlGroup6";
             this.layoutControlGroup6.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlGroup6.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlGroup6.Size = new System.Drawing.Size(130, 30);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(213, 30);
             this.layoutControlGroup6.Text = "الحفظ";
             // 
             // layoutControlItem23
@@ -756,7 +774,7 @@
             this.layoutControlGroup9.Name = "layoutControlGroup9";
             this.layoutControlGroup9.OptionsTableLayoutItem.ColumnIndex = 1;
             this.layoutControlGroup9.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlGroup9.Size = new System.Drawing.Size(130, 30);
+            this.layoutControlGroup9.Size = new System.Drawing.Size(213, 30);
             this.layoutControlGroup9.Text = "المقصرين";
             // 
             // layoutControlItem41
@@ -835,11 +853,11 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 210);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 365);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.OptionsTableLayoutItem.ColumnIndex = 1;
             this.emptySpaceItem1.OptionsTableLayoutItem.RowIndex = 3;
-            this.emptySpaceItem1.Size = new System.Drawing.Size(130, 175);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(213, 20);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup7
@@ -857,7 +875,7 @@
             this.layoutControlItem26});
             this.layoutControlGroup7.Location = new System.Drawing.Point(0, 30);
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(130, 30);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(213, 30);
             this.layoutControlGroup7.Text = "المستلم";
             // 
             // layoutControlItem30
@@ -908,7 +926,7 @@
             this.layoutControlGroup4.MoveFocusRightToLeft = DevExpress.Utils.DefaultBoolean.False;
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.OptionsTableLayoutItem.RowIndex = 1;
-            this.layoutControlGroup4.Size = new System.Drawing.Size(130, 30);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(213, 30);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlItem21
@@ -916,7 +934,7 @@
             this.layoutControlItem21.Control = this.chb_comb_soura;
             this.layoutControlItem21.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem21.CustomizationFormText = "layoutControlItem21";
-            this.layoutControlItem21.Location = new System.Drawing.Point(-1, 0);
+            this.layoutControlItem21.Location = new System.Drawing.Point(82, 0);
             this.layoutControlItem21.MaxSize = new System.Drawing.Size(125, 24);
             this.layoutControlItem21.MinSize = new System.Drawing.Size(125, 24);
             this.layoutControlItem21.Name = "layoutControlItem21";
@@ -930,7 +948,7 @@
             this.layoutControlItem16.Control = this.chb_soura;
             this.layoutControlItem16.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem16.CustomizationFormText = "layoutControlItem16";
-            this.layoutControlItem16.Location = new System.Drawing.Point(-65, 0);
+            this.layoutControlItem16.Location = new System.Drawing.Point(18, 0);
             this.layoutControlItem16.MaxSize = new System.Drawing.Size(64, 24);
             this.layoutControlItem16.MinSize = new System.Drawing.Size(64, 24);
             this.layoutControlItem16.Name = "layoutControlItem16";
@@ -955,7 +973,7 @@
             this.layoutControlGroup8.Location = new System.Drawing.Point(0, 150);
             this.layoutControlGroup8.Name = "layoutControlGroup8";
             this.layoutControlGroup8.OptionsTableLayoutItem.RowIndex = 2;
-            this.layoutControlGroup8.Size = new System.Drawing.Size(130, 30);
+            this.layoutControlGroup8.Size = new System.Drawing.Size(213, 30);
             this.layoutControlGroup8.Text = "تصنيف الأشخاص";
             this.layoutControlGroup8.TextVisible = false;
             // 
@@ -994,7 +1012,6 @@
             new DevExpress.XtraEditors.ButtonsPanelControl.GroupBoxButton("الزمن", true, buttonImageOptions7, DevExpress.XtraBars.Docking2010.ButtonStyle.PushButton, "", -1, true, null, true, false, true, null, -1)});
             this.layoutControlGroup3.CustomizationFormText = "الزمن";
             this.layoutControlGroup3.ExpandButtonVisible = true;
-            this.layoutControlGroup3.Expanded = false;
             this.layoutControlGroup3.ExpandOnDoubleClick = true;
             this.layoutControlGroup3.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -1008,7 +1025,7 @@
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 180);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
             this.layoutControlGroup3.OptionsTableLayoutItem.RowIndex = 3;
-            this.layoutControlGroup3.Size = new System.Drawing.Size(130, 30);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(213, 185);
             this.layoutControlGroup3.Text = "الزمن";
             // 
             // layoutControlItem4
@@ -1102,17 +1119,6 @@
             this.layoutControlItem5.Text = "إلى";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(99, 14);
             // 
-            // gridLookUpEdit1
-            // 
-            this.gridLookUpEdit1.Location = new System.Drawing.Point(106, 434);
-            this.gridLookUpEdit1.Name = "gridLookUpEdit1";
-            this.gridLookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gridLookUpEdit1.Properties.PopupView = this.gridLookUpEdit1View;
-            this.gridLookUpEdit1.Size = new System.Drawing.Size(673, 20);
-            this.gridLookUpEdit1.StyleController = this.layoutControl1;
-            this.gridLookUpEdit1.TabIndex = 104;
-            // 
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.gridLookUpEdit1;
@@ -1120,13 +1126,6 @@
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(779, 24);
             this.layoutControlItem12.TextSize = new System.Drawing.Size(99, 13);
-            // 
-            // gridLookUpEdit1View
-            // 
-            this.gridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridLookUpEdit1View.Name = "gridLookUpEdit1View";
-            this.gridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // F_REP_SOURA
             // 
@@ -1142,6 +1141,8 @@
             this.pan_btn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkedComboBoxEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chb_comb_rate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gc)).EndInit();
@@ -1189,9 +1190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

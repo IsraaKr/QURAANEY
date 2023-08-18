@@ -111,7 +111,7 @@ namespace QURAANEY.NASHAT
         {
             chlb_names.DataSource = null;
             chlb_names.Items.Clear();
-            dt = c_db.select(@"SELECT        hafez_id, hafez_name ,done ,resone
+            dt = c_db.select(@"SELECT           hafez_id, hafez_name, done, resone, id
                     FROM            dbo.V_ALL_NASAT_AND_NAMES
                       where id=" + id + "");
             chlb_names.chbl_iniatalize_data(dt, "hafez_name", "hafez_id");
@@ -121,6 +121,7 @@ namespace QURAANEY.NASHAT
             gv.Columns[1].Caption = "اسم الحافظ";
             gv.Columns[2].Caption = "الحضور";
             gv.Columns[3].Caption = "السبب";
+            gv.Columns[4].Visible = false;
 
             for (int i = 0; i < chlb_names.ItemCount; i++)
             {
@@ -147,6 +148,25 @@ namespace QURAANEY.NASHAT
             id_doublee_click = int.Parse(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
             txt_pers_name.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[1]).ToString();
             txt_resone.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[3]).ToString();
+        }
+
+        private void gv_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
+        {
+            var pers_id = gv.GetFocusedRowCellValue(gv.Columns[0]);
+            var nashat_id = gv.GetFocusedRowCellValue(gv.Columns[4]);
+            var don = gv.GetFocusedRowCellValue(gv.Columns[2]);
+            var res = gv.GetFocusedRowCellValue(gv.Columns[3]);
+
+
+            //            sqll = @"UPDATE       dbo.T_NASHAT_KEEP
+            //SET                done = N'" + don +"'," +
+            //                  "  resone  = N'" +  res+ "'    " +
+            //                        "  WHERE        (nashat_id = " + id + ") AND (pers_id = " + id_doublee_click + " )";
+            sqll = @"UPDATE       dbo.T_NASHAT_KEEP
+            SET                done = N'" + don + "'," +
+                  "  resone  = N'" + res + "'    " +
+                        "  WHERE        (nashat_id = " + nashat_id + ") AND (pers_id = " + pers_id + " )";
+            done = c_db.insert_upadte_delete(sqll);
         }
     }
 

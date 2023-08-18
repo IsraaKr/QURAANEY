@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_KEEP_SOURA));
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement3 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement9 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement10 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement11 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement12 = new DevExpress.XtraEditors.TileItemElement();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tileControl11 = new DevExpress.XtraEditors.TileControl();
@@ -105,6 +105,7 @@
             this.tileItem4 = new DevExpress.XtraEditors.TileItem();
             this.tileItem2 = new DevExpress.XtraEditors.TileItem();
             this.tileGroup4 = new DevExpress.XtraEditors.TileGroup();
+            this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -157,6 +158,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_btn
@@ -212,9 +214,9 @@
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(806, 64);
+            this.simpleButton1.Location = new System.Drawing.Point(800, 64);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(207, 36);
+            this.simpleButton1.Size = new System.Drawing.Size(213, 36);
             this.simpleButton1.StyleController = this.layoutControl1;
             this.simpleButton1.TabIndex = 93;
             this.simpleButton1.Text = "إضافة حافظ جديد";
@@ -245,17 +247,17 @@
             // 
             this.ti_state.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.ti_state.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement1.AnchorAlignment = DevExpress.Utils.AnchorAlignment.Top;
-            tileItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement1.Appearance.Normal.Options.UseFont = true;
-            tileItemElement1.Text = "حالة الحافظ";
-            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement2.Appearance.Normal.Options.UseFont = true;
-            tileItemElement2.Text = "...";
-            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.ti_state.Elements.Add(tileItemElement1);
-            this.ti_state.Elements.Add(tileItemElement2);
+            tileItemElement7.AnchorAlignment = DevExpress.Utils.AnchorAlignment.Top;
+            tileItemElement7.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement7.Appearance.Normal.Options.UseFont = true;
+            tileItemElement7.Text = "حالة الحافظ";
+            tileItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement8.Appearance.Normal.Options.UseFont = true;
+            tileItemElement8.Text = "...";
+            tileItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.ti_state.Elements.Add(tileItemElement7);
+            this.ti_state.Elements.Add(tileItemElement8);
             this.ti_state.Id = 6;
             this.ti_state.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.ti_state.Name = "ti_state";
@@ -264,16 +266,18 @@
             // 
             this.ti_keep_rate.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.ti_keep_rate.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement3.Appearance.Normal.Options.UseFont = true;
-            tileItemElement3.Text = "معدل الحفظ";
-            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement4.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement4.Appearance.Normal.Options.UseFont = true;
-            tileItemElement4.Text = "...";
-            tileItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.ti_keep_rate.Elements.Add(tileItemElement3);
-            this.ti_keep_rate.Elements.Add(tileItemElement4);
+            tileItemElement9.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement9.Appearance.Normal.Options.UseFont = true;
+            tileItemElement9.Text = "معدل الحفظ";
+            tileItemElement9.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement10.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement10.Appearance.Normal.Options.UseFont = true;
+            tileItemElement10.StretchHorizontal = true;
+            tileItemElement10.StretchVertical = true;
+            tileItemElement10.Text = "...";
+            tileItemElement10.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.ti_keep_rate.Elements.Add(tileItemElement9);
+            this.ti_keep_rate.Elements.Add(tileItemElement10);
             this.ti_keep_rate.Id = 8;
             this.ti_keep_rate.ItemSize = DevExpress.XtraEditors.TileItemSize.Wide;
             this.ti_keep_rate.Name = "ti_keep_rate";
@@ -312,7 +316,7 @@
             // 
             // lkp_pers_name
             // 
-            this.lkp_pers_name.Location = new System.Drawing.Point(806, 40);
+            this.lkp_pers_name.Location = new System.Drawing.Point(800, 40);
             this.lkp_pers_name.Name = "lkp_pers_name";
             this.lkp_pers_name.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_pers_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -321,7 +325,7 @@
             this.lkp_pers_name.Properties.ShowFooter = false;
             this.lkp_pers_name.Properties.ShowHeader = false;
             this.lkp_pers_name.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lkp_pers_name.Size = new System.Drawing.Size(207, 20);
+            this.lkp_pers_name.Size = new System.Drawing.Size(213, 20);
             this.lkp_pers_name.StyleController = this.layoutControl1;
             this.lkp_pers_name.TabIndex = 1;
             this.lkp_pers_name.ProcessNewValue += new DevExpress.XtraEditors.Controls.ProcessNewValueEventHandler(this.lkp_pers_name_ProcessNewValue);
@@ -484,13 +488,14 @@
             // gc
             // 
             this.gc.ContextMenuStrip = this.contextMenuStrip1;
-            this.gc.Location = new System.Drawing.Point(24, 159);
+            this.gc.Location = new System.Drawing.Point(36, 192);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(531, 298);
+            this.gc.Size = new System.Drawing.Size(507, 253);
             this.gc.TabIndex = 50;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
+            this.gc.Click += new System.EventHandler(this.gc_Click);
             // 
             // contextMenuStrip1
             // 
@@ -593,7 +598,7 @@
             this.lkp_pers_almustalem.Properties.ShowFooter = false;
             this.lkp_pers_almustalem.Properties.ShowHeader = false;
             this.lkp_pers_almustalem.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
-            this.lkp_pers_almustalem.Size = new System.Drawing.Size(219, 20);
+            this.lkp_pers_almustalem.Size = new System.Drawing.Size(213, 20);
             this.lkp_pers_almustalem.StyleController = this.layoutControl1;
             this.lkp_pers_almustalem.TabIndex = 2;
             // 
@@ -969,10 +974,10 @@
             // lkp_name
             // 
             this.lkp_name.Control = this.lkp_pers_name;
-            this.lkp_name.Location = new System.Drawing.Point(223, 0);
+            this.lkp_name.Location = new System.Drawing.Point(217, 0);
             this.lkp_name.MinSize = new System.Drawing.Size(97, 40);
             this.lkp_name.Name = "lkp_name";
-            this.lkp_name.Size = new System.Drawing.Size(211, 40);
+            this.lkp_name.Size = new System.Drawing.Size(217, 40);
             this.lkp_name.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lkp_name.Text = "اسم الحافظ";
             this.lkp_name.TextLocation = DevExpress.Utils.Locations.Top;
@@ -986,7 +991,7 @@
             this.lkp_name1.Location = new System.Drawing.Point(0, 0);
             this.lkp_name1.MinSize = new System.Drawing.Size(97, 40);
             this.lkp_name1.Name = "lkp_name1";
-            this.lkp_name1.Size = new System.Drawing.Size(223, 40);
+            this.lkp_name1.Size = new System.Drawing.Size(217, 40);
             this.lkp_name1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lkp_name1.Text = "اسم المستلم";
             this.lkp_name1.TextLocation = DevExpress.Utils.Locations.Top;
@@ -995,9 +1000,9 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.simpleButton1;
-            this.layoutControlItem7.Location = new System.Drawing.Point(223, 40);
+            this.layoutControlItem7.Location = new System.Drawing.Point(217, 40);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(211, 40);
+            this.layoutControlItem7.Size = new System.Drawing.Size(217, 40);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
@@ -1006,15 +1011,15 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 40);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(223, 40);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(217, 40);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup7
             // 
             this.layoutControlGroup7.GroupStyle = DevExpress.Utils.GroupStyle.Light;
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem19,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.layoutControlGroup8});
             this.layoutControlGroup7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup7.Name = "layoutControlGroup7";
             this.layoutControlGroup7.Size = new System.Drawing.Size(559, 461);
@@ -1025,10 +1030,10 @@
             this.layoutControlItem19.Control = this.gc;
             this.layoutControlItem19.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.layoutControlItem19.CustomizationFormText = "layoutControlItem19";
-            this.layoutControlItem19.Location = new System.Drawing.Point(0, 135);
+            this.layoutControlItem19.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem19.MinSize = new System.Drawing.Size(104, 24);
             this.layoutControlItem19.Name = "layoutControlItem19";
-            this.layoutControlItem19.Size = new System.Drawing.Size(535, 302);
+            this.layoutControlItem19.Size = new System.Drawing.Size(511, 257);
             this.layoutControlItem19.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem19.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem19.TextVisible = false;
@@ -1049,8 +1054,8 @@
             // 
             this.tileItem4.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.tileItem4.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement5.Text = "مرات التقصير";
-            this.tileItem4.Elements.Add(tileItemElement5);
+            tileItemElement11.Text = "مرات التقصير";
+            this.tileItem4.Elements.Add(tileItemElement11);
             this.tileItem4.Id = 7;
             this.tileItem4.ItemSize = DevExpress.XtraEditors.TileItemSize.Small;
             this.tileItem4.Name = "tileItem4";
@@ -1059,8 +1064,8 @@
             // 
             this.tileItem2.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.tileItem2.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement6.Text = "التصنيف";
-            this.tileItem2.Elements.Add(tileItemElement6);
+            tileItemElement12.Text = "التصنيف";
+            this.tileItem2.Elements.Add(tileItemElement12);
             this.tileItem2.Id = 11;
             this.tileItem2.ItemSize = DevExpress.XtraEditors.TileItemSize.Small;
             this.tileItem2.Name = "tileItem2";
@@ -1070,6 +1075,16 @@
             this.tileGroup4.Items.Add(this.tileItem2);
             this.tileGroup4.Items.Add(this.tileItem4);
             this.tileGroup4.Name = "tileGroup4";
+            // 
+            // layoutControlGroup8
+            // 
+            this.layoutControlGroup8.GroupStyle = DevExpress.Utils.GroupStyle.Light;
+            this.layoutControlGroup8.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem19});
+            this.layoutControlGroup8.Location = new System.Drawing.Point(0, 135);
+            this.layoutControlGroup8.Name = "layoutControlGroup8";
+            this.layoutControlGroup8.Size = new System.Drawing.Size(535, 302);
+            this.layoutControlGroup8.Text = "تفاصيل  تسميع الحافظ";
             // 
             // F_KEEP_SOURA
             // 
@@ -1135,6 +1150,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem19)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1211,5 +1227,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup8;
     }
 }

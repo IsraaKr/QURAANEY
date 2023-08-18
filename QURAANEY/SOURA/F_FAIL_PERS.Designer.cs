@@ -189,6 +189,10 @@
             this.de_month_rep.Size = new System.Drawing.Size(295, 22);
             this.de_month_rep.StyleController = this.layoutControl1;
             this.de_month_rep.TabIndex = 52;
+            this.de_month_rep.DateTimeChanged += new System.EventHandler(this.de_month_rep_DateTimeChanged);
+            this.de_month_rep.SelectionChanged += new System.EventHandler(this.de_month_rep_SelectionChanged);
+            this.de_month_rep.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.de_month_rep_Closed);
+            this.de_month_rep.ButtonPressed += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.de_month_rep_ButtonPressed);
             this.de_month_rep.EditValueChanged += new System.EventHandler(this.de_month_rep_EditValueChanged);
             // 
             // gc_absend
@@ -330,9 +334,8 @@
             // حذفToolStripMenuItem
             // 
             this.حذفToolStripMenuItem.Name = "حذفToolStripMenuItem";
-            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.حذفToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.حذفToolStripMenuItem.Text = "حذف";
-            this.حذفToolStripMenuItem.Click += new System.EventHandler(this.حذفToolStripMenuItem_Click);
             // 
             // F_FAIL_PERS
             // 
@@ -342,7 +345,6 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "F_FAIL_PERS";
             this.Text = "F_FAIL_PERS";
-            this.Load += new System.EventHandler(this.F_FAIL_PERS_Load);
             this.Controls.SetChildIndex(this.pan_btn, 0);
             this.Controls.SetChildIndex(this.layoutControl1, 0);
             this.pan_btn.ResumeLayout(false);

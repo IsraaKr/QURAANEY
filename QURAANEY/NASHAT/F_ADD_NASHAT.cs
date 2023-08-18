@@ -27,6 +27,7 @@ namespace QURAANEY.NASHAT
         DataTable dt;
         int done;
         Boolean is_double_click = false;
+        int pers_count = 0;
 
 
         public override void load_data(string status_mess)
@@ -462,6 +463,44 @@ WHERE(state_id = " + Convert.ToInt32(lkp_sate.EditValue) + " and   " +
         {
             chlb_names.DataSource = null;
             chlb_names.Items.Clear();
+        }
+
+        private void chlb_names_SelectedIndexChanged(object sender, EventArgs e)
+        {
+          int index= Convert.ToInt32(chlb_names.SelectedIndex.ToString());
+            
+        }
+
+        private void btn_select_all_Click(object sender, EventArgs e)
+        {
+            chlb_names.CheckAll();   
+        }
+
+        private void chlb_names_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        {
+            var y = e.State;
+            //if (y.ToString() == "Checked")
+            //    pers_count++;
+
+               // e.State
+                //Boolean x = Convert.ToBoolean(e.State.ToString());
+
+                if (y.ToString() == "Checked" )
+                {
+                    pers_count++;
+                }
+                else if (y.ToString() == "Unchecked" && pers_count > 0)
+                    pers_count--;
+                else if (y.ToString() == "Unchecked" && pers_count == 0)
+                    pers_count = 0;
+            
+            textEdit1.Text = pers_count.ToString();
+            
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            chlb_names.UnCheckAll();
         }
     }
 }
