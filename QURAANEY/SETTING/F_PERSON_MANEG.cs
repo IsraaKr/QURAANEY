@@ -57,6 +57,13 @@ namespace QURAANEY.SETTING
             dtp_in_date.Text = DateTime.Today.ToShortDateString();
             dtp_rate_change.Text = DateTime.Today.ToShortDateString();
             dtp_state_change.Text = DateTime.Today.ToShortDateString();
+            dtp_is_activ_change.Text = DateTime.Today.ToShortDateString();
+        }
+        private void set_defult_pers()
+        {
+            lkp_inviting_pers.Properties.NullText = C_MASTER.user_login;
+            lkp_is_active_change.Properties.NullText = C_MASTER.user_login;
+            lkp_pers_state_change.Properties.NullText = C_MASTER.user_login;
         }
         #region توابع الوراثة
         public override void load_data(string status_mess)
@@ -64,7 +71,7 @@ namespace QURAANEY.SETTING
             clear(this.Controls);
             set_auto_id_person();
             set_date_edite();
-
+            set_defult_pers();
 
             dt = C_PERSON_sql.get_all_pers();
             gc.DataSource = dt;
@@ -116,8 +123,10 @@ namespace QURAANEY.SETTING
             dt = C_PERSON_sql.get_all_pers();
             if (dt.Rows.Count > 1)
             {
-                lkp_inviting_pers.Text = "admin";
-                lkp_pers_state_change.Text = "admin";
+                //lkp_inviting_pers.Text = "admin";
+                //lkp_pers_state_change.Text = "admin";
+                lkp_inviting_pers.Text = lkp_inviting_pers.Properties.NullText;
+                lkp_pers_state_change.Text = lkp_pers_state_change.Properties.NullText;
             }
             base.neew();
         }
@@ -645,7 +654,7 @@ namespace QURAANEY.SETTING
                          (pers_id, pers_change, chande_date)     
                              VALUES        (" + pers_id + "," +
                                      " N'" + lkp_is_active_change.Text +  "'," +
-                                     " N'" + dateTimePicker1.Text + "' ) ";
+                                     " N'" + dtp_is_activ_change.Text + "' ) ";
                     done = c_db.insert_upadte_delete(sqll);
                     return 1;
                 }
@@ -748,7 +757,8 @@ namespace QURAANEY.SETTING
             layoutControlItem6.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
             all_states();
             all_rates();
-
+            set_date_edite();
+            set_defult_pers();
 
 
         }

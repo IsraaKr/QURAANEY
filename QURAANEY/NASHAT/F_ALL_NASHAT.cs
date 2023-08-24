@@ -70,12 +70,7 @@ namespace QURAANEY.NASHAT
             C_MASTER.print_header( "كل النشاطات ", gridControl1);
             base.print();
         }
-        private void tileView1_ItemClick(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventArgs e)
-        {
 
-            //   nashat_id =int.Parse( e.Item.GetElementByName("id").ToString());
-
-        }
 
         private void tileView1_DoubleClick(object sender, EventArgs e)
         {
@@ -94,16 +89,6 @@ namespace QURAANEY.NASHAT
 
         }
 
-        private void tileView1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("1"+tileView1.Columns["end_date"].ToString());
-            MessageBox.Show("2" + tileView1.Columns["end_date"].GetTextCaption().ToString());
-            MessageBox.Show("3" + tileView1.Columns["end_date"].SummaryText.ToString());
-        }
-
-        private void tileView1_RowLoaded(object sender, DevExpress.XtraGrid.Views.Base.RowEventArgs e)
-        {
-         
-        }
+      
     }
 }

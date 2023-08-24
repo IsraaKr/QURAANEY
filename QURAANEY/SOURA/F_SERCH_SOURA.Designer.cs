@@ -35,7 +35,7 @@
             this.checkEdit11 = new DevExpress.XtraEditors.CheckEdit();
             this.comb_names_soura = new System.Windows.Forms.ComboBox();
             this.checkEdit6 = new DevExpress.XtraEditors.CheckEdit();
-            this.de_month_les_rep = new DevExpress.XtraEditors.DateEdit();
+            this.de_month = new DevExpress.XtraEditors.DateEdit();
             this.checkEdit3 = new DevExpress.XtraEditors.CheckEdit();
             this.comboBox11 = new System.Windows.Forms.ComboBox();
             this.checkEdit4 = new DevExpress.XtraEditors.CheckEdit();
@@ -73,8 +73,8 @@
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit11.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_month_les_rep.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_month_les_rep.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_month.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_month.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).BeginInit();
@@ -113,7 +113,7 @@
             this.layoutControl1.Controls.Add(this.checkEdit11);
             this.layoutControl1.Controls.Add(this.comb_names_soura);
             this.layoutControl1.Controls.Add(this.checkEdit6);
-            this.layoutControl1.Controls.Add(this.de_month_les_rep);
+            this.layoutControl1.Controls.Add(this.de_month);
             this.layoutControl1.Controls.Add(this.checkEdit3);
             this.layoutControl1.Controls.Add(this.comboBox11);
             this.layoutControl1.Controls.Add(this.checkEdit4);
@@ -186,32 +186,32 @@
             this.checkEdit6.StyleController = this.layoutControl1;
             this.checkEdit6.TabIndex = 7;
             // 
-            // de_month_les_rep
+            // de_month
             // 
-            this.de_month_les_rep.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.de_month_les_rep.EditValue = null;
-            this.de_month_les_rep.Location = new System.Drawing.Point(24, 173);
-            this.de_month_les_rep.Name = "de_month_les_rep";
-            this.de_month_les_rep.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.de_month_les_rep.Properties.Appearance.Options.UseFont = true;
-            this.de_month_les_rep.Properties.Appearance.Options.UseTextOptions = true;
-            this.de_month_les_rep.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.de_month_les_rep.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_month.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.de_month.EditValue = null;
+            this.de_month.Location = new System.Drawing.Point(24, 173);
+            this.de_month.Name = "de_month";
+            this.de_month.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.de_month.Properties.Appearance.Options.UseFont = true;
+            this.de_month.Properties.Appearance.Options.UseTextOptions = true;
+            this.de_month.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.de_month.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_month_les_rep.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_month.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_month_les_rep.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
-            this.de_month_les_rep.Properties.DisplayFormat.FormatString = "MM/yyyy";
-            this.de_month_les_rep.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.de_month_les_rep.Properties.EditFormat.FormatString = "MM/yyyy";
-            this.de_month_les_rep.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.de_month_les_rep.Properties.Mask.EditMask = "MM/yyyy";
-            this.de_month_les_rep.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
-            this.de_month_les_rep.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
-            this.de_month_les_rep.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
-            this.de_month_les_rep.Size = new System.Drawing.Size(319, 22);
-            this.de_month_les_rep.StyleController = this.layoutControl1;
-            this.de_month_les_rep.TabIndex = 79;
+            this.de_month.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Classic;
+            this.de_month.Properties.DisplayFormat.FormatString = "MM/yyyy";
+            this.de_month.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_month.Properties.EditFormat.FormatString = "MM/yyyy";
+            this.de_month.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.de_month.Properties.Mask.EditMask = "MM/yyyy";
+            this.de_month.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
+            this.de_month.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
+            this.de_month.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
+            this.de_month.Size = new System.Drawing.Size(319, 22);
+            this.de_month.StyleController = this.layoutControl1;
+            this.de_month.TabIndex = 79;
             // 
             // checkEdit3
             // 
@@ -444,7 +444,7 @@
             // 
             // layoutControlItem11
             // 
-            this.layoutControlItem11.Control = this.de_month_les_rep;
+            this.layoutControlItem11.Control = this.de_month;
             this.layoutControlItem11.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem11.CustomizationFormText = "layoutControlItem11";
             this.layoutControlItem11.Location = new System.Drawing.Point(0, 25);
@@ -601,8 +601,8 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit11.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_month_les_rep.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_month_les_rep.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_month.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_month.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit4.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEdit8.Properties)).EndInit();
@@ -644,7 +644,7 @@
         private DevExpress.XtraEditors.CheckEdit checkEdit11;
         private System.Windows.Forms.ComboBox comb_names_soura;
         private DevExpress.XtraEditors.CheckEdit checkEdit6;
-        private DevExpress.XtraEditors.DateEdit de_month_les_rep;
+        private DevExpress.XtraEditors.DateEdit de_month;
         private DevExpress.XtraEditors.CheckEdit checkEdit3;
         private System.Windows.Forms.ComboBox comboBox11;
         private DevExpress.XtraEditors.CheckEdit checkEdit4;

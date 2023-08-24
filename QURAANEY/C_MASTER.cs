@@ -12,7 +12,7 @@ namespace QURAANEY
 {
     public static class C_MASTER
     {
-      
+        public static string user_login=" test ";
         //تبديل الأرقام بنصوص
         public class value_and_id
         {

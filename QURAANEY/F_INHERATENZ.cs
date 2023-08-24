@@ -153,16 +153,16 @@ namespace QURAANEY
             func(s_controls);
         }
 
-        public virtual void Change_font_size(Control.ControlCollection s_controls ,int font_size , string font_name )
+        public virtual void Change_font_size(Control.ControlCollection s_controls ,Font myFont)/*int font_size , string font_name )*/
         {
             //كود لتفريغ كل محتوى الكونترولات
             Action<Control.ControlCollection> func = null;
             func = (controls) =>
             {
                 foreach (Control c in controls)
-                    //if (c is TextBox)
-                    //    (c as TextBox).Font.Size =font_size;
-                   if (c is DateEdit)
+                    if (c is TextBox)
+                        (c as TextBox).Font = myFont;
+             /*   else if (c is DateEdit)
                         // (c as DateEdit).DateTime = DateTime.Now;
                         (c as DateEdit).Properties.Appearance.FontSizeDelta =font_size ;
                     else if (c is TimeEdit)
@@ -171,6 +171,7 @@ namespace QURAANEY
                         (c as LookUpEdit).Properties.Appearance.FontSizeDelta = font_size;
                     else if (c is TextEdit)
                         (c as TextEdit).Properties.Appearance.FontSizeDelta = font_size;
+             */
                     // (c as LookUpEdit).Text = (c as LookUpEdit).Properties.NullText;
                     // (c as LookUpEdit).Text = string.Empty;
                     //else if (c is DateTimePicker)
@@ -235,6 +236,8 @@ namespace QURAANEY
 
         private void F_INHERATENZ_Load(object sender, EventArgs e)
         {
+            bar_user_name.Caption += C_MASTER.user_login;
+            timer_date.Enabled = true;
             load_data("");
         }
 
@@ -283,6 +286,14 @@ namespace QURAANEY
         private void btn_show_Click(object sender, EventArgs e)
         {
             show_rep();
+        }
+
+        private void timer_date_Tick(object sender, EventArgs e)
+        {
+
+                bar_date.Caption = DateTime.Now.ToShortDateString();
+                 bar_time.Caption = DateTime.Now.ToShortTimeString();
+
         }
     }
 }

@@ -63,16 +63,7 @@ namespace QURAANEY.SOURA
 
         private void load_gc()
         {
-            string sqll = @"SELECT        T_SOURA_KEEP.soura_name AS [اسم السورة], T_SOURA_KEEP.aya_num AS [رقم الآية], T_SOURA_KEEP.page_num AS [رقم الصفحة], 
-                         T_SOURA_KEEP.keep_date AS التاريخ, T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], T_SOURA_EVALUATION.name AS التقيم, T_PERSONE_1.name AS المستلم
-FROM            dbo.T_PERSONE INNER JOIN
-                         dbo.T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
-                         dbo.T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
-                         dbo.T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
-                         dbo.T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
-                       WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_name.EditValue) + ")";
-            dt = c_db.select(sqll);
-            gc.DataSource = dt;
+            soura_last_row_view();
         }
 
         private void load_tail_state()
@@ -157,7 +148,12 @@ FROM            dbo.T_PERSONE INNER JOIN
         private void lkp_name_EditValueChanged(object sender, EventArgs e)
         {
             if (int.Parse(lkp_name.EditValue.ToString()) > 0)
+            {
                 load_all();
+                rdb_page_view.Enabled = true;
+                rdb_aya_view.Enabled = true;
+                rdb_soura_view.Enabled = true;
+            }
             else
                 return;
         }
@@ -178,14 +174,12 @@ FROM            dbo.T_PERSONE INNER JOIN
         {
 
             ch_page.Series["Series1"].Points.Clear();
-            DataTable dt_page = c_db.select(@"SELECT        count_page
-                FROM            dbo.V_COUNT_PAGE_WITHE_DATE
-            WHERE(pers_hafez_id = " + lkp_name.EditValue + ")");
+            DataTable dt_page = C_DB_QUERYS.full_page_count_by_id(Convert.ToInt32(lkp_name.EditValue));
             if (dt_page.Rows.Count != 0)
             {
-                int y = 604 - int.Parse(dt_page.Rows[0][0].ToString());
+                int y = 604 - int.Parse(dt_page.Rows[0][2].ToString());
 
-                ch_page.Series["Series1"].Points.AddXY("الصفحات المحفوظة", int.Parse(dt_page.Rows[0][0].ToString()));
+                ch_page.Series["Series1"].Points.AddXY("الصفحات المحفوظة", int.Parse(dt_page.Rows[0][2].ToString()));
                 ch_page.Series["Series1"].Points.AddXY("الباقي", y);
                 ch_page.Series["Series1"].Points[0].Color = Color.SteelBlue;
                 ch_page.Series["Series1"].Points[1].Color = Color.LightGray;
@@ -200,32 +194,8 @@ FROM            dbo.T_PERSONE INNER JOIN
             }
 
         }
-        private void load_chart2()
-        {
 
-            ch_page1.Series["Series1"].Points.Clear();
-            DataTable dt_page = c_db.select(@"SELECT    count(aya_num) as count
-     FROM            dbo.T_SOURA_KEEP
-            WHERE(pers_hafez_id = " + lkp_name.EditValue + ")");
-            if (dt_page.Rows.Count != 0)
-            {
-                int y = 6236 - int.Parse(dt_page.Rows[0][0].ToString());
-
-                ch_page1.Series["Series1"].Points.AddXY("الآيات المحفوظة", int.Parse(dt_page.Rows[0][0].ToString()));
-                ch_page1.Series["Series1"].Points.AddXY("الباقي", y);
-                ch_page1.Series["Series1"].Points[0].Color = Color.SteelBlue;
-                ch_page1.Series["Series1"].Points[1].Color = Color.LightGray;
-                ///////
-            }
-            else
-            {
-                ch_page1.Series["Series1"].Points.AddXY("الآيات المحفوظة", 0);
-                ch_page1.Series["Series1"].Points.AddXY(" الباقي", 6236);
-                ch_page1.Series["Series1"].Points[0].Color = Color.SteelBlue;
-                ch_page1.Series["Series1"].Points[1].Color = Color.LightGray;
-            }
-
-        }
+     
         private void load_line()
         {
             ch_p.Series["Series1"].Points.Clear();
@@ -257,6 +227,107 @@ FROM            dbo.T_PERSONE INNER JOIN
             //f.WindowState = FormWindowState.Maximized;
             //f.Show();
 
+        }
+
+        private void soura_last_row_view()
+        {
+            string sqll = @" SELECT     T_PERSONE.id AS تسلسل, T_PERSONE.name AS الحافظ, T_SOURA_KEEP.soura_name AS [اسم السورة], T_SOURA_KEEP.page_num AS [رقم آخر الصفحة], 
+                      T_SOURA_KEEP.keep_date AS التاريخ, T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], T_SOURA_EVALUATION.name AS التقيم, T_PERSONE_1.name AS المستلم
+FROM         T_PERSONE INNER JOIN
+                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
+                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
+                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
+                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
+WHERE     (T_SOURA_KEEP.pers_hafez_id  = " + Convert.ToInt32(lkp_name.EditValue) + " ) " +
+"  GROUP BY T_PERSONE.id, T_PERSONE.name, T_SOURA_KEEP.soura_name, T_SOURA_KEEP.page_num, T_SOURA_KEEP.keep_date, T_SOURA_KEEP_TYPE.name, " +
+"   T_SOURA_EVALUATION.name, T_PERSONE_1.name  " +
+"  HAVING      (T_SOURA_KEEP.page_num IN  " +
+"  (SELECT     MAX(page_num) AS Expr1  " +
+"  FROM         T_SOURA_KEEP AS keep2  " +
+"  GROUP BY soura_num, pers_hafez_id)) ";
+
+
+            dt = c_db.select(sqll);
+        }
+
+        private void page_last_row_view()
+        {
+            string sqll = @" 
+  SELECT     T_PERSONE.id AS تسلسل, T_PERSONE.name AS الحافظ, T_SOURA_KEEP.soura_name AS [اسم السورة], T_SOURA_KEEP.page_num AS [رقم آخر الصفحة], 
+ T_SOURA_KEEP.keep_date AS التاريخ, T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], T_SOURA_EVALUATION.name AS التقيم, T_PERSONE_1.name AS المستلم , T_SOURA_KEEP.aya_num 
+FROM         T_PERSONE INNER JOIN
+                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
+                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
+                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
+                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
+WHERE (T_SOURA_KEEP.aya_num IN (SELECT     MAX(aya_num) AS Expr1
+                             FROM         T_SOURA_KEEP AS keep2
+                             where keep2.pers_hafez_id= " + Convert.ToInt32(lkp_name.EditValue) + " " +
+                             " GROUP BY   keep2.page_num ))" +
+                             "and T_SOURA_KEEP.pers_hafez_id= " + Convert.ToInt32(lkp_name.EditValue) + "" +
+                             "ORDER BY T_SOURA_KEEP.page_num DESC ";
+
+
+            dt = c_db.select(sqll);
+        }
+
+        private void aya_view()
+        {
+            string sqll = @" SELECT  T_SOURA_KEEP.id , T_SOURA_KEEP.soura_name AS [اسم السورة],  T_SOURA_KEEP.page_num AS [رقم الصفحة] , 
+                      T_SOURA_KEEP.keep_date AS التاريخ, T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], T_SOURA_EVALUATION.name AS التقيم, T_PERSONE_1.name AS المستلم
+FROM         T_PERSONE INNER JOIN
+                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
+                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
+                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
+                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
+WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_name.EditValue) + " )" +
+" ORDER BY T_SOURA_KEEP.id DESC  ";
+
+
+            dt = c_db.select(sqll);
+        }
+
+        private void rdb_aya_view_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lkp_name.Text != string.Empty && rdb_aya_view.Checked)
+            {
+                aya_view();
+                gc.DataSource = null;
+                gv.Columns.Clear();
+                gc.DataSource = dt;
+                gv.Columns[0].Visible = false;
+                gv.BestFitColumns();
+
+            }
+        }
+
+        private void rdb_page_view_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lkp_name.Text != string.Empty && rdb_page_view.Checked)
+            {
+                page_last_row_view();
+                gc.DataSource = null;
+                gv.Columns.Clear();
+                gc.DataSource = dt;
+                gv.Columns[0].Visible = false;
+                gv.Columns[1].Visible = false;
+                gv.BestFitColumns();
+            }
+        }
+
+        private void rdb_soura_view_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lkp_name.Text != string.Empty && rdb_soura_view.Checked)
+            {
+                soura_last_row_view();
+                gc.DataSource = null;
+                gv.Columns.Clear();
+                gc.DataSource = dt;
+                gv.Columns[0].Visible = false;
+                gv.Columns[1].Visible = false;
+                gv.BestFitColumns();
+
+            }
         }
     }
 }

@@ -520,7 +520,7 @@ FROM            dbo.T_PERS_TYPE");
             lbc_pers_type.lbc_iniatalize_data(dt, "الدور", "المعرف");
             lkp_pers_type_def.lkp_iniatalize_data(dt, "الدور", "المعرف");
 
-            if (dt.Rows.Count == 1)
+            if (dt.Rows.Count <= 4)
             {
                 lbc_pers_type.Enabled = false;
                 btn_del_pers_type.Enabled = false;
@@ -606,20 +606,27 @@ FROM            dbo.T_PERS_TYPE");
                 }
                 else
                 {
-                    string sql = @" DELETE FROM dbo.T_PERS_TYPE
+                    if (Convert.ToInt32(txt_id_pers_type.Text) <= 4)
+                    {
+                        MessageBox.Show("لا يمكن حذف العنصر المحدد !!! الرجاء اختيار عنصر آخر لحذفه ");
+                    }
+                    else
+                    {
+                        string sql = @" DELETE FROM dbo.T_PERS_TYPE
                    WHERE      (id = " + int.Parse(txt_id_pers_type.Text) + " )";
-                    int done = c_db.insert_upadte_delete(sql);
-                    try
-                    {
-                        c_db.alter_pers_types("drop", txt_pers_type.Text.Trim());
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(" " + ex);
-                    }
+                        int done = c_db.insert_upadte_delete(sql);
+                        try
+                        {
+                            c_db.alter_pers_types("drop", txt_pers_type.Text.Trim());
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(" " + ex);
+                        }
 
-                    load_data("d");
-                    delete();
+                        load_data("d");
+                        delete();
+                    }
                 }
             }
             catch (Exception ex)

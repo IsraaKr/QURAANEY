@@ -42,11 +42,15 @@
             this.barManager2 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.bar_states = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_user_name = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_date = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.timer_states_bar = new System.Windows.Forms.Timer(this.components);
+            this.timer_date = new System.Windows.Forms.Timer(this.components);
+            this.bar_time = new DevExpress.XtraBars.BarStaticItem();
             this.pan_btn.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
@@ -57,7 +61,7 @@
             this.pan_btn.Controls.Add(this.flowLayoutPanel1);
             this.pan_btn.Controls.Add(this.btn_exite);
             this.pan_btn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pan_btn.Location = new System.Drawing.Point(0, 236);
+            this.pan_btn.Location = new System.Drawing.Point(0, 232);
             this.pan_btn.Name = "pan_btn";
             this.pan_btn.Padding = new System.Windows.Forms.Padding(2);
             this.pan_btn.Size = new System.Drawing.Size(830, 41);
@@ -201,8 +205,11 @@
             this.barManager2.DockControls.Add(this.barDockControl4);
             this.barManager2.Form = this;
             this.barManager2.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bar_states});
-            this.barManager2.MaxItemId = 1;
+            this.bar_states,
+            this.bar_user_name,
+            this.bar_date,
+            this.bar_time});
+            this.barManager2.MaxItemId = 4;
             this.barManager2.StatusBar = this.bar3;
             // 
             // bar3
@@ -213,7 +220,10 @@
             this.bar3.DockRow = 0;
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
             this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bar_states)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_states),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_user_name),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_date),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bar_time)});
             this.bar3.OptionsBar.AllowQuickCustomization = false;
             this.bar3.OptionsBar.DrawDragBorder = false;
             this.bar3.OptionsBar.UseWholeRow = true;
@@ -227,6 +237,26 @@
             this.bar_states.Name = "bar_states";
             this.bar_states.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
+            // bar_user_name
+            // 
+            this.bar_user_name.Caption = "أهلا : ";
+            this.bar_user_name.Id = 1;
+            this.bar_user_name.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("user_name.ImageOptions.Image")));
+            this.bar_user_name.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("user_name.ImageOptions.LargeImage")));
+            this.bar_user_name.Name = "bar_user_name";
+            this.bar_user_name.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_user_name.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // bar_date
+            // 
+            this.bar_date.Caption = "...";
+            this.bar_date.Id = 2;
+            this.bar_date.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("date_time.ImageOptions.Image")));
+            this.bar_date.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("date_time.ImageOptions.LargeImage")));
+            this.bar_date.Name = "bar_date";
+            this.bar_date.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.bar_date.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // barDockControl1
             // 
             this.barDockControl1.CausesValidation = false;
@@ -239,9 +269,9 @@
             // 
             this.barDockControl2.CausesValidation = false;
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControl2.Location = new System.Drawing.Point(0, 277);
+            this.barDockControl2.Location = new System.Drawing.Point(0, 273);
             this.barDockControl2.Manager = this.barManager2;
-            this.barDockControl2.Size = new System.Drawing.Size(830, 22);
+            this.barDockControl2.Size = new System.Drawing.Size(830, 26);
             // 
             // barDockControl3
             // 
@@ -249,7 +279,7 @@
             this.barDockControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControl3.Location = new System.Drawing.Point(0, 0);
             this.barDockControl3.Manager = this.barManager2;
-            this.barDockControl3.Size = new System.Drawing.Size(0, 277);
+            this.barDockControl3.Size = new System.Drawing.Size(0, 273);
             // 
             // barDockControl4
             // 
@@ -257,12 +287,26 @@
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControl4.Location = new System.Drawing.Point(830, 0);
             this.barDockControl4.Manager = this.barManager2;
-            this.barDockControl4.Size = new System.Drawing.Size(0, 277);
+            this.barDockControl4.Size = new System.Drawing.Size(0, 273);
             // 
             // timer_states_bar
             // 
             this.timer_states_bar.Interval = 5000;
             this.timer_states_bar.Tick += new System.EventHandler(this.timer_states_bar_Tick);
+            // 
+            // timer_date
+            // 
+            this.timer_date.Interval = 1000;
+            this.timer_date.Tick += new System.EventHandler(this.timer_date_Tick);
+            // 
+            // bar_time
+            // 
+            this.bar_time.Caption = "...";
+            this.bar_time.Id = 3;
+            this.bar_time.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.Image")));
+            this.bar_time.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.LargeImage")));
+            this.bar_time.Name = "bar_time";
+            this.bar_time.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // F_INHERATENZ
             // 
@@ -310,5 +354,9 @@
         private DevExpress.XtraBars.BarDockControl barDockControl2;
         private DevExpress.XtraBars.BarDockControl barDockControl4;
         private System.Windows.Forms.Timer timer_states_bar;
+        private DevExpress.XtraBars.BarStaticItem bar_user_name;
+        private DevExpress.XtraBars.BarStaticItem bar_date;
+        private System.Windows.Forms.Timer timer_date;
+        private DevExpress.XtraBars.BarStaticItem bar_time;
     }
 }

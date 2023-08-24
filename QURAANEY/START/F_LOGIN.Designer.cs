@@ -112,6 +112,7 @@
             this.btn_new_user.Size = new System.Drawing.Size(125, 32);
             this.btn_new_user.TabIndex = 10;
             this.btn_new_user.Text = "مستخدم جديد";
+            this.btn_new_user.Visible = false;
             this.btn_new_user.Click += new System.EventHandler(this.btn_new_user_Click);
             // 
             // btn_cancel

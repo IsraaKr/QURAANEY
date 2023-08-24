@@ -22,7 +22,7 @@ namespace QURAANEY
         string db_nam = "MY_QURAAN";
         string sql;
         DataTable dt;
-
+   
         //انشاء قاعدة البيانات
         private void create_db()
         {  // أول استدعاء من اجل انشاء قاعدة البيانات و الجداول
@@ -91,6 +91,7 @@ namespace QURAANEY
             dt = c_db.select(sql);
             if (dt.Rows.Count > 0)
             {
+               C_MASTER.user_login = txt_username.Text.Trim();
                 F_MAIN f = new F_MAIN();
                 f.Show();
                 this.Hide();
@@ -128,6 +129,7 @@ namespace QURAANEY
         {
             if (txt_username.Text =="admin" && txt_password.Text=="admin" )
             {
+                C_MASTER.user_login = txt_username.Text.Trim();
                 F_ADD_USER f = new F_ADD_USER(false);
                 f.Show();
                 

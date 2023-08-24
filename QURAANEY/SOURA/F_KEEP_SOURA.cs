@@ -162,7 +162,7 @@ namespace QURAANEY.SOURA
 
         #endregion
 
-        #region methodes //توابع 
+        #region توابع الحفظ
         //صفحة واحدة
         private void keep_one_page()
         {
@@ -198,8 +198,8 @@ namespace QURAANEY.SOURA
                                 done = c_db.insert_upadte_delete(sql);
                             }
                             load_data("i");
-                            load_gc_snd_tail();                            
-                            
+                            load_gc_snd_tail();
+
                         }
                         else
                             MessageBox.Show("  !!!!!!! السجل الذي تحاول ادخاله موجود مسبقا  ", "معلومات", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -275,7 +275,7 @@ namespace QURAANEY.SOURA
                             if (y == 0)
                             {
                                 load_data("i");
-                                load_gc_snd_tail();                              
+                                load_gc_snd_tail();
                             }
 
                         }
@@ -329,7 +329,7 @@ namespace QURAANEY.SOURA
                                     done = c_db.insert_upadte_delete(sql);
                                 }
                                 load_data("i");
-                                load_gc_snd_tail();                               
+                                load_gc_snd_tail();
                             }
                             else
                                 MessageBox.Show("  !!!!!!! السجل الذي تحاول ادخاله موجود مسبقا  ", "معلومات", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -458,7 +458,7 @@ namespace QURAANEY.SOURA
                             }
                             load_data("i");
                             load_gc_snd_tail();
-                         
+
                         }
                         else if (dt.Rows.Count == last_aya_in_soura)
                         {
@@ -480,22 +480,29 @@ namespace QURAANEY.SOURA
                 load_data(ex.InnerException.ToString());
             }
         }
+        #endregion
+
+
+        #region methodes //توابع 
+
         //تحميل الغريد كونترول
         private void load_gc_snd_tail()
         {
-            string sqll = @" SELECT  T_SOURA_KEEP.id , T_SOURA_KEEP.soura_name AS [اسم السورة],  T_SOURA_KEEP.page_num AS [رقم الصفحة] , 
-                      T_SOURA_KEEP.keep_date AS التاريخ, T_SOURA_KEEP_TYPE.name AS [نوع الحفظ], T_SOURA_EVALUATION.name AS التقيم, T_PERSONE_1.name AS المستلم
-FROM         T_PERSONE INNER JOIN
-                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
-                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
-                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
-                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
-WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditValue) + ")" +
-" ORDER BY T_SOURA_KEEP.id DESC ";
-
-            dt = c_db.select(sqll);
-            gc.DataSource = dt;
-            gv.Columns[0].Visible = false;
+            if (rdb_page_view.Checked)
+            {
+                dt = page_last_row_view();
+                set_gc(dt);
+            }
+            else if (rdb_soura_view.Checked)
+            { dt = soura_last_row_view();
+                set_soura_view_gc(dt);
+            }
+            
+            else if (rdb_aya_view.Checked)
+            {
+                dt = aya_view();
+                set_gc(dt);
+            }
 
 
             //تحميل التيل الحالة 
@@ -516,6 +523,62 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
                 ti_keep_rate.Elements[1].Text = "...";
         }
 
+        private DataTable soura_last_row_view()
+        {
+            string sqll = @" SELECT        T_PERSONE.id, T_PERSONE.name,  T_SOURA_KEEP.soura_name, T_SOURA_KEEP.page_num, T_SOURA_KEEP.keep_date, 
+                         T_SOURA_KEEP_TYPE.name AS type, T_SOURA_EVALUATION.name AS evaluation, T_PERSONE_1.name AS mustalem
+FROM         T_PERSONE INNER JOIN
+                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
+                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
+                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
+                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
+WHERE     (T_SOURA_KEEP.pers_hafez_id  = " + Convert.ToInt32(lkp_pers_name.EditValue) + " ) " +
+"  GROUP BY T_PERSONE.id, T_PERSONE.name, T_SOURA_KEEP.soura_name, T_SOURA_KEEP.page_num, T_SOURA_KEEP.keep_date, T_SOURA_KEEP_TYPE.name, " +
+"   T_SOURA_EVALUATION.name, T_PERSONE_1.name  " +
+"  HAVING      (T_SOURA_KEEP.page_num IN  " +
+"  (SELECT     MAX(page_num) AS Expr1  " +
+"  FROM         T_SOURA_KEEP AS keep2  " +
+"  GROUP BY soura_num, pers_hafez_id)) ";
+
+
+          return  dt = c_db.select(sqll);
+        }
+
+        private DataTable page_last_row_view()
+        {
+            string sqll = @" SELECT        T_PERSONE.id, T_PERSONE.name, T_SOURA_KEEP.id AS keep_id, T_SOURA_KEEP.soura_name, T_SOURA_KEEP.page_num, T_SOURA_KEEP.keep_date, 
+                         T_SOURA_KEEP_TYPE.name AS type, T_SOURA_EVALUATION.name AS evaluation, T_PERSONE_1.name AS mustalem, dbo.T_SOURA_KEEP.soura_num
+FROM         T_PERSONE INNER JOIN
+                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
+                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
+                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
+                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
+WHERE (T_SOURA_KEEP.aya_num IN (SELECT     MAX(aya_num) AS Expr1
+                             FROM         T_SOURA_KEEP AS keep2
+                             where keep2.pers_hafez_id= " + Convert.ToInt32(lkp_pers_name.EditValue) + " " +
+                             " GROUP BY   keep2.page_num ))" +
+                             "and T_SOURA_KEEP.pers_hafez_id= " + Convert.ToInt32(lkp_pers_name.EditValue) + "" +
+                             "ORDER BY T_SOURA_KEEP.page_num DESC ";
+
+
+          return dt = c_db.select(sqll);
+        }
+
+        private DataTable aya_view()
+        {
+            string sqll = @"  SELECT        T_PERSONE.id, T_PERSONE.name, T_SOURA_KEEP.id AS keep_id, T_SOURA_KEEP.soura_name, T_SOURA_KEEP.page_num, T_SOURA_KEEP.keep_date, 
+                         T_SOURA_KEEP_TYPE.name AS type, T_SOURA_EVALUATION.name AS evaluation, T_PERSONE_1.name AS mustalem, dbo.T_SOURA_KEEP.soura_num
+FROM         T_PERSONE INNER JOIN
+                      T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_hafez_id INNER JOIN
+                      T_SOURA_KEEP_TYPE ON T_SOURA_KEEP.keep_type_id = T_SOURA_KEEP_TYPE.id INNER JOIN
+                      T_SOURA_EVALUATION ON T_SOURA_KEEP.evaluation_id = T_SOURA_EVALUATION.id INNER JOIN
+                      T_PERSONE AS T_PERSONE_1 ON T_SOURA_KEEP.pers_mustalem_id = T_PERSONE_1.id
+WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditValue) + " )" +
+" ORDER BY T_SOURA_KEEP.id DESC  ";
+
+
+          return  dt = c_db.select(sqll);
+        }
         #endregion
 
         #region RDB تسلسل فتح الراديو بوتنز 
@@ -644,6 +707,12 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
         }
         private void lkp_pers_name_EditValueChanged(object sender, EventArgs e)
         {
+       
+            rdb_page_view.Enabled = true;
+            rdb_aya_view.Enabled = true;
+            rdb_soura_view.Enabled = true;
+            rdb_soura_view.Checked = true;
+
             load_gc_snd_tail();
         }
         private void gv_DoubleClick(object sender, EventArgs e)
@@ -662,23 +731,58 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
         {
             last_aya_in_soura = C_DB_QUERYS.last_aya_in_soura(Convert.ToInt32(lkp_soura.EditValue));
         }
+      
+        private void lkp_pers_name_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+        {
+            if (e.DisplayValue is string str && str.Trim() != string.Empty)
+            {
+                F_PERSON_MANEG f = new F_PERSON_MANEG(lkp_pers_name.Text);
+                f.WindowState = FormWindowState.Maximized;
+                f.ShowDialog();
+            }
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            F_PERSON_MANEG f = new F_PERSON_MANEG(lkp_pers_name.Text);
+            f.WindowState = FormWindowState.Maximized;
+            f.ShowDialog();
+        }
+
+
+
+        #endregion
+
+
+
+        #region menue right click
         private void menu_delete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("هل انت متاكد انك تريد حذف السجل", "تأكيد",
-                MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (gv.RowCount > 0 )
+          
+                if (MessageBox.Show("هل انت متاكد انك تريد الحذف ", "تأكيد",
+                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                if (gv.RowCount > 0)
                     foreach (int rowid in gv.GetSelectedRows())
                     {
                         int id = Convert.ToInt32(gv.GetRowCellValue(rowid, "id"));
-                        c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_SOURA_KEEP
+                        string soura_name = gv.GetRowCellValue(rowid, "soura_name").ToString() ;
+                        int page_num = Convert.ToInt32(gv.GetRowCellValue(rowid, "page_num")); ;
+                        if (rdb_aya_view.Checked)
+                            c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_SOURA_KEEP
                                   WHERE(id = " + id + ")");
+                        else if (rdb_soura_view.Checked)
+                            c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_SOURA_KEEP
+                                       WHERE        ( pers_hafez_id = "+Convert.ToInt32(lkp_pers_name.EditValue) +" AND (soura_name = N'"+soura_name+"'))");
+                        else if (rdb_page_view.Checked)
+                            c_db.insert_upadte_delete(@"   DELETE FROM dbo.T_SOURA_KEEP
+                                       WHERE        ( pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditValue) + " AND (page_num = " + page_num + "))");
                     }
-               
-                load_data("d");
-                load_gc_snd_tail();
-                base.delete();
-            }
+                   load_data("d");
+                    load_gc_snd_tail();
+                    base.delete();
+                }           
+  
         }
 
         private void menu_pers_rep_Click(object sender, EventArgs e)
@@ -695,48 +799,92 @@ WHERE     (T_SOURA_KEEP.pers_hafez_id = " + Convert.ToInt32(lkp_pers_name.EditVa
             //f.Show();
         }
 
-
-
-
-        #endregion
-
         private void gv_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
-            if (e.Button==MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 gv.SelectRow(e.RowHandle);
-                id_keep_to_delet =int.Parse( gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
+                id_keep_to_delet = int.Parse(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[0]).ToString());
 
             }
         }
+        #endregion
 
-        private void lkp_pers_name_ProcessNewValue(object sender, DevExpress.XtraEditors.Controls.ProcessNewValueEventArgs e)
+
+        #region  view radio
+
+        private void rdb_aya_view_CheckedChanged(object sender, EventArgs e)
         {
-            if (e.DisplayValue is string str && str.Trim() != string.Empty)
+            if (lkp_pers_name.Text != string.Empty && rdb_aya_view.Checked)
             {
-                F_PERSON_MANEG f = new F_PERSON_MANEG(lkp_pers_name.Text);
-                f.WindowState = FormWindowState.Maximized;
-                f.ShowDialog();
+               dt= aya_view();
+                set_gc(dt);
+
             }
         }
 
-        private void simpleButton1_Click(object sender, EventArgs e)
+        private void rdb_page_view_CheckedChanged(object sender, EventArgs e)
         {
-                F_PERSON_MANEG f = new F_PERSON_MANEG(lkp_pers_name.Text);
-                f.WindowState = FormWindowState.Maximized;
-                f.ShowDialog();
-        }
-
-        
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
+            if (lkp_pers_name.Text != string.Empty && rdb_page_view.Checked)
+            {
+               dt= page_last_row_view();
+                set_gc(dt);
+            }
 
         }
+        private void set_gc(DataTable dt)
+        {
+          
+            gc.DataSource = null;
+            gv.Columns.Clear();
+            gc.DataSource = dt;
+            gv.Columns[0].Visible = false;
+            gv.Columns[1].Visible = false;
+            gv.Columns[2].Visible = false;
+            gv.Columns[9].Visible = false;
 
-        private void gc_Click(object sender, EventArgs e)
+            gv.Columns[3].Caption = "اسم السورة";
+            gv.Columns[4].Caption = "رقم الصفحة";
+            gv.Columns[5].Caption = "تاريخ الحفظ";
+            gv.Columns[6].Caption = "نوع الحفظ";
+            gv.Columns[7].Caption = "التقيم";
+            gv.Columns[8].Caption = "المستلم";
+
+
+            gv.BestFitColumns();
+        }
+
+        private void set_soura_view_gc(DataTable dt)
         {
 
+            gc.DataSource = null;
+            gv.Columns.Clear();
+            gc.DataSource = dt;
+            gv.Columns[0].Visible = false;
+            gv.Columns[1].Visible = false;
+            //gv.Columns[2].Visible = false;
+            //gv.Columns[9].Visible = false;
+
+            gv.Columns[2].Caption = "اسم السورة";
+            gv.Columns[3].Caption = "رقم الصفحة";
+            gv.Columns[4].Caption = "تاريخ الحفظ";
+            gv.Columns[5].Caption = "نوع الحفظ";
+            gv.Columns[6].Caption = "التقيم";
+            gv.Columns[7].Caption = "المستلم";
+
+
+            gv.BestFitColumns();
         }
+
+        private void rdb_soura_view_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lkp_pers_name.Text != string.Empty && rdb_soura_view.Checked)
+            {
+               dt= soura_last_row_view();
+                set_soura_view_gc(dt);
+
+            }
+        }
+# endregion
     }
 }

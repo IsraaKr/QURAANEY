@@ -55,19 +55,24 @@ FROM         T_PERSONE INNER JOIN
                       V_COUNT_FULL_SOURA_KEEP ON T_PERSONE.id = V_COUNT_FULL_SOURA_KEEP.pers_hafez_id INNER JOIN
                       V_COUNT_FULL_PAGE ON T_PERSONE.id = V_COUNT_FULL_PAGE.pers_hafez_id
 WHERE        (dbo.T_PERSONE.is_active = 1)";
-                 dt = c_db.select(sqll);
+                dt = c_db.select(sqll);
                 gc.DataSource = dt;
                 gv.Columns[0].Visible = false;
                 gv.Columns[1].Caption = "اسم الحافظ";
                 gv.Columns[2].Caption = "عدد السور المحفوظة ";
                 gv.Columns[3].Caption = "آخر صفحة محفوظة";
             }
+            else
+            {
+                labelControl2.Visible = true;
+                gc.Visible = false;
+            }
         }
 
         private void gv_DoubleClick(object sender, EventArgs e)
         {
             //جلب اي دي السطر الذي عملنا عليه دبل كليك
-            int id = Convert.ToInt32(gv.GetFocusedRowCellValue("تسلسل"));
+            int id = Convert.ToInt32(gv.GetFocusedRowCellValue("id"));
             F_KEEP_SOURA f = new F_KEEP_SOURA(id);
            
             f.WindowState = FormWindowState.Maximized;
@@ -83,6 +88,11 @@ WHERE        (dbo.T_PERSONE.is_active = 1)";
             C_MASTER.print_header("إجمالي الحفظ تقرير" , gc);
 
             base.print();
+        }
+
+        private void labelControl2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -54,13 +54,14 @@ namespace QURAANEY.USERES
         public override void neew()
         {
             clear(this.Controls);
-            de_date.EditValue = DateTime.Today.ToShortDateString();
+            dtp_date.Text = DateTime.Today.ToShortDateString();
             set_auto_id_person();
             base.neew();
         }
+
         public override void load_data(string status_mess)
         {
-            de_date.EditValue = DateTime.Today.ToShortDateString();
+            dtp_date.Text = DateTime.Today.ToShortDateString();
             set_auto_id_person();
             string sql = @"SELECT dbo.T_USERS.id AS التسلسل, dbo.T_USERS.name AS الاسم, dbo.T_USERS.user_name AS [اسم المستخدم], dbo.T_USERS.pass_word AS [كلمة المرور],
                          dbo.T_USERS.is_active AS [فعال ], dbo.T_USERS.in_date AS [تاريخ الإضافة], dbo.T_USERS_TYPES.name AS [نوع المستخدم]
@@ -106,7 +107,7 @@ namespace QURAANEY.USERES
                 clear(this.Controls);
                 if (is_first_time==true)
                 {
-                    insert_first_persone();
+                   // insert_first_persone();
                     is_first_time = false;
                 }
             }
@@ -143,7 +144,7 @@ namespace QURAANEY.USERES
                         " is_active =N'" + che_is_active.Checked + "'," +
                         " user_name =N'" + txt_user_name.Text + "'," +
                         " pass_word =N'" + txt_pass_word.Text + "'," +
-                        " in_date = N'"+ de_date.DateTime.ToShortDateString() +"' ," +
+                        " in_date = N'"+ dtp_date.Text +"' ," +
                         " user_type_id =" + Convert.ToInt32(lkp_user_type.EditValue) + "  " +
                         " WHERE        (id = " + int.Parse(txt_id.Text) + ")";
             done = c_db.insert_upadte_delete(sqll);
@@ -159,7 +160,7 @@ namespace QURAANEY.USERES
                      "N'" + che_is_active.Checked + "'," +
                "N'" + txt_user_name.Text + "'," +
                "N'" + txt_pass_word.Text + "'," +
-               " N'" + de_date.DateTime.ToShortDateString() + "' ," +
+               " N'" + dtp_date.Text + "' ," +
                " " + Convert.ToInt32(lkp_user_type.EditValue) + ")";
                   done = c_db.insert_upadte_delete(sqll);
 
@@ -179,7 +180,7 @@ namespace QURAANEY.USERES
             txt_user_name.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[2]).ToString();
             txt_pass_word.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[3]).ToString();
             che_is_active.Checked = Convert.ToBoolean(gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[4]));
-            de_date.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[5]).ToString();
+            dtp_date.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[5]).ToString();
             lkp_user_type.Text = gv.GetRowCellValue(gv.FocusedRowHandle, gv.Columns[6]).ToString();
 
         }
@@ -195,127 +196,135 @@ namespace QURAANEY.USERES
             txt_confirm.Properties.PasswordChar = (txt_confirm.Properties.PasswordChar == '*') ? '\0' : '*';
 
         }
-        #region insert توابع الإدخال
 
-        private void  insert_first_persone()
+        private void simpleButton1_Click(object sender, EventArgs e)
         {
-
-            int num_done = 0;
-            num_done += insert_pers();
-            num_done += insert_state();
-            num_done += insert_type_true_false();
-            update_type_true_false();
-            num_done += insert_keep_rate();
-
+            Font f= txt_confirm.Font;
+            if (fontDialog1.ShowDialog() != DialogResult.Cancel)
+                 f = fontDialog1.Font;
+            Change_font_size(this.Controls, f);
         }
-        private int insert_pers()
-        {
-            try
-            {
-                //ادخال لجدول الأشخاص
-                sqll = @"INSERT INTO dbo.T_PERSONE
-                         (name, phone, adress, email, studey, woke, in_date, is_active,inviting_pers)
-                         VALUES        (N'" + txt_name.Text + "'," +
-                             "N'" + 1 + "'," +
-                             "N'" + 1 + "'," +
-                             "N'" + 1 + "'," +
-                             "N'" + 1+ "'," +
-                             "N'" + 1 + "'," +
-                             "N'" + DateTime.Today.ToShortDateString()+ "'," +
-                             "N'" + true + "'," +
-                             "N'" + "admin" + "')";
-                done = c_db.insert_upadte_delete(sqll);
-                dt = c_db.select("select id from  dbo.T_PERSONE ");
-                pers_id =Convert.ToInt32( dt.Rows[0][0].ToString());
-                return 1;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex + "");
-                return 0;
-            }
+        //#region insert توابع الإدخال
 
-        }
-        private void update_type_true_false()
-        {
-            dt = c_db.select(@"select id , name  from T_PERS_TYPE");
-            if (dt.Rows.Count > 0)
-            {
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    string x = dt.Rows[i][1].ToString();
-                    c_db.insert_upadte_delete(@" update T_PERS_TYPES_TRUE_FALSE set  " + x + " = '" + true + "'" +
-                        " where pers_id= " + pers_id + " ");
-                }
-            }
-           // else
-              //  dt = c_db.insert_upadte_delete(@" INSERT INTO dbo.T_PERS_TYPE (name)   VALUES  ( N'" + " حافظ " + "' ) ");
-        }
+        //private void  insert_first_persone()
+        //{
+
+        //    int num_done = 0;
+        //    num_done += insert_pers();
+        //    num_done += insert_state();
+        //    num_done += insert_type_true_false();
+        //    update_type_true_false();
+        //    num_done += insert_keep_rate();
+
+        //}
+        //private int insert_pers()
+        //{
+        //    try
+        //    {
+        //        //ادخال لجدول الأشخاص
+        //        sqll = @"INSERT INTO dbo.T_PERSONE
+        //                 (name, phone, adress, email, studey, woke, in_date, is_active,inviting_pers)
+        //                 VALUES        (N'" + txt_name.Text + "'," +
+        //                     "N'" + 1 + "'," +
+        //                     "N'" + 1 + "'," +
+        //                     "N'" + 1 + "'," +
+        //                     "N'" + 1+ "'," +
+        //                     "N'" + 1 + "'," +
+        //                     "N'" + DateTime.Today.ToShortDateString()+ "'," +
+        //                     "N'" + true + "'," +
+        //                     "N'" + "admin" + "')";
+        //        done = c_db.insert_upadte_delete(sqll);
+        //        dt = c_db.select("select id from  dbo.T_PERSONE ");
+        //        pers_id =Convert.ToInt32( dt.Rows[0][0].ToString());
+        //        return 1;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex + "");
+        //        return 0;
+        //    }
+
+        //}
+        //private void update_type_true_false()
+        //{
+        //    dt = c_db.select(@"select id , name  from T_PERS_TYPE");
+        //    if (dt.Rows.Count > 0)
+        //    {
+        //        for (int i = 0; i < dt.Rows.Count; i++)
+        //        {
+        //            string x = dt.Rows[i][1].ToString();
+        //            c_db.insert_upadte_delete(@" update T_PERS_TYPES_TRUE_FALSE set  " + x + " = '" + true + "'" +
+        //                " where pers_id= " + pers_id + " ");
+        //        }
+        //    }
+        //   // else
+        //      //  dt = c_db.insert_upadte_delete(@" INSERT INTO dbo.T_PERS_TYPE (name)   VALUES  ( N'" + " حافظ " + "' ) ");
+        //}
 
 
-            private int insert_type_true_false()
-        {
-            try
-            {
-                sqll = @"INSERT INTO  dbo.T_PERS_TYPES_TRUE_FALSE
-                                 (pers_id )
-                                  VALUES        (" + pers_id + " ) ";
-                done = c_db.insert_upadte_delete(sqll);
-                return 1;
-            }
-            catch
-            {
-                return 0;
-            }
-        }
-        private int insert_state()
-        {
-         try
-         {
-                dt = c_db.select("select id  from T_PERS_STATE");
-                    //ادخال لجدول تغير الحالات
-                    sqll = @"INSERT INTO dbo.T_PERS_STATE_CHANGE
-                         (state_id, pers_id, change_date,pers_id_deside)
-                             VALUES        (" + dt.Rows[0][0] + "," +
-                                     " " + pers_id + "," +
-                                     " N'" + DateTime.Today.ToShortDateString() + "'," +
-                                     " N'" + "admin" + "') ";
-                    done = c_db.insert_upadte_delete(sqll);
-                    return 1;
-                }
+        //    private int insert_type_true_false()
+        //{
+        //    try
+        //    {
+        //        sqll = @"INSERT INTO  dbo.T_PERS_TYPES_TRUE_FALSE
+        //                         (pers_id )
+        //                          VALUES        (" + pers_id + " ) ";
+        //        done = c_db.insert_upadte_delete(sqll);
+        //        return 1;
+        //    }
+        //    catch
+        //    {
+        //        return 0;
+        //    }
+        //}
+        //private int insert_state()
+        //{
+        // try
+        // {
+        //        dt = c_db.select("select id  from T_PERS_STATE");
+        //            //ادخال لجدول تغير الحالات
+        //            sqll = @"INSERT INTO dbo.T_PERS_STATE_CHANGE
+        //                 (state_id, pers_id, change_date,pers_id_deside)
+        //                     VALUES        (" + dt.Rows[0][0] + "," +
+        //                             " " + pers_id + "," +
+        //                             " N'" + DateTime.Today.ToShortDateString() + "'," +
+        //                             " N'" + "admin" + "') ";
+        //            done = c_db.insert_upadte_delete(sqll);
+        //            return 1;
+        //        }
 
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex + "");
-                    return 0;
-                }
-   
-            return 0;
-        }
-       
-        private int insert_keep_rate()
-        {
-                try
-                {
-                dt = c_db.select("select id  from T_PERS_STATE");
-                int rate_id =Convert.ToInt32( dt.Rows[0][0].ToString()) ;
-                    //ادخال لجدول تغير معدل الحفظ
-                    sqll = @"INSERT INTO dbo.T_PERS_RATE_KEEP_CHANGE
-                         (pers_id, rate_id, change_date)
-                             VALUES        (" + pers_id + "," +
-                                     " " + rate_id + "," +
-                                     " N'" + DateTime.Today.ToShortDateString() + "')";
-                    done = c_db.insert_upadte_delete(sqll);
-                    return 1;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex + "");
-                    return 0;
-                }
-            return 0;     
-        }
-        #endregion
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex + "");
+        //            return 0;
+        //        }
+
+        //    return 0;
+        //}
+
+        //private int insert_keep_rate()
+        //{
+        //        try
+        //        {
+        //        dt = c_db.select("select id  from T_PERS_STATE");
+        //        int rate_id =Convert.ToInt32( dt.Rows[0][0].ToString()) ;
+        //            //ادخال لجدول تغير معدل الحفظ
+        //            sqll = @"INSERT INTO dbo.T_PERS_RATE_KEEP_CHANGE
+        //                 (pers_id, rate_id, change_date)
+        //                     VALUES        (" + pers_id + "," +
+        //                             " " + rate_id + "," +
+        //                             " N'" + DateTime.Today.ToShortDateString() + "')";
+        //            done = c_db.insert_upadte_delete(sqll);
+        //            return 1;
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex + "");
+        //            return 0;
+        //        }
+        //    return 0;     
+        //}
+        //#endregion
 
     }
 

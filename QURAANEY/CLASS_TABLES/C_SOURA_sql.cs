@@ -21,7 +21,7 @@ namespace QURAANEY.CLASS_TABLES
 
         public static DataTable get_mustalem_name()
         {
-            dt = c_db.select(@"SELECT     T_PERSONE.name, T_PERSONE.id
+            dt = c_db.select(@"SELECT  DISTINCT   T_PERSONE.name, T_PERSONE.id
 FROM         T_PERSONE INNER JOIN
                       T_SOURA_KEEP ON T_PERSONE.id = T_SOURA_KEEP.pers_mustalem_id");
             return dt;

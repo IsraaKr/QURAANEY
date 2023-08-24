@@ -20,5 +20,27 @@ namespace QURAANEY.CLASS_TABLES
                                    FROM            dbo.T_PERS_TYPES_TRUE_FALSE
                               WHERE(pers_id = " + pers_id + ")");
         }
+
+        public static DataTable get_hafez ()
+        {
+            return dt = c_db.select(@" SELECT     pers_id, name
+                         FROM         [V_PERS_TYPE_HAFEZ]");
+        }
+        public static DataTable get_mustalem()
+        {
+            return dt = c_db.select(@" SELECT     pers_id, name
+                         FROM         [V_PERS_TYPE_MUSTALEM]");
+        }
+        public static DataTable get_murasheh()
+        {
+            return dt = c_db.select(@" SELECT     pers_id, name
+                         FROM         [V_PERS_TYPE_MURASHEH]");
+        }
+
+        public static DataTable get_user()
+        {
+            return dt = c_db.select(@" SELECT     pers_id, name
+                         FROM         [V_PERS_TYPE_USER]");
+        }
     }
 }

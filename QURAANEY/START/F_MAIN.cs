@@ -25,18 +25,18 @@ namespace QURAANEY
 
         private void load_first_frame()
         {
-            DataTable dt = c_db.select(@"SELECT TOP 10 [id]
-              FROM[MY_QURAAN].[dbo].[T_SOURA_KEEP] ");
-            if (dt.Rows.Count > 0)
-            {
+            ////DataTable dt = c_db.select(@"SELECT TOP 10 [id]
+            ////  FROM[MY_QURAAN].[dbo].[T_SOURA_KEEP] ");
+            ////if (dt.Rows.Count > 0)
+            ////{
                 F_SOURA_GRID f = new F_SOURA_GRID();
                 nav(f, pan_nav);
-            }
-            else
-            {
-                F_KEEP_SOURA fk = new F_KEEP_SOURA();
-                nav(fk, pan_nav);
-            }
+            //}
+            //else
+            //{
+            //    F_KEEP_SOURA fk = new F_KEEP_SOURA();
+            //    nav(fk, pan_nav);
+            //}
        
         }
 
@@ -144,9 +144,16 @@ namespace QURAANEY
         private void barButtonItem11_ItemClick(object sender, ItemClickEventArgs e)
         {
             fontDialog1.ShowDialog();
-                
+           
+
+
+
         }
 
-       
+        private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            F_LOGIN f = new F_LOGIN();
+            f.Show();
+        }
     }
 }

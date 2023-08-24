@@ -20,7 +20,7 @@ namespace QURAANEY.SOURA
         private void F_DASHBOARD_Load(object sender, EventArgs e)
         {
             view_inheretanz_butomes(false, false, false, false, false, false, true);
-            dashboardViewer1.DashboardSource = @"G:\برنامج قرآني\QURAANEY\QURAANEY\Resources\dash_quranney.xml";
+            dashboardViewer1.DashboardSource = @".\dash_quranney.xml";
         }
     }
 }

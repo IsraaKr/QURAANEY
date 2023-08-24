@@ -60,7 +60,7 @@ namespace QURAANEY
 
         private void F_START_Load(object sender, EventArgs e)
         {
-           // check_conn();
+            check_conn();
         }
 
         private void check_conn()
@@ -76,16 +76,19 @@ namespace QURAANEY
                     dt = c_db.select(@"select * from T_USERS ");
                     if (dt.Rows.Count > 0)
                     {
-                        F_LOGIN f = new F_LOGIN();                     
-                        f.Show();
+                        F_LOGIN f = new F_LOGIN();
                         this.Hide();
+                        f.Show();
+                       
 
                     }
                     else
                     {
                         F_ADD_USER f = new F_ADD_USER(true);
-                        f.Show();
                         this.Hide();
+                        this.Close();
+                        f.Show();
+                     
                     }
                 }
                 else if (chec == false)

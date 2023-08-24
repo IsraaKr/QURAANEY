@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_PERSON_MANEG));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_is_activ_change = new System.Windows.Forms.DateTimePicker();
             this.lkp_is_active_change = new DevExpress.XtraEditors.LookUpEdit();
             this.glkp_all_keep_rate = new DevExpress.XtraEditors.GridLookUpEdit();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -58,7 +58,6 @@
             this.txt_name = new DevExpress.XtraEditors.TextEdit();
             this.txt_adress = new DevExpress.XtraEditors.MemoEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tabbedControlGroup1 = new DevExpress.XtraLayout.TabbedControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -91,6 +90,7 @@
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -115,7 +115,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_adress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -148,11 +147,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_btn
             // 
-            this.pan_btn.Location = new System.Drawing.Point(0, 390);
+            this.pan_btn.Location = new System.Drawing.Point(0, 386);
             this.pan_btn.Size = new System.Drawing.Size(835, 38);
             // 
             // btn_exite
@@ -166,7 +166,7 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.dateTimePicker1);
+            this.layoutControl1.Controls.Add(this.dtp_is_activ_change);
             this.layoutControl1.Controls.Add(this.lkp_is_active_change);
             this.layoutControl1.Controls.Add(this.glkp_all_keep_rate);
             this.layoutControl1.Controls.Add(this.glkp_all_state);
@@ -194,22 +194,23 @@
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.layoutControl1.Padding = new System.Windows.Forms.Padding(2);
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(835, 390);
+            this.layoutControl1.Size = new System.Drawing.Size(835, 386);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // dateTimePicker1
+            // dtp_is_activ_change
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(36, 80);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(73, 20);
-            this.dateTimePicker1.TabIndex = 115;
+            this.dtp_is_activ_change.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_is_activ_change.Location = new System.Drawing.Point(36, 80);
+            this.dtp_is_activ_change.Name = "dtp_is_activ_change";
+            this.dtp_is_activ_change.Size = new System.Drawing.Size(73, 20);
+            this.dtp_is_activ_change.TabIndex = 115;
             // 
             // lkp_is_active_change
             // 
             this.lkp_is_active_change.Location = new System.Drawing.Point(224, 80);
             this.lkp_is_active_change.Name = "lkp_is_active_change";
+            this.lkp_is_active_change.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_is_active_change.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_is_active_change.Properties.NullText = "";
@@ -288,7 +289,7 @@
             this.lkp_keep_rate.Name = "lkp_keep_rate";
             this.lkp_keep_rate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkp_keep_rate.Properties.NullText = "admin";
+            this.lkp_keep_rate.Properties.NullText = "";
             this.lkp_keep_rate.Properties.ShowHeader = false;
             this.lkp_keep_rate.Size = new System.Drawing.Size(269, 20);
             this.lkp_keep_rate.StyleController = this.layoutControl1;
@@ -302,7 +303,7 @@
             this.lkp_pers_state_change.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_pers_state_change.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkp_pers_state_change.Properties.NullText = "admin";
+            this.lkp_pers_state_change.Properties.NullText = "";
             this.lkp_pers_state_change.Properties.ShowHeader = false;
             this.lkp_pers_state_change.Size = new System.Drawing.Size(132, 20);
             this.lkp_pers_state_change.StyleController = this.layoutControl1;
@@ -314,7 +315,7 @@
             this.gc.Location = new System.Drawing.Point(24, 209);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(787, 157);
+            this.gc.Size = new System.Drawing.Size(787, 153);
             this.gc.TabIndex = 102;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -387,7 +388,7 @@
             this.lkp_inviting_pers.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_inviting_pers.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lkp_inviting_pers.Properties.NullText = "admin";
+            this.lkp_inviting_pers.Properties.NullText = "";
             this.lkp_inviting_pers.Properties.ShowHeader = false;
             this.lkp_inviting_pers.Size = new System.Drawing.Size(319, 20);
             this.lkp_inviting_pers.StyleController = this.layoutControl1;
@@ -470,17 +471,8 @@
             this.layoutControlGroup1,
             this.layoutControlGroup5});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(835, 390);
+            this.Root.Size = new System.Drawing.Size(835, 386);
             this.Root.TextVisible = false;
-            // 
-            // layoutControlItem7
-            // 
-            this.layoutControlItem7.Control = this.gc;
-            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(791, 161);
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem7.TextVisible = false;
             // 
             // layoutControlGroup1
             // 
@@ -602,7 +594,7 @@
             // 
             // layoutControlItem16
             // 
-            this.layoutControlItem16.Control = this.dateTimePicker1;
+            this.layoutControlItem16.Control = this.dtp_is_activ_change;
             this.layoutControlItem16.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem16.Name = "layoutControlItem16";
             this.layoutControlItem16.Size = new System.Drawing.Size(188, 24);
@@ -821,8 +813,17 @@
             this.layoutControlItem7});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 164);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(815, 206);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(815, 202);
             this.layoutControlGroup5.Text = "...";
+            // 
+            // layoutControlItem7
+            // 
+            this.layoutControlItem7.Control = this.gc;
+            this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem7.Name = "layoutControlItem7";
+            this.layoutControlItem7.Size = new System.Drawing.Size(791, 157);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem7.TextVisible = false;
             // 
             // F_PERSON_MANEG
             // 
@@ -860,7 +861,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_adress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -893,6 +893,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -957,7 +958,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_is_activ_change;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup5;

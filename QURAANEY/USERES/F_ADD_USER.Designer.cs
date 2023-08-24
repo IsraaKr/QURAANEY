@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_ADD_USER));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.checkButton2 = new DevExpress.XtraEditors.CheckButton();
             this.checkButton1 = new DevExpress.XtraEditors.CheckButton();
             this.btn_permisions = new DevExpress.XtraEditors.SimpleButton();
@@ -42,7 +43,6 @@
             this.che_is_active = new DevExpress.XtraEditors.CheckEdit();
             this.txt_name = new DevExpress.XtraEditors.TextEdit();
             this.txt_confirm = new DevExpress.XtraEditors.TextEdit();
-            this.de_date = new DevExpress.XtraEditors.DateEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -52,11 +52,14 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dtp_date = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -69,8 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.che_is_active.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_confirm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_date.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_date.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -80,16 +81,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtp_date)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_btn
             // 
-            this.pan_btn.Location = new System.Drawing.Point(0, 409);
+            this.pan_btn.Location = new System.Drawing.Point(0, 383);
             this.pan_btn.Size = new System.Drawing.Size(800, 41);
             // 
             // btn_exite
@@ -103,6 +105,8 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButton1);
+            this.layoutControl1.Controls.Add(this.dateTimePicker1);
             this.layoutControl1.Controls.Add(this.checkButton2);
             this.layoutControl1.Controls.Add(this.checkButton1);
             this.layoutControl1.Controls.Add(this.btn_permisions);
@@ -114,22 +118,29 @@
             this.layoutControl1.Controls.Add(this.che_is_active);
             this.layoutControl1.Controls.Add(this.txt_name);
             this.layoutControl1.Controls.Add(this.txt_confirm);
-            this.layoutControl1.Controls.Add(this.de_date);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 409);
+            this.layoutControl1.Size = new System.Drawing.Size(800, 383);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(570, 283);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(189, 20);
+            this.dateTimePicker1.TabIndex = 114;
             // 
             // checkButton2
             // 
             this.checkButton2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("checkButton2.ImageOptions.SvgImage")));
-            this.checkButton2.Location = new System.Drawing.Point(582, 205);
+            this.checkButton2.Location = new System.Drawing.Point(570, 187);
             this.checkButton2.Name = "checkButton2";
-            this.checkButton2.Size = new System.Drawing.Size(39, 36);
+            this.checkButton2.Size = new System.Drawing.Size(38, 36);
             this.checkButton2.StyleController = this.layoutControl1;
             this.checkButton2.TabIndex = 113;
             this.checkButton2.CheckedChanged += new System.EventHandler(this.checkButton2_CheckedChanged);
@@ -137,9 +148,9 @@
             // checkButton1
             // 
             this.checkButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("checkButton1.ImageOptions.SvgImage")));
-            this.checkButton1.Location = new System.Drawing.Point(582, 165);
+            this.checkButton1.Location = new System.Drawing.Point(570, 147);
             this.checkButton1.Name = "checkButton1";
-            this.checkButton1.Size = new System.Drawing.Size(39, 36);
+            this.checkButton1.Size = new System.Drawing.Size(38, 36);
             this.checkButton1.StyleController = this.layoutControl1;
             this.checkButton1.TabIndex = 112;
             this.checkButton1.CheckedChanged += new System.EventHandler(this.checkButton1_CheckedChanged);
@@ -157,9 +168,9 @@
             this.btn_permisions.AppearancePressed.BackColor = System.Drawing.Color.SteelBlue;
             this.btn_permisions.AppearancePressed.Options.UseBackColor = true;
             this.btn_permisions.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_permisions.ImageOptions.Image")));
-            this.btn_permisions.Location = new System.Drawing.Point(590, 333);
+            this.btn_permisions.Location = new System.Drawing.Point(578, 315);
             this.btn_permisions.Name = "btn_permisions";
-            this.btn_permisions.Size = new System.Drawing.Size(178, 36);
+            this.btn_permisions.Size = new System.Drawing.Size(173, 36);
             this.btn_permisions.StyleController = this.layoutControl1;
             this.btn_permisions.TabIndex = 109;
             this.btn_permisions.Text = "الصلاحيات";
@@ -167,10 +178,10 @@
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(12, 12);
+            this.gc.Location = new System.Drawing.Point(12, -6);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(554, 385);
+            this.gc.Size = new System.Drawing.Size(542, 403);
             this.gc.TabIndex = 104;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -196,82 +207,67 @@
             // 
             // txt_id
             // 
-            this.txt_id.Location = new System.Drawing.Point(645, 61);
+            this.txt_id.Location = new System.Drawing.Point(631, 43);
             this.txt_id.Name = "txt_id";
             this.txt_id.Properties.ReadOnly = true;
-            this.txt_id.Size = new System.Drawing.Size(131, 20);
+            this.txt_id.Size = new System.Drawing.Size(128, 20);
             this.txt_id.StyleController = this.layoutControl1;
             this.txt_id.TabIndex = 4;
             // 
             // txt_user_name
             // 
-            this.txt_user_name.Location = new System.Drawing.Point(582, 141);
+            this.txt_user_name.Location = new System.Drawing.Point(570, 123);
             this.txt_user_name.Name = "txt_user_name";
-            this.txt_user_name.Size = new System.Drawing.Size(194, 20);
+            this.txt_user_name.Size = new System.Drawing.Size(189, 20);
             this.txt_user_name.StyleController = this.layoutControl1;
             this.txt_user_name.TabIndex = 5;
             // 
             // lkp_user_type
             // 
-            this.lkp_user_type.Location = new System.Drawing.Point(582, 261);
+            this.lkp_user_type.Location = new System.Drawing.Point(570, 243);
             this.lkp_user_type.Name = "lkp_user_type";
             this.lkp_user_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_user_type.Properties.NullText = "";
-            this.lkp_user_type.Size = new System.Drawing.Size(194, 20);
+            this.lkp_user_type.Size = new System.Drawing.Size(189, 20);
             this.lkp_user_type.StyleController = this.layoutControl1;
             this.lkp_user_type.TabIndex = 8;
             // 
             // txt_pass_word
             // 
-            this.txt_pass_word.Location = new System.Drawing.Point(625, 181);
+            this.txt_pass_word.Location = new System.Drawing.Point(612, 163);
             this.txt_pass_word.Name = "txt_pass_word";
             this.txt_pass_word.Properties.PasswordChar = '*';
-            this.txt_pass_word.Size = new System.Drawing.Size(151, 20);
+            this.txt_pass_word.Size = new System.Drawing.Size(147, 20);
             this.txt_pass_word.StyleController = this.layoutControl1;
             this.txt_pass_word.TabIndex = 6;
             // 
             // che_is_active
             // 
             this.che_is_active.EditValue = true;
-            this.che_is_active.Location = new System.Drawing.Point(582, 45);
+            this.che_is_active.Location = new System.Drawing.Point(570, 27);
             this.che_is_active.Name = "che_is_active";
             this.che_is_active.Properties.Caption = "نشيط";
-            this.che_is_active.Size = new System.Drawing.Size(59, 20);
+            this.che_is_active.Size = new System.Drawing.Size(57, 20);
             this.che_is_active.StyleController = this.layoutControl1;
             this.che_is_active.TabIndex = 105;
             // 
             // txt_name
             // 
-            this.txt_name.Location = new System.Drawing.Point(582, 101);
+            this.txt_name.Location = new System.Drawing.Point(570, 83);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(194, 20);
+            this.txt_name.Size = new System.Drawing.Size(189, 20);
             this.txt_name.StyleController = this.layoutControl1;
             this.txt_name.TabIndex = 106;
             // 
             // txt_confirm
             // 
-            this.txt_confirm.Location = new System.Drawing.Point(625, 221);
+            this.txt_confirm.Location = new System.Drawing.Point(612, 203);
             this.txt_confirm.Name = "txt_confirm";
             this.txt_confirm.Properties.PasswordChar = '*';
-            this.txt_confirm.Size = new System.Drawing.Size(151, 20);
+            this.txt_confirm.Size = new System.Drawing.Size(147, 20);
             this.txt_confirm.StyleController = this.layoutControl1;
             this.txt_confirm.TabIndex = 107;
-            // 
-            // de_date
-            // 
-            this.de_date.EditValue = new System.DateTime(2023, 4, 1, 10, 52, 48, 0);
-            this.de_date.Location = new System.Drawing.Point(582, 301);
-            this.de_date.Name = "de_date";
-            this.de_date.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_date.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_date.Properties.CalendarTimeProperties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.de_date.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.de_date.Size = new System.Drawing.Size(194, 20);
-            this.de_date.StyleController = this.layoutControl1;
-            this.de_date.TabIndex = 108;
             // 
             // Root
             // 
@@ -281,7 +277,7 @@
             this.layoutControlGroup2,
             this.layoutControlItem4});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 409);
+            this.Root.Size = new System.Drawing.Size(783, 427);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup2
@@ -296,13 +292,14 @@
             this.layoutControlItem3,
             this.layoutControlItem8,
             this.layoutControlItem5,
-            this.layoutControlItem9,
             this.layoutControlItem10,
             this.layoutControlItem13,
-            this.layoutControlItem14});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(558, 0);
+            this.layoutControlItem14,
+            this.dtp_date,
+            this.layoutControlItem9});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(546, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(222, 389);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(217, 407);
             this.layoutControlGroup2.Text = "إضافة و تعديل مستخدم ";
             // 
             // layoutControlItem1
@@ -310,9 +307,9 @@
             this.layoutControlItem1.Control = this.txt_id;
             this.layoutControlItem1.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem1.CustomizationFormText = "الرقم";
-            this.layoutControlItem1.Location = new System.Drawing.Point(63, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(61, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(135, 40);
+            this.layoutControlItem1.Size = new System.Drawing.Size(132, 40);
             this.layoutControlItem1.Text = "الرقم";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(76, 13);
@@ -323,7 +320,7 @@
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(54, 24);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(63, 40);
+            this.layoutControlItem6.Size = new System.Drawing.Size(61, 40);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -333,7 +330,7 @@
             this.layoutControlItem7.Control = this.txt_name;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 40);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(198, 40);
+            this.layoutControlItem7.Size = new System.Drawing.Size(193, 40);
             this.layoutControlItem7.Text = "الاسم";
             this.layoutControlItem7.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(76, 13);
@@ -345,7 +342,7 @@
             this.layoutControlItem2.CustomizationFormText = "اسم المستخدم";
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 80);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(198, 40);
+            this.layoutControlItem2.Size = new System.Drawing.Size(193, 40);
             this.layoutControlItem2.Text = "اسم المستخدم";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(76, 13);
@@ -355,9 +352,9 @@
             this.layoutControlItem3.Control = this.txt_pass_word;
             this.layoutControlItem3.ControlAlignment = System.Drawing.ContentAlignment.TopRight;
             this.layoutControlItem3.CustomizationFormText = "كلمة المرور";
-            this.layoutControlItem3.Location = new System.Drawing.Point(43, 120);
+            this.layoutControlItem3.Location = new System.Drawing.Point(42, 120);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(155, 40);
+            this.layoutControlItem3.Size = new System.Drawing.Size(151, 40);
             this.layoutControlItem3.Text = "كلمة المرور";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(76, 13);
@@ -365,9 +362,9 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.txt_confirm;
-            this.layoutControlItem8.Location = new System.Drawing.Point(43, 160);
+            this.layoutControlItem8.Location = new System.Drawing.Point(42, 160);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(155, 40);
+            this.layoutControlItem8.Size = new System.Drawing.Size(151, 40);
             this.layoutControlItem8.Text = "تأكيد كلمة المرور";
             this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(76, 13);
@@ -379,20 +376,10 @@
             this.layoutControlItem5.CustomizationFormText = "نوع المستخدم";
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 200);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(198, 40);
+            this.layoutControlItem5.Size = new System.Drawing.Size(193, 40);
             this.layoutControlItem5.Text = "نوع المستخدم";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(76, 13);
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.de_date;
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 240);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(198, 40);
-            this.layoutControlItem9.Text = "تاريخ الإنشاء";
-            this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(76, 13);
             // 
             // layoutControlItem10
             // 
@@ -400,7 +387,7 @@
             this.layoutControlItem10.Location = new System.Drawing.Point(0, 280);
             this.layoutControlItem10.Name = "layoutControlItem10";
             this.layoutControlItem10.Padding = new DevExpress.XtraLayout.Utils.Padding(10, 10, 10, 10);
-            this.layoutControlItem10.Size = new System.Drawing.Size(198, 64);
+            this.layoutControlItem10.Size = new System.Drawing.Size(193, 56);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -409,7 +396,7 @@
             this.layoutControlItem13.Control = this.checkButton1;
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 120);
             this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(43, 40);
+            this.layoutControlItem13.Size = new System.Drawing.Size(42, 40);
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
@@ -418,18 +405,47 @@
             this.layoutControlItem14.Control = this.checkButton2;
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 160);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(43, 40);
+            this.layoutControlItem14.Size = new System.Drawing.Size(42, 40);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
+            // 
+            // dtp_date
+            // 
+            this.dtp_date.Control = this.dateTimePicker1;
+            this.dtp_date.Location = new System.Drawing.Point(0, 240);
+            this.dtp_date.Name = "dtp_date";
+            this.dtp_date.Size = new System.Drawing.Size(193, 40);
+            this.dtp_date.Text = "تاريخ الإنشاء";
+            this.dtp_date.TextLocation = DevExpress.Utils.Locations.Top;
+            this.dtp_date.TextSize = new System.Drawing.Size(76, 13);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.gc;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(558, 389);
+            this.layoutControlItem4.Size = new System.Drawing.Size(546, 407);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(570, 363);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(189, 22);
+            this.simpleButton1.StyleController = this.layoutControl1;
+            this.simpleButton1.TabIndex = 115;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.simpleButton1;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 336);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(193, 26);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
             // 
             // F_ADD_USER
             // 
@@ -454,8 +470,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.che_is_active.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_name.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txt_confirm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_date.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.de_date.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -465,11 +479,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtp_date)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,13 +512,16 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraEditors.SimpleButton btn_permisions;
         private DevExpress.XtraEditors.TextEdit txt_confirm;
-        private DevExpress.XtraEditors.DateEdit de_date;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraEditors.CheckButton checkButton2;
         private DevExpress.XtraEditors.CheckButton checkButton1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private DevExpress.XtraLayout.LayoutControlItem dtp_date;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }
