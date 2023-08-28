@@ -36,19 +36,23 @@
             DevExpress.XtraEditors.TileItemElement tileItemElement4 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraEditors.TileItemElement tileItemElement6 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement7 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement8 = new DevExpress.XtraEditors.TileItemElement();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.lkp_nashat_name = new DevExpress.XtraEditors.LookUpEdit();
             this.gc = new DevExpress.XtraGrid.GridControl();
             this.gv = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tileControl11 = new DevExpress.XtraEditors.TileControl();
+            this.tileGroup3 = new DevExpress.XtraEditors.TileGroup();
+            this.ti_nashat_count = new DevExpress.XtraEditors.TileItem();
+            this.tileItem1 = new DevExpress.XtraEditors.TileItem();
             this.tileGroup2 = new DevExpress.XtraEditors.TileGroup();
             this.ti_true = new DevExpress.XtraEditors.TileItem();
             this.ti_false = new DevExpress.XtraEditors.TileItem();
-            this.ti_nashat_count = new DevExpress.XtraEditors.TileItem();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -57,13 +61,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_btn
             // 
-            this.pan_btn.Location = new System.Drawing.Point(0, 387);
+            this.pan_btn.Location = new System.Drawing.Point(0, 383);
             this.pan_btn.Size = new System.Drawing.Size(800, 41);
             // 
             // btn_exite
@@ -85,28 +89,28 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsView.RightToLeftMirroringApplied = true;
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(800, 428);
+            this.layoutControl1.Size = new System.Drawing.Size(800, 424);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // lkp_nashat_name
             // 
-            this.lkp_nashat_name.Location = new System.Drawing.Point(303, 28);
+            this.lkp_nashat_name.Location = new System.Drawing.Point(345, 28);
             this.lkp_nashat_name.Name = "lkp_nashat_name";
             this.lkp_nashat_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_nashat_name.Properties.NullText = "";
-            this.lkp_nashat_name.Size = new System.Drawing.Size(485, 20);
+            this.lkp_nashat_name.Size = new System.Drawing.Size(443, 20);
             this.lkp_nashat_name.StyleController = this.layoutControl1;
             this.lkp_nashat_name.TabIndex = 106;
             this.lkp_nashat_name.EditValueChanged += new System.EventHandler(this.lkp_nashat_name_EditValueChanged);
             // 
             // gc
             // 
-            this.gc.Location = new System.Drawing.Point(303, 52);
+            this.gc.Location = new System.Drawing.Point(345, 52);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
-            this.gc.Size = new System.Drawing.Size(485, 364);
+            this.gc.Size = new System.Drawing.Size(443, 360);
             this.gc.TabIndex = 105;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
@@ -131,41 +135,91 @@
             // 
             // tileControl11
             // 
+            this.tileControl11.AllowGroupHighlighting = true;
+            this.tileControl11.ColumnCount = 2;
+            this.tileControl11.Groups.Add(this.tileGroup3);
             this.tileControl11.Groups.Add(this.tileGroup2);
+            this.tileControl11.HorizontalContentAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.tileControl11.IndentBetweenGroups = 50;
             this.tileControl11.ItemBorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Never;
+            this.tileControl11.ItemContentAnimation = DevExpress.XtraEditors.TileItemContentAnimationType.ScrollTop;
             this.tileControl11.ItemPadding = new System.Windows.Forms.Padding(1, 8, 1, 8);
             this.tileControl11.Location = new System.Drawing.Point(12, 12);
-            this.tileControl11.MaxId = 15;
+            this.tileControl11.MaxId = 16;
             this.tileControl11.Name = "tileControl11";
+            this.tileControl11.OptionsAdaptiveLayout.ScrollMode = DevExpress.XtraEditors.TileControlAdaptiveLayoutScrollMode.ItemScrolling;
+            this.tileControl11.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileControl11.Padding = new System.Windows.Forms.Padding(0);
-            this.tileControl11.Size = new System.Drawing.Size(287, 404);
+            this.tileControl11.ScrollMode = DevExpress.XtraEditors.TileControlScrollMode.TouchScrollBar;
+            this.tileControl11.ShowGroupText = true;
+            this.tileControl11.Size = new System.Drawing.Size(329, 400);
             this.tileControl11.TabIndex = 93;
             this.tileControl11.Text = "tileControl1";
             this.tileControl11.VerticalContentAlignment = DevExpress.Utils.VertAlignment.Center;
+            // 
+            // tileGroup3
+            // 
+            this.tileGroup3.Items.Add(this.ti_nashat_count);
+            this.tileGroup3.Items.Add(this.tileItem1);
+            this.tileGroup3.Name = "tileGroup3";
+            // 
+            // ti_nashat_count
+            // 
+            this.ti_nashat_count.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
+            this.ti_nashat_count.AppearanceItem.Normal.Options.UseBackColor = true;
+            tileItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
+            tileItemElement1.Appearance.Normal.Options.UseFont = true;
+            tileItemElement1.Text = "عدد النشاطات ";
+            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement2.Text = "...";
+            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.ti_nashat_count.Elements.Add(tileItemElement1);
+            this.ti_nashat_count.Elements.Add(tileItemElement2);
+            this.ti_nashat_count.Id = 14;
+            this.ti_nashat_count.ItemSize = DevExpress.XtraEditors.TileItemSize.Wide;
+            this.ti_nashat_count.Name = "ti_nashat_count";
+            // 
+            // tileItem1
+            // 
+            this.tileItem1.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
+            this.tileItem1.AppearanceItem.Normal.Options.UseBackColor = true;
+            tileItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
+            tileItemElement3.Appearance.Normal.Options.UseFont = true;
+            tileItemElement3.Text = "عدد المشاركين ";
+            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement4.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
+            tileItemElement4.Appearance.Normal.Options.UseFont = true;
+            tileItemElement4.Text = "...";
+            tileItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileItem1.Elements.Add(tileItemElement3);
+            this.tileItem1.Elements.Add(tileItemElement4);
+            this.tileItem1.Id = 15;
+            this.tileItem1.ItemSize = DevExpress.XtraEditors.TileItemSize.Wide;
+            this.tileItem1.Name = "tileItem1";
             // 
             // tileGroup2
             // 
             this.tileGroup2.Items.Add(this.ti_true);
             this.tileGroup2.Items.Add(this.ti_false);
-            this.tileGroup2.Items.Add(this.ti_nashat_count);
             this.tileGroup2.Name = "tileGroup2";
-            this.tileGroup2.Text = "التسليم";
+            this.tileGroup2.Text = "معلومات النشاط ";
+            this.tileGroup2.Visible = false;
             // 
             // ti_true
             // 
             this.ti_true.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.ti_true.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement1.AnchorAlignment = DevExpress.Utils.AnchorAlignment.Top;
-            tileItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement1.Appearance.Normal.Options.UseFont = true;
-            tileItemElement1.Text = "غدد الحضور";
-            tileItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement2.Appearance.Normal.Options.UseFont = true;
-            tileItemElement2.Text = "...";
-            tileItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.ti_true.Elements.Add(tileItemElement1);
-            this.ti_true.Elements.Add(tileItemElement2);
+            tileItemElement5.AnchorAlignment = DevExpress.Utils.AnchorAlignment.Top;
+            tileItemElement5.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement5.Appearance.Normal.Options.UseFont = true;
+            tileItemElement5.Text = "غدد الحضور";
+            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement6.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement6.Appearance.Normal.Options.UseFont = true;
+            tileItemElement6.Text = "...";
+            tileItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.ti_true.Elements.Add(tileItemElement5);
+            this.ti_true.Elements.Add(tileItemElement6);
             this.ti_true.Id = 6;
             this.ti_true.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.ti_true.Name = "ti_true";
@@ -174,35 +228,20 @@
             // 
             this.ti_false.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
             this.ti_false.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement3.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement3.Appearance.Normal.Options.UseFont = true;
-            tileItemElement3.Text = "عدد الغياب";
-            tileItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement4.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileItemElement4.Appearance.Normal.Options.UseFont = true;
-            tileItemElement4.Text = "...";
-            tileItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.ti_false.Elements.Add(tileItemElement3);
-            this.ti_false.Elements.Add(tileItemElement4);
+            tileItemElement7.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement7.Appearance.Normal.Options.UseFont = true;
+            tileItemElement7.Text = "عدد الغياب";
+            tileItemElement7.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
+            tileItemElement8.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileItemElement8.Appearance.Normal.Options.UseFont = true;
+            tileItemElement8.Text = "...";
+            tileItemElement8.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.ti_false.Elements.Add(tileItemElement7);
+            this.ti_false.Elements.Add(tileItemElement8);
             this.ti_false.Id = 8;
             this.ti_false.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
             this.ti_false.Name = "ti_false";
-            // 
-            // ti_nashat_count
-            // 
-            this.ti_nashat_count.AppearanceItem.Normal.BackColor = System.Drawing.Color.SteelBlue;
-            this.ti_nashat_count.AppearanceItem.Normal.Options.UseBackColor = true;
-            tileItemElement5.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 12F);
-            tileItemElement5.Appearance.Normal.Options.UseFont = true;
-            tileItemElement5.Text = "عدد النشاطات ";
-            tileItemElement5.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopCenter;
-            tileItemElement6.Text = "...";
-            tileItemElement6.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.ti_nashat_count.Elements.Add(tileItemElement5);
-            this.ti_nashat_count.Elements.Add(tileItemElement6);
-            this.ti_nashat_count.Id = 14;
-            this.ti_nashat_count.ItemSize = DevExpress.XtraEditors.TileItemSize.Medium;
-            this.ti_nashat_count.Name = "ti_nashat_count";
+            this.ti_false.ItemClick += new DevExpress.XtraEditors.TileItemClickEventHandler(this.ti_false_ItemClick);
             // 
             // Root
             // 
@@ -213,36 +252,36 @@
             this.layoutControlItem3,
             this.layoutControlItem1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(800, 428);
+            this.Root.Size = new System.Drawing.Size(800, 424);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gc;
-            this.layoutControlItem2.Location = new System.Drawing.Point(291, 40);
+            this.layoutControlItem2.Location = new System.Drawing.Point(333, 40);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(489, 368);
+            this.layoutControlItem2.Size = new System.Drawing.Size(447, 364);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.lkp_nashat_name;
+            this.layoutControlItem3.Location = new System.Drawing.Point(333, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(447, 40);
+            this.layoutControlItem3.Text = "اختر نشاط";
+            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(47, 13);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.tileControl11;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(291, 408);
+            this.layoutControlItem1.Size = new System.Drawing.Size(333, 404);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.lkp_nashat_name;
-            this.layoutControlItem3.Location = new System.Drawing.Point(291, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(489, 40);
-            this.layoutControlItem3.Text = "اختر نشاط";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(47, 13);
             // 
             // F_REP_NASHAT
             // 
@@ -262,8 +301,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.gv)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +323,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.TileItem ti_nashat_count;
+        private DevExpress.XtraEditors.TileGroup tileGroup3;
+        private DevExpress.XtraEditors.TileItem tileItem1;
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_SHOW_NASHAT));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txt_resone = new DevExpress.XtraEditors.TextEdit();
             this.txt_pers_name = new DevExpress.XtraEditors.TextEdit();
             this.dtp_date_end = new System.Windows.Forms.DateTimePicker();
@@ -42,7 +43,6 @@
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -50,6 +50,8 @@
             this.group_reson = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.pan_btn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -63,7 +65,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -71,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.group_reson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // pan_btn
@@ -89,6 +92,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.checkBox1);
             this.layoutControl1.Controls.Add(this.txt_resone);
             this.layoutControl1.Controls.Add(this.txt_pers_name);
             this.layoutControl1.Controls.Add(this.dtp_date_end);
@@ -105,6 +109,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(800, 383);
             this.layoutControl1.TabIndex = 104;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.Location = new System.Drawing.Point(12, 105);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(153, 36);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "النشاط منته";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.Visible = false;
             // 
             // txt_resone
             // 
@@ -161,14 +175,14 @@
             // 
             // lkp_name
             // 
-            this.lkp_name.Location = new System.Drawing.Point(12, 121);
+            this.lkp_name.Location = new System.Drawing.Point(169, 121);
             this.lkp_name.Name = "lkp_name";
             this.lkp_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lkp_name.Properties.NullText = "";
-            this.lkp_name.Size = new System.Drawing.Size(513, 20);
+            this.lkp_name.Size = new System.Drawing.Size(356, 20);
             this.lkp_name.StyleController = this.layoutControl1;
-            this.lkp_name.TabIndex = 7;
+            this.lkp_name.TabIndex = 1;
             this.lkp_name.EditValueChanged += new System.EventHandler(this.lkp_name_EditValueChanged);
             // 
             // gc
@@ -177,7 +191,7 @@
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
             this.gc.Size = new System.Drawing.Size(513, 210);
-            this.gc.TabIndex = 104;
+            this.gc.TabIndex = 8;
             this.gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv});
             // 
@@ -208,7 +222,8 @@
             this.layoutControlGroup2,
             this.layoutControlItem6,
             this.group_reson,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem9});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(800, 383);
             this.Root.TextVisible = false;
@@ -239,18 +254,6 @@
             this.layoutControlItem2.Text = "تاريخ النشاط";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(80, 13);
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.lkp_name;
-            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.layoutControlItem4.CustomizationFormText = "اسم النشاط";
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 93);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(517, 40);
-            this.layoutControlItem4.Text = "اسم النشاط";
-            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(80, 13);
             // 
             // layoutControlItem3
             // 
@@ -326,6 +329,29 @@
             this.layoutControlItem8.Text = "السبب";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(80, 13);
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.lkp_name;
+            this.layoutControlItem4.ControlAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.layoutControlItem4.CustomizationFormText = "اسم النشاط";
+            this.layoutControlItem4.Location = new System.Drawing.Point(157, 93);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(360, 40);
+            this.layoutControlItem4.Text = "اسم النشاط";
+            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(80, 13);
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.checkBox1;
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 93);
+            this.layoutControlItem9.MinSize = new System.Drawing.Size(24, 24);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Size = new System.Drawing.Size(157, 40);
+            this.layoutControlItem9.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextVisible = false;
+            // 
             // F_SHOW_NASHAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,7 +375,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -357,6 +382,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.group_reson)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,5 +412,7 @@
         private DevExpress.XtraLayout.LayoutControlGroup group_reson;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }
 }

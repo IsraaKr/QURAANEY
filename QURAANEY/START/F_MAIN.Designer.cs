@@ -84,6 +84,7 @@
             this.accordionControlElement20 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.pan_nav = new DevExpress.XtraEditors.PanelControl();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.accordionControlElement23 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemColorEdit1)).BeginInit();
@@ -357,7 +358,8 @@
             this.accordionControlElement3,
             this.accordionControlElement18,
             this.accordionControlElement19,
-            this.accordionControlElement20});
+            this.accordionControlElement20,
+            this.accordionControlElement23});
             this.accordionControl1.ExpandElementMode = DevExpress.XtraBars.Navigation.ExpandElementMode.Single;
             this.accordionControl1.ExpandGroupOnHeaderClick = false;
             this.accordionControl1.ExpandItemOnHeaderClick = false;
@@ -401,6 +403,7 @@
             this.accordionControlElement8.Name = "accordionControlElement8";
             this.accordionControlElement8.Tag = "F_DASHBOARD";
             this.accordionControlElement8.Text = "التقارير";
+            this.accordionControlElement8.Click += new System.EventHandler(this.accordionControlElement8_Click);
             // 
             // accordionControlElement9
             // 
@@ -571,6 +574,11 @@
             this.pan_nav.Size = new System.Drawing.Size(621, 291);
             this.pan_nav.TabIndex = 4;
             // 
+            // accordionControlElement23
+            // 
+            this.accordionControlElement23.Name = "accordionControlElement23";
+            this.accordionControlElement23.Text = "Element23";
+            // 
             // F_MAIN
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
@@ -657,5 +665,6 @@
         private System.Windows.Forms.FontDialog fontDialog1;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement21;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement22;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement23;
     }
 }

@@ -138,6 +138,7 @@ namespace QURAANEY.NASHAT
             load_by_id();
             load_names_in_namshat();
             is_double_click = false;
+            checkBox1.Visible = true;
         
         }
 

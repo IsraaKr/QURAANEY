@@ -33,7 +33,7 @@ namespace QURAANEY
         public void change_states_message(string status_mess)
         {
             bar_states.Caption = "...";
-            bar_states.ItemAppearance.Normal.BackColor = F_INHERATENZ.DefaultBackColor;
+         //  bar_states.ItemAppearance.Normal.BackColor = F_INHERATENZ.DefaultBackColor;
             if (status_mess == "")
             {
                 return;

@@ -71,7 +71,7 @@ FROM            dbo.T_SOURA");
             gv.ApplyColumnsFilter() ;
             gv.OptionsFilter.ShowAllTableValuesInCheckedFilterPopup = true;
             gv.OptionsFilter.ShowAllTableValuesInFilterPopup = true;
-            
+            gv.BestFitColumns();
             // gv.ApplyFindFilter();
             base.Refresh();
         }

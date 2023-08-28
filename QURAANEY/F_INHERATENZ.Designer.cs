@@ -44,13 +44,13 @@
             this.bar_states = new DevExpress.XtraBars.BarStaticItem();
             this.bar_user_name = new DevExpress.XtraBars.BarStaticItem();
             this.bar_date = new DevExpress.XtraBars.BarStaticItem();
+            this.bar_time = new DevExpress.XtraBars.BarStaticItem();
             this.barDockControl1 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl2 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl3 = new DevExpress.XtraBars.BarDockControl();
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.timer_states_bar = new System.Windows.Forms.Timer(this.components);
             this.timer_date = new System.Windows.Forms.Timer(this.components);
-            this.bar_time = new DevExpress.XtraBars.BarStaticItem();
             this.pan_btn.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barManager2)).BeginInit();
@@ -93,7 +93,7 @@
             this.btn_save.Location = new System.Drawing.Point(433, 3);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(78, 32);
-            this.btn_save.TabIndex = 24;
+            this.btn_save.TabIndex = 0;
             this.btn_save.Text = "حفظ";
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
@@ -109,7 +109,7 @@
             this.btn_new.Location = new System.Drawing.Point(349, 3);
             this.btn_new.Name = "btn_new";
             this.btn_new.Size = new System.Drawing.Size(78, 32);
-            this.btn_new.TabIndex = 22;
+            this.btn_new.TabIndex = 1;
             this.btn_new.Text = "جديد";
             this.btn_new.Click += new System.EventHandler(this.btn_new_Click);
             // 
@@ -125,7 +125,7 @@
             this.btn_delete.Location = new System.Drawing.Point(265, 3);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(78, 32);
-            this.btn_delete.TabIndex = 23;
+            this.btn_delete.TabIndex = 2;
             this.btn_delete.Text = "حذف";
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
@@ -141,7 +141,7 @@
             this.btn_clear.Location = new System.Drawing.Point(181, 3);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(78, 32);
-            this.btn_clear.TabIndex = 25;
+            this.btn_clear.TabIndex = 3;
             this.btn_clear.Text = "مسح";
             this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
@@ -157,7 +157,7 @@
             this.btn_print.Location = new System.Drawing.Point(97, 3);
             this.btn_print.Name = "btn_print";
             this.btn_print.Size = new System.Drawing.Size(78, 32);
-            this.btn_print.TabIndex = 26;
+            this.btn_print.TabIndex = 4;
             this.btn_print.Text = "طباعة";
             this.btn_print.Click += new System.EventHandler(this.btn_print_Click);
             // 
@@ -173,7 +173,7 @@
             this.btn_show.Location = new System.Drawing.Point(13, 3);
             this.btn_show.Name = "btn_show";
             this.btn_show.Size = new System.Drawing.Size(78, 32);
-            this.btn_show.TabIndex = 28;
+            this.btn_show.TabIndex = 5;
             this.btn_show.Text = "عرض";
             this.btn_show.Click += new System.EventHandler(this.btn_show_Click);
             // 
@@ -191,7 +191,7 @@
             this.btn_exite.Name = "btn_exite";
             this.btn_exite.Padding = new System.Windows.Forms.Padding(4);
             this.btn_exite.Size = new System.Drawing.Size(78, 32);
-            this.btn_exite.TabIndex = 27;
+            this.btn_exite.TabIndex = 0;
             this.btn_exite.Text = "خروج";
             this.btn_exite.Click += new System.EventHandler(this.btn_exite_Click);
             // 
@@ -241,8 +241,8 @@
             // 
             this.bar_user_name.Caption = "أهلا : ";
             this.bar_user_name.Id = 1;
-            this.bar_user_name.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("user_name.ImageOptions.Image")));
-            this.bar_user_name.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("user_name.ImageOptions.LargeImage")));
+            this.bar_user_name.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_user_name.ImageOptions.Image")));
+            this.bar_user_name.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_user_name.ImageOptions.LargeImage")));
             this.bar_user_name.Name = "bar_user_name";
             this.bar_user_name.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_user_name.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -251,11 +251,20 @@
             // 
             this.bar_date.Caption = "...";
             this.bar_date.Id = 2;
-            this.bar_date.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("date_time.ImageOptions.Image")));
-            this.bar_date.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("date_time.ImageOptions.LargeImage")));
+            this.bar_date.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_date.ImageOptions.Image")));
+            this.bar_date.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_date.ImageOptions.LargeImage")));
             this.bar_date.Name = "bar_date";
             this.bar_date.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.bar_date.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // bar_time
+            // 
+            this.bar_time.Caption = "...";
+            this.bar_time.Id = 3;
+            this.bar_time.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bar_time.ImageOptions.Image")));
+            this.bar_time.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bar_time.ImageOptions.LargeImage")));
+            this.bar_time.Name = "bar_time";
+            this.bar_time.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barDockControl1
             // 
@@ -298,15 +307,6 @@
             // 
             this.timer_date.Interval = 1000;
             this.timer_date.Tick += new System.EventHandler(this.timer_date_Tick);
-            // 
-            // bar_time
-            // 
-            this.bar_time.Caption = "...";
-            this.bar_time.Id = 3;
-            this.bar_time.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.Image")));
-            this.bar_time.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barStaticItem1.ImageOptions.LargeImage")));
-            this.bar_time.Name = "bar_time";
-            this.bar_time.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // F_INHERATENZ
             // 

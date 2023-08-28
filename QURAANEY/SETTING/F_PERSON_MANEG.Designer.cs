@@ -230,7 +230,7 @@
             this.glkp_all_keep_rate.Properties.PopupView = this.gridView1;
             this.glkp_all_keep_rate.Size = new System.Drawing.Size(379, 20);
             this.glkp_all_keep_rate.StyleController = this.layoutControl1;
-            this.glkp_all_keep_rate.TabIndex = 113;
+            this.glkp_all_keep_rate.TabIndex = 1;
             // 
             // gridView1
             // 
@@ -250,7 +250,7 @@
             this.glkp_all_state.Properties.PopupWidthMode = DevExpress.XtraEditors.PopupWidthMode.ContentWidth;
             this.glkp_all_state.Size = new System.Drawing.Size(252, 20);
             this.glkp_all_state.StyleController = this.layoutControl1;
-            this.glkp_all_state.TabIndex = 112;
+            this.glkp_all_state.TabIndex = 3;
             // 
             // gridLookUpEdit1View
             // 
@@ -265,7 +265,7 @@
             this.dtp_state_change.Location = new System.Drawing.Point(539, 104);
             this.dtp_state_change.Name = "dtp_state_change";
             this.dtp_state_change.Size = new System.Drawing.Size(149, 20);
-            this.dtp_state_change.TabIndex = 111;
+            this.dtp_state_change.TabIndex = 1;
             // 
             // dtp_rate_change
             // 
@@ -273,7 +273,7 @@
             this.dtp_rate_change.Location = new System.Drawing.Point(419, 104);
             this.dtp_rate_change.Name = "dtp_rate_change";
             this.dtp_rate_change.Size = new System.Drawing.Size(269, 20);
-            this.dtp_rate_change.TabIndex = 109;
+            this.dtp_rate_change.TabIndex = 0;
             // 
             // dtp_in_date
             // 
@@ -281,7 +281,7 @@
             this.dtp_in_date.Location = new System.Drawing.Point(470, 128);
             this.dtp_in_date.Name = "dtp_in_date";
             this.dtp_in_date.Size = new System.Drawing.Size(218, 20);
-            this.dtp_in_date.TabIndex = 108;
+            this.dtp_in_date.TabIndex = 2;
             // 
             // lkp_keep_rate
             // 
@@ -293,7 +293,7 @@
             this.lkp_keep_rate.Properties.ShowHeader = false;
             this.lkp_keep_rate.Size = new System.Drawing.Size(269, 20);
             this.lkp_keep_rate.StyleController = this.layoutControl1;
-            this.lkp_keep_rate.TabIndex = 105;
+            this.lkp_keep_rate.TabIndex = 0;
             this.lkp_keep_rate.Enter += new System.EventHandler(this.lkp_keep_rate_Enter);
             // 
             // lkp_pers_state_change
@@ -307,7 +307,7 @@
             this.lkp_pers_state_change.Properties.ShowHeader = false;
             this.lkp_pers_state_change.Size = new System.Drawing.Size(132, 20);
             this.lkp_pers_state_change.StyleController = this.layoutControl1;
-            this.lkp_pers_state_change.TabIndex = 104;
+            this.lkp_pers_state_change.TabIndex = 2;
             // 
             // gc
             // 
@@ -366,7 +366,7 @@
             this.lkp_state.Properties.ShowHeader = false;
             this.lkp_state.Size = new System.Drawing.Size(396, 20);
             this.lkp_state.StyleController = this.layoutControl1;
-            this.lkp_state.TabIndex = 19;
+            this.lkp_state.TabIndex = 0;
             this.lkp_state.Enter += new System.EventHandler(this.lkp_state_Enter);
             // 
             // ch_is_active
@@ -392,7 +392,7 @@
             this.lkp_inviting_pers.Properties.ShowHeader = false;
             this.lkp_inviting_pers.Size = new System.Drawing.Size(319, 20);
             this.lkp_inviting_pers.StyleController = this.layoutControl1;
-            this.lkp_inviting_pers.TabIndex = 17;
+            this.lkp_inviting_pers.TabIndex = 3;
             // 
             // chbl_type
             // 
@@ -402,7 +402,7 @@
             this.chbl_type.Name = "chbl_type";
             this.chbl_type.Size = new System.Drawing.Size(251, 68);
             this.chbl_type.StyleController = this.layoutControl1;
-            this.chbl_type.TabIndex = 15;
+            this.chbl_type.TabIndex = 0;
             this.chbl_type.Enter += new System.EventHandler(this.chbl_type_Enter);
             // 
             // txt_work
@@ -411,7 +411,7 @@
             this.txt_work.Name = "txt_work";
             this.txt_work.Size = new System.Drawing.Size(269, 20);
             this.txt_work.StyleController = this.layoutControl1;
-            this.txt_work.TabIndex = 14;
+            this.txt_work.TabIndex = 1;
             // 
             // txt_studey
             // 
@@ -420,7 +420,7 @@
             this.txt_studey.Name = "txt_studey";
             this.txt_studey.Size = new System.Drawing.Size(269, 20);
             this.txt_studey.StyleController = this.layoutControl1;
-            this.txt_studey.TabIndex = 13;
+            this.txt_studey.TabIndex = 0;
             // 
             // txt_email
             // 
@@ -428,7 +428,7 @@
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(269, 20);
             this.txt_email.StyleController = this.layoutControl1;
-            this.txt_email.TabIndex = 12;
+            this.txt_email.TabIndex = 2;
             // 
             // txt_phone
             // 
@@ -436,7 +436,7 @@
             this.txt_phone.Name = "txt_phone";
             this.txt_phone.Size = new System.Drawing.Size(319, 20);
             this.txt_phone.StyleController = this.layoutControl1;
-            this.txt_phone.TabIndex = 6;
+            this.txt_phone.TabIndex = 1;
             // 
             // txt_id
             // 
@@ -453,7 +453,7 @@
             this.txt_name.Name = "txt_name";
             this.txt_name.Size = new System.Drawing.Size(218, 20);
             this.txt_name.StyleController = this.layoutControl1;
-            this.txt_name.TabIndex = 5;
+            this.txt_name.TabIndex = 0;
             // 
             // txt_adress
             // 
@@ -461,7 +461,7 @@
             this.txt_adress.Name = "txt_adress";
             this.txt_adress.Size = new System.Drawing.Size(379, 52);
             this.txt_adress.StyleController = this.layoutControl1;
-            this.txt_adress.TabIndex = 11;
+            this.txt_adress.TabIndex = 3;
             // 
             // Root
             // 

@@ -114,12 +114,27 @@ WHERE     (done = 'true') AND (id=" + Convert.ToInt32(lkp_nashat_name.EditValue)
                 ti_true.Elements[1].Text = "...";
         }
 
+        private void load_tail_all_pers()
+        {
+            //تحميل التيل عدد الغياب 
+            //  ti_false.Elements.Clear();
+            dt = c_db.select(@"SELECT     COUNT( distinct hafez_id) AS Expr1
+FROM         V_ALL_NASAT_AND_NAMES ");
+            if (dt.Rows.Count > 0)
+            {
+                tileItem1.Elements[1].Text = dt.Rows[0][0].ToString();
+            }
+            else
+                tileItem1.Elements[1].Text = "...";
+        }
         private void lkp_nashat_name_EditValueChanged(object sender, EventArgs e)
         {
          //   load_nashat_data();
             load_tail_true();
             load_tail_false();
             load_data("");
+
+            tileGroup2.Visible = true;
 
         }
         private void load_nashat_data()
@@ -154,5 +169,9 @@ WHERE        (done = 'true' and id=" + int.Parse(lkp_nashat_name.EditValue.ToStr
             gc.DataSource = dt;
         }
 
+        private void ti_false_ItemClick(object sender, DevExpress.XtraEditors.TileItemEventArgs e)
+        {
+
+        }
     }
 }

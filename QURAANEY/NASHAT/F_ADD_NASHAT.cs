@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QURAANEY.CLASS_TABLES;
 
 namespace QURAANEY.NASHAT
 {
@@ -60,9 +61,8 @@ namespace QURAANEY.NASHAT
         {
             if (vallidate_data())
             {
-                dt = c_db.select(@"select id from  dbo.T_NASHAT 
-                      where id=" + int.Parse(txt_id.Text) + "");
-                if (dt.Rows.Count <= 0)
+                dt = C_NASHAT_sql.get_nashat_id_name_by_id(int.Parse(txt_id.Text));
+                    if (dt.Rows.Count <= 0)
                 {
 
                     if (chlb_names.DataSource == null || chlb_names.CheckedItems.Count == 0)
@@ -202,12 +202,13 @@ FROM            T_NASHAT INNER JOIN
             try
             {
                 sqll = @"INSERT INTO dbo.T_NASHAT
-                         (name, start_date, end_date, pers_create ,count_pers)
+                         (name, start_date, end_date, pers_create ,count_pers,finish)
                            VALUES        (N'" + txt_name.Text + "' ," +
                            " N'" + dtp_start_date.Text + "'," +
                            " N'" + dtp_end_date.Text + "'," +
                            " " + Convert.ToInt32(lkp_mustalem.EditValue) + " , " +
-                           "  " + chlb_names.CheckedItemsCount + "   )";
+                           "  " + chlb_names.CheckedItemsCount + " ," +
+                           " '" + false + "' )";
                 done = c_db.insert_upadte_delete(sqll);
 
                 dt = c_db.select("SELECT  id from dbo.T_NASHAT where name = N'" + txt_name.Text + "'");
@@ -252,15 +253,22 @@ FROM            T_NASHAT INNER JOIN
         {
             try
             {
-                sqll = @"UPDATE       dbo.T_NASHAT
+                dt = C_NASHAT_sql.is_finish(nashat_id);
+                if (dt.Rows[0][0].ToString()=="false")
+                {
+                    sqll = @"UPDATE       dbo.T_NASHAT
               SET                name =N'" + txt_name.Text + "'," +
-                    " start_date =N'" + dtp_start_date.Text + "'," +
-                    " end_date =N'" + dtp_end_date.Text + "'," +
-                    " pers_create = " + Convert.ToInt32(lkp_mustalem.EditValue) + ", " +
-                    " count_pers=" + chlb_names.CheckedItemsCount + " " +
-                     " WHERE(id = " + nashat_id + ")";
+                   " start_date =N'" + dtp_start_date.Text + "'," +
+                   " end_date =N'" + dtp_end_date.Text + "'," +
+                   " pers_create = " + Convert.ToInt32(lkp_mustalem.EditValue) + ", " +
+                   " count_pers=" + chlb_names.CheckedItemsCount + " " +
+                    " WHERE(id = " + nashat_id + ")";
 
-                done = c_db.insert_upadte_delete(sqll);
+                    done = c_db.insert_upadte_delete(sqll);
+                }
+                else
+                    MessageBox.Show( "النشاط المحدد منته لا يكن تعديل بياناته");
+
             }
             catch (Exception ex)
             {

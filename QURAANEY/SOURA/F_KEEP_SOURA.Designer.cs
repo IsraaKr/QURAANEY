@@ -227,10 +227,10 @@
             // rdb_page_view
             // 
             this.rdb_page_view.Enabled = false;
-            this.rdb_page_view.Location = new System.Drawing.Point(210, 225);
+            this.rdb_page_view.Location = new System.Drawing.Point(210, 195);
             this.rdb_page_view.Name = "rdb_page_view";
             this.rdb_page_view.Size = new System.Drawing.Size(158, 25);
-            this.rdb_page_view.TabIndex = 96;
+            this.rdb_page_view.TabIndex = 22;
             this.rdb_page_view.TabStop = true;
             this.rdb_page_view.Text = "عرض الصفحات";
             this.rdb_page_view.UseVisualStyleBackColor = true;
@@ -239,10 +239,10 @@
             // rdb_soura_view
             // 
             this.rdb_soura_view.Enabled = false;
-            this.rdb_soura_view.Location = new System.Drawing.Point(48, 225);
+            this.rdb_soura_view.Location = new System.Drawing.Point(48, 195);
             this.rdb_soura_view.Name = "rdb_soura_view";
             this.rdb_soura_view.Size = new System.Drawing.Size(158, 25);
-            this.rdb_soura_view.TabIndex = 95;
+            this.rdb_soura_view.TabIndex = 23;
             this.rdb_soura_view.TabStop = true;
             this.rdb_soura_view.Text = "عرض السور";
             this.rdb_soura_view.UseVisualStyleBackColor = true;
@@ -251,10 +251,10 @@
             // rdb_aya_view
             // 
             this.rdb_aya_view.Enabled = false;
-            this.rdb_aya_view.Location = new System.Drawing.Point(372, 225);
+            this.rdb_aya_view.Location = new System.Drawing.Point(372, 195);
             this.rdb_aya_view.Name = "rdb_aya_view";
             this.rdb_aya_view.Size = new System.Drawing.Size(159, 25);
-            this.rdb_aya_view.TabIndex = 94;
+            this.rdb_aya_view.TabIndex = 21;
             this.rdb_aya_view.TabStop = true;
             this.rdb_aya_view.Text = "عرض الآيات";
             this.rdb_aya_view.UseVisualStyleBackColor = true;
@@ -264,7 +264,7 @@
             // 
             this.simpleButton1.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
             this.simpleButton1.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-            this.simpleButton1.Location = new System.Drawing.Point(800, 64);
+            this.simpleButton1.Location = new System.Drawing.Point(800, 34);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(213, 36);
             this.simpleButton1.StyleController = this.layoutControl1;
@@ -277,7 +277,7 @@
             this.tileControl11.Groups.Add(this.tileGroup2);
             this.tileControl11.ItemBorderVisibility = DevExpress.XtraEditors.TileItemBorderVisibility.Never;
             this.tileControl11.ItemPadding = new System.Windows.Forms.Padding(1, 8, 1, 8);
-            this.tileControl11.Location = new System.Drawing.Point(24, 24);
+            this.tileControl11.Location = new System.Drawing.Point(24, -6);
             this.tileControl11.MaxId = 14;
             this.tileControl11.Name = "tileControl11";
             this.tileControl11.Padding = new System.Windows.Forms.Padding(0);
@@ -334,7 +334,7 @@
             // 
             // lkp_keep_type
             // 
-            this.lkp_keep_type.Location = new System.Drawing.Point(732, 415);
+            this.lkp_keep_type.Location = new System.Drawing.Point(732, 385);
             this.lkp_keep_type.Name = "lkp_keep_type";
             this.lkp_keep_type.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_keep_type.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -350,7 +350,7 @@
             // lkp_aya_soura
             // 
             this.lkp_aya_soura.Enabled = false;
-            this.lkp_aya_soura.Location = new System.Drawing.Point(588, 154);
+            this.lkp_aya_soura.Location = new System.Drawing.Point(588, 124);
             this.lkp_aya_soura.Name = "lkp_aya_soura";
             this.lkp_aya_soura.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_aya_soura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -366,7 +366,7 @@
             // 
             // lkp_pers_name
             // 
-            this.lkp_pers_name.Location = new System.Drawing.Point(800, 40);
+            this.lkp_pers_name.Location = new System.Drawing.Point(800, 10);
             this.lkp_pers_name.Name = "lkp_pers_name";
             this.lkp_pers_name.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_pers_name.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -384,7 +384,7 @@
             // rdb_many_aya
             // 
             this.rdb_many_aya.Enabled = false;
-            this.rdb_many_aya.Location = new System.Drawing.Point(834, 207);
+            this.rdb_many_aya.Location = new System.Drawing.Point(834, 177);
             this.rdb_many_aya.Name = "rdb_many_aya";
             this.rdb_many_aya.Size = new System.Drawing.Size(96, 25);
             this.rdb_many_aya.TabIndex = 7;
@@ -396,7 +396,7 @@
             // rdb_one_aya
             // 
             this.rdb_one_aya.Enabled = false;
-            this.rdb_one_aya.Location = new System.Drawing.Point(834, 178);
+            this.rdb_one_aya.Location = new System.Drawing.Point(834, 148);
             this.rdb_one_aya.Name = "rdb_one_aya";
             this.rdb_one_aya.Size = new System.Drawing.Size(96, 25);
             this.rdb_one_aya.TabIndex = 5;
@@ -409,7 +409,7 @@
             // 
             this.txt_aya.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_aya.Enabled = false;
-            this.txt_aya.Location = new System.Drawing.Point(588, 178);
+            this.txt_aya.Location = new System.Drawing.Point(588, 148);
             this.txt_aya.Name = "txt_aya";
             this.txt_aya.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_aya.Properties.Appearance.Options.UseFont = true;
@@ -423,7 +423,7 @@
             // 
             this.txt_fpage1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_fpage1.Enabled = false;
-            this.txt_fpage1.Location = new System.Drawing.Point(711, 297);
+            this.txt_fpage1.Location = new System.Drawing.Point(711, 267);
             this.txt_fpage1.Name = "txt_fpage1";
             this.txt_fpage1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_fpage1.Properties.Appearance.Options.UseFont = true;
@@ -437,7 +437,7 @@
             // 
             this.txt_l_aya.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_l_aya.Enabled = false;
-            this.txt_l_aya.Location = new System.Drawing.Point(588, 207);
+            this.txt_l_aya.Location = new System.Drawing.Point(588, 177);
             this.txt_l_aya.Name = "txt_l_aya";
             this.txt_l_aya.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_l_aya.Properties.Appearance.Options.UseFont = true;
@@ -449,7 +449,7 @@
             // 
             // rdb_aya
             // 
-            this.rdb_aya.Location = new System.Drawing.Point(934, 154);
+            this.rdb_aya.Location = new System.Drawing.Point(934, 124);
             this.rdb_aya.Name = "rdb_aya";
             this.rdb_aya.Size = new System.Drawing.Size(74, 78);
             this.rdb_aya.TabIndex = 3;
@@ -461,7 +461,7 @@
             // rdb_many_page
             // 
             this.rdb_many_page.Enabled = false;
-            this.rdb_many_page.Location = new System.Drawing.Point(834, 297);
+            this.rdb_many_page.Location = new System.Drawing.Point(834, 267);
             this.rdb_many_page.Name = "rdb_many_page";
             this.rdb_many_page.Size = new System.Drawing.Size(99, 25);
             this.rdb_many_page.TabIndex = 13;
@@ -473,7 +473,7 @@
             // rdb_one_page
             // 
             this.rdb_one_page.Enabled = false;
-            this.rdb_one_page.Location = new System.Drawing.Point(834, 268);
+            this.rdb_one_page.Location = new System.Drawing.Point(834, 238);
             this.rdb_one_page.Name = "rdb_one_page";
             this.rdb_one_page.Size = new System.Drawing.Size(99, 25);
             this.rdb_one_page.TabIndex = 11;
@@ -486,7 +486,7 @@
             // 
             this.txt_page.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_page.Enabled = false;
-            this.txt_page.Location = new System.Drawing.Point(588, 268);
+            this.txt_page.Location = new System.Drawing.Point(588, 238);
             this.txt_page.Name = "txt_page";
             this.txt_page.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_page.Properties.Appearance.Options.UseFont = true;
@@ -498,7 +498,7 @@
             // 
             // rdb_page
             // 
-            this.rdb_page.Location = new System.Drawing.Point(937, 268);
+            this.rdb_page.Location = new System.Drawing.Point(937, 238);
             this.rdb_page.Name = "rdb_page";
             this.rdb_page.Size = new System.Drawing.Size(71, 54);
             this.rdb_page.TabIndex = 10;
@@ -511,7 +511,7 @@
             // 
             this.txt_lpage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_lpage.Enabled = false;
-            this.txt_lpage.Location = new System.Drawing.Point(588, 297);
+            this.txt_lpage.Location = new System.Drawing.Point(588, 267);
             this.txt_lpage.Name = "txt_lpage";
             this.txt_lpage.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_lpage.Properties.Appearance.Options.UseFont = true;
@@ -525,7 +525,7 @@
             // 
             this.txt_f_aya.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_f_aya.Enabled = false;
-            this.txt_f_aya.Location = new System.Drawing.Point(711, 207);
+            this.txt_f_aya.Location = new System.Drawing.Point(711, 177);
             this.txt_f_aya.Name = "txt_f_aya";
             this.txt_f_aya.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_f_aya.Properties.Appearance.Options.UseFont = true;
@@ -538,7 +538,7 @@
             // gc
             // 
             this.gc.ContextMenuStrip = this.contextMenuStrip1;
-            this.gc.Location = new System.Drawing.Point(36, 266);
+            this.gc.Location = new System.Drawing.Point(36, 236);
             this.gc.MainView = this.gv;
             this.gc.Name = "gc";
             this.gc.Size = new System.Drawing.Size(507, 179);
@@ -602,14 +602,14 @@
             this.dtp_sora_date.CalendarFont = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_sora_date.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_sora_date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_sora_date.Location = new System.Drawing.Point(595, 415);
+            this.dtp_sora_date.Location = new System.Drawing.Point(595, 385);
             this.dtp_sora_date.Name = "dtp_sora_date";
             this.dtp_sora_date.Size = new System.Drawing.Size(133, 22);
             this.dtp_sora_date.TabIndex = 20;
             // 
             // rdb_soura
             // 
-            this.rdb_soura.Location = new System.Drawing.Point(943, 355);
+            this.rdb_soura.Location = new System.Drawing.Point(943, 325);
             this.rdb_soura.Name = "rdb_soura";
             this.rdb_soura.Size = new System.Drawing.Size(67, 25);
             this.rdb_soura.TabIndex = 16;
@@ -621,7 +621,7 @@
             // lkp_soura
             // 
             this.lkp_soura.Enabled = false;
-            this.lkp_soura.Location = new System.Drawing.Point(586, 355);
+            this.lkp_soura.Location = new System.Drawing.Point(586, 325);
             this.lkp_soura.Name = "lkp_soura";
             this.lkp_soura.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_soura.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -637,7 +637,7 @@
             // 
             // lkp_pers_almustalem
             // 
-            this.lkp_pers_almustalem.Location = new System.Drawing.Point(583, 40);
+            this.lkp_pers_almustalem.Location = new System.Drawing.Point(583, 10);
             this.lkp_pers_almustalem.Name = "lkp_pers_almustalem";
             this.lkp_pers_almustalem.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_pers_almustalem.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFit;
@@ -653,7 +653,7 @@
             // 
             // lkp_evaluation
             // 
-            this.lkp_evaluation.Location = new System.Drawing.Point(868, 415);
+            this.lkp_evaluation.Location = new System.Drawing.Point(868, 385);
             this.lkp_evaluation.Name = "lkp_evaluation";
             this.lkp_evaluation.Properties.AcceptEditorTextAsNewValue = DevExpress.Utils.DefaultBoolean.True;
             this.lkp_evaluation.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -1183,7 +1183,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "F_KEEP_SOURA";
             this.Tag = "F_KEEP_SOURA";
-            this.Text = "F_KEEP_SOURA";
+            this.Text = "44";
             this.Load += new System.EventHandler(this.F_KEEP_SOURA_Load);
             this.Controls.SetChildIndex(this.pan_btn, 0);
             this.Controls.SetChildIndex(this.layoutControl1, 0);

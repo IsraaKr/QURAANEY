@@ -147,7 +147,7 @@
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(38, 44);
             this.simpleButton1.StyleController = this.layoutControl1;
-            this.simpleButton1.TabIndex = 114;
+            this.simpleButton1.TabIndex = 10;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // chb_fail
@@ -155,7 +155,7 @@
             this.chb_fail.Location = new System.Drawing.Point(532, 327);
             this.chb_fail.Name = "chb_fail";
             this.chb_fail.Size = new System.Drawing.Size(244, 20);
-            this.chb_fail.TabIndex = 113;
+            this.chb_fail.TabIndex = 11;
             this.chb_fail.Text = "المقصرين";
             this.chb_fail.UseVisualStyleBackColor = true;
             this.chb_fail.CheckedChanged += new System.EventHandler(this.chb_fail_CheckedChanged);
@@ -165,7 +165,7 @@
             this.chb_from_to.Location = new System.Drawing.Point(700, 267);
             this.chb_from_to.Name = "chb_from_to";
             this.chb_from_to.Size = new System.Drawing.Size(64, 44);
-            this.chb_from_to.TabIndex = 112;
+            this.chb_from_to.TabIndex = 7;
             this.chb_from_to.Text = "عن فترة";
             this.chb_from_to.UseVisualStyleBackColor = true;
             this.chb_from_to.CheckedChanged += new System.EventHandler(this.chb_from_to_CheckedChanged);
@@ -177,7 +177,7 @@
             this.btn_refresh.Name = "btn_refresh";
             this.btn_refresh.Size = new System.Drawing.Size(74, 36);
             this.btn_refresh.StyleController = this.layoutControl1;
-            this.btn_refresh.TabIndex = 111;
+            this.btn_refresh.TabIndex = 12;
             this.btn_refresh.Text = "تحديث ";
             this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
@@ -206,7 +206,7 @@
             this.de_month.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.False;
             this.de_month.Size = new System.Drawing.Size(196, 22);
             this.de_month.StyleController = this.layoutControl1;
-            this.de_month.TabIndex = 78;
+            this.de_month.TabIndex = 6;
             this.de_month.TextChanged += new System.EventHandler(this.de_month_TextChanged);
             // 
             // lkp_hafez
@@ -218,7 +218,7 @@
             this.lkp_hafez.Properties.NullText = "";
             this.lkp_hafez.Size = new System.Drawing.Size(196, 20);
             this.lkp_hafez.StyleController = this.layoutControl1;
-            this.lkp_hafez.TabIndex = 107;
+            this.lkp_hafez.TabIndex = 5;
             this.lkp_hafez.TextChanged += new System.EventHandler(this.lkp_hafez_TextChanged);
             // 
             // lkp_pers_type
@@ -230,7 +230,7 @@
             this.lkp_pers_type.Properties.NullText = "";
             this.lkp_pers_type.Size = new System.Drawing.Size(196, 20);
             this.lkp_pers_type.StyleController = this.layoutControl1;
-            this.lkp_pers_type.TabIndex = 106;
+            this.lkp_pers_type.TabIndex = 4;
             // 
             // lkp_keep_type
             // 
@@ -241,7 +241,7 @@
             this.lkp_keep_type.Properties.NullText = "";
             this.lkp_keep_type.Size = new System.Drawing.Size(196, 20);
             this.lkp_keep_type.StyleController = this.layoutControl1;
-            this.lkp_keep_type.TabIndex = 105;
+            this.lkp_keep_type.TabIndex = 3;
             this.lkp_keep_type.TextChanged += new System.EventHandler(this.lkp_keep_type_TextChanged);
             // 
             // lkp_mustalem
@@ -253,7 +253,7 @@
             this.lkp_mustalem.Properties.NullText = "";
             this.lkp_mustalem.Size = new System.Drawing.Size(196, 20);
             this.lkp_mustalem.StyleController = this.layoutControl1;
-            this.lkp_mustalem.TabIndex = 104;
+            this.lkp_mustalem.TabIndex = 2;
             this.lkp_mustalem.TextChanged += new System.EventHandler(this.lkp_mustalem_TextChanged);
             // 
             // lkp_soura
@@ -265,7 +265,7 @@
             this.lkp_soura.Properties.NullText = "";
             this.lkp_soura.Size = new System.Drawing.Size(196, 20);
             this.lkp_soura.StyleController = this.layoutControl1;
-            this.lkp_soura.TabIndex = 103;
+            this.lkp_soura.TabIndex = 1;
             this.lkp_soura.TextChanged += new System.EventHandler(this.lkp_soura_TextChanged);
             // 
             // gc
@@ -306,7 +306,7 @@
             this.lkp_evaluation.Properties.NullText = "";
             this.lkp_evaluation.Size = new System.Drawing.Size(196, 20);
             this.lkp_evaluation.StyleController = this.layoutControl1;
-            this.lkp_evaluation.TabIndex = 102;
+            this.lkp_evaluation.TabIndex = 0;
             this.lkp_evaluation.TextChanged += new System.EventHandler(this.lkp_evaluation_TextChanged);
             // 
             // dtp_from
@@ -319,7 +319,7 @@
             this.dtp_from.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_from.Name = "dtp_from";
             this.dtp_from.Size = new System.Drawing.Size(62, 22);
-            this.dtp_from.TabIndex = 89;
+            this.dtp_from.TabIndex = 8;
             this.dtp_from.ValueChanged += new System.EventHandler(this.dtp_from_ValueChanged);
             // 
             // dtp_to
@@ -332,7 +332,7 @@
             this.dtp_to.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_to.Name = "dtp_to";
             this.dtp_to.Size = new System.Drawing.Size(62, 22);
-            this.dtp_to.TabIndex = 90;
+            this.dtp_to.TabIndex = 9;
             this.dtp_to.ValueChanged += new System.EventHandler(this.dtp_to_ValueChanged);
             // 
             // Root

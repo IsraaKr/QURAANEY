@@ -135,6 +135,7 @@
     <Compile Include="CLASS_TABLES\C_DEFULTES_sql.cs" />
     <Compile Include="CLASS_TABLES\C_EVALUATION.cs" />
     <Compile Include="CLASS_TABLES\C_KEEP_TYPE.cs" />
+    <Compile Include="CLASS_TABLES\C_NASHAT_sql.cs" />
     <Compile Include="CLASS_TABLES\C_PERSON_sql.cs" />
     <Compile Include="CLASS_TABLES\C_PERS_RATE_KEEP_sql.cs" />
     <Compile Include="CLASS_TABLES\C_PERS_TYPE_sql.cs" />

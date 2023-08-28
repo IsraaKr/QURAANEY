@@ -94,7 +94,7 @@
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkBox1.Size = new System.Drawing.Size(106, 17);
-            this.checkBox1.TabIndex = 11;
+            this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "عرض كلمة المرور";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -126,7 +126,7 @@
             this.btn_cancel.Location = new System.Drawing.Point(105, 317);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(125, 32);
-            this.btn_cancel.TabIndex = 9;
+            this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "إلغاء";
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
@@ -141,7 +141,7 @@
             this.btn_login.Location = new System.Drawing.Point(235, 317);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(125, 32);
-            this.btn_login.TabIndex = 9;
+            this.btn_login.TabIndex = 2;
             this.btn_login.Text = "تسجيل الدخول";
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
@@ -152,7 +152,7 @@
             this.txt_password.Properties.PasswordChar = '*';
             this.txt_password.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_password.Size = new System.Drawing.Size(298, 20);
-            this.txt_password.TabIndex = 9;
+            this.txt_password.TabIndex = 1;
             this.txt_password.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_password_KeyPress);
             // 
             // label2
@@ -162,7 +162,7 @@
             this.label2.Location = new System.Drawing.Point(311, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 16);
-            this.label2.TabIndex = 5;
+            this.label2.TabIndex = 6;
             this.label2.Text = "كلمة المرور";
             // 
             // label1
@@ -172,7 +172,7 @@
             this.label1.Location = new System.Drawing.Point(284, 177);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 16);
-            this.label1.TabIndex = 4;
+            this.label1.TabIndex = 5;
             this.label1.Text = "اسم المستخدم";
             // 
             // pictureBox1
@@ -191,7 +191,7 @@
             this.txt_username.Name = "txt_username";
             this.txt_username.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txt_username.Size = new System.Drawing.Size(298, 20);
-            this.txt_username.TabIndex = 8;
+            this.txt_username.TabIndex = 0;
             this.txt_username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lkp_username_KeyPress);
             // 
             // F_LOGIN

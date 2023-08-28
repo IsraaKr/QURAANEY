@@ -155,5 +155,10 @@ namespace QURAANEY
             F_LOGIN f = new F_LOGIN();
             f.Show();
         }
+
+        private void accordionControlElement8_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
